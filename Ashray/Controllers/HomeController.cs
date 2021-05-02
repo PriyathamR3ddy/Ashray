@@ -124,12 +124,19 @@ namespace Ashray.Controllers
         [HttpPost]
         public ActionResult ViewPatient(PatientHistory ph, IEnumerable<HttpPostedFileBase> files)
         {
+
+            string foldername = ph.PatientInfo.PatientId +"_"+ ph.PatientInfo.PatientName;
+            string pathname = Server.MapPath("~/UploadedFiles/") + foldername;  // Give the specific path  
+            if (!(Directory.Exists(pathname)))
+            {
+                Directory.CreateDirectory(pathname);
+            }
             foreach (var file in files)
             {
                 if (file.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
+                    var path = Path.Combine(pathname, fileName);
                     file.SaveAs(path);
                 }
             }
