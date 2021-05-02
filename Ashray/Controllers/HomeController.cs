@@ -108,13 +108,16 @@ namespace Ashray.Controllers
         }
 
         [HttpPost]
-        public ActionResult ViewPatient(PatientHistory ph,HttpPostedFileBase file)
+        public ActionResult ViewPatient(PatientHistory ph, IEnumerable<HttpPostedFileBase> files)
         {
-            if(file!=null && file.ContentLength>0)
+            foreach (var file in files)
             {
-                string _FileName = Path.GetFileName(file.FileName);
-                string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
-                file.SaveAs(_path);
+                if (file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
+                    file.SaveAs(path);
+                }
             }
             var res = Registation.InsertPatientHistory(ph);
             return RedirectToAction("PostHospital");
