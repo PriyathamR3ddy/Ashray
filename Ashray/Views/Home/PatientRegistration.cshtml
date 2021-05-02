@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "PatientRegistration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Available <span class="text-danger">Bed Types</span></h2>
+
+        <ol class="breadcrumb">
+            <li>
+                <a href="index-2.html">Home</a>
+            </li>
+
+            <li class="active">
+                <strong>Bed Types</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<br>
+
+<div class="ibox-content">
+    <div class="row">
+        <div class="col-md-12" style="padding-left:20px;">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Available<span class="text-danger"> Beds</span> </h5>
+
+                    </div>
+                    <div class="ibox-content">
+                        <form role="patientReg">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="controlCenterName" class="col-form-label">Control Center Name:</label>
+                                    <input type="text" class="form-control" id="controlCenterName" placeholder="Enter contol center name">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="dateTime" class="col-form-label">Date Time:</label>
+                                    <input type="text" class="form-control" id="dateTime">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="patientName" class="col-form-label">Patient Name:</label>
+                                    <input type="text" class="form-control" id="patientName" placeholder="Enter patient name">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="rtpcrTestNum" class="col-form-label">RTPCR Test Number:</label>
+                                    <input type="text" class="form-control" id="rtpcrTestNum">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="result" class="col-form-label">Result:</label>
+                                    <input type="text" class="form-control" id="dateTime">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="governmantId" class="col-form-label">Governmant ID:</label>
+                                    <input type="text" class="form-control" id="governmantId">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="attenderName" class="col-form-label">Attender Name:</label>
+                                    <input type="text" class="form-control" id="attenderName">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="contactNumber" class="col-form-label">Contact Number:</label>
+                                    <input type="text" class="form-control" id="contactNumber">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="address" class="col-form-label">Address:</label>
+                                    <input type="text" class="form-control" id="address">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="gender" class="col-form-label">Gender:</label>
+                                    <input type="text" class="form-control" id="gender">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="refferedTo" class="col-form-label">Reffered To:</label>
+                                    <input type="text" class="form-control" id="refferedTo">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="bedsAvailable" class="col-form-label">Beds Available:</label>
+                                    <input type="text" class="form-control" id="bedsAvailable">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

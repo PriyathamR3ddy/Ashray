@@ -43,6 +43,16 @@ namespace Ashray.Controllers
             return View();
         }
 
+        public ActionResult BedTypes()
+        {
+            return View();
+        }
+
+        public ActionResult PatientRegistration()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

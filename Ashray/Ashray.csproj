@@ -428,6 +428,8 @@
     <Content Include="Views\Home\FindBed.cshtml" />
     <Content Include="Views\Home\PostHospital.cshtml" />
     <Content Include="Views\Home\PostBed.cshtml" />
+    <Content Include="Views\Home\BedTypes.cshtml" />
+    <Content Include="Views\Home\PatientRegistration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

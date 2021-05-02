@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "BedTypes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Available <span class="text-danger">Bed Types</span></h2>
+
+        <ol class="breadcrumb">
+            <li>
+                <a href="index-2.html">Home</a>
+            </li>
+
+            <li class="active">
+                <strong>Bed Types</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<br>
+
+<div class="ibox-content">
+    <div class="row">
+        <div class="col-md-12" style="padding-left:20px;">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Available<span class="text-danger"> Beds</span> </h5>
+
+                    </div>
+                    <div class="ibox-content">
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr class="bg-success">
+                                    <th>Name</th>
+                                    <th>Location</th>
+                                    <th>Isolation bed</th>
+                                    <th>Non-Critical + O2</th>
+                                    <th>Critical + O2</th>
+                                    <th>ICU + Ventilator</th>
+                                    <th>Registeration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>KIMS</td>
+                                    <td>Kondpur</td>
+                                    <td>2</td>
+                                    <td>5</td>
+                                    <td>Not-Avilable</td>
+                                    <td>1</td>
+                                    <td class="text-navy">
+                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
+                                                onClick="location.href='@Url.Action("PatientRegistration", "Home")'"
+                                                type="submit">
+                                            &nbsp;&nbsp;<strong>
+                                                <i class="fa fa-login"></i>
+                                                &nbsp;Register
+                                            </strong>&nbsp;&nbsp;
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>GITAM</td>
+                                    <td>Gachibowli</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                    <td>10</td>
+                                    <td>Not-Avilable</td>
+                                    <td class="text-navy">
+                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
+                                                onClick="location.href='@Url.Action("PatientRegistration", "Home")'"
+                                                type="submit">
+                                            &nbsp;&nbsp;<strong>
+                                                <i class="fa fa-login"></i>
+                                                &nbsp;Register
+                                            </strong>&nbsp;&nbsp;
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
