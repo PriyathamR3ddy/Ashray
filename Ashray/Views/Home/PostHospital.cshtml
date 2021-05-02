@@ -22,120 +22,72 @@
 
     </div>
 </div>
+<br>
 
 <div class="ibox-content">
     <div class="row">
-        <div class="col-sm-8">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group"><label>FROM <em style="color:red"> *</em></label> <input placeholder="Enter email" class="form-control" type="email"></div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group"><label>TO <em style="color:red"> *</em></label> <input placeholder="Enter email" class="form-control" type="email"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Material <em style="color:red"> *</em></label><select name="ddlMaterial" id="ddlMaterial" class="form-control">
-                            <option selected="selected" value="Select">Select</option>
-                            <option value="45">Bardana jute/plastic</option>
-                            <option value="18">Building Materials</option>
-                            <option value="4">Chemicals</option>
-                            <option value="16">Coal And Ash</option>
-                            <option value="6">Container</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Truck Type <em style="color:red"> *</em></label><select name="ddlTruckType" id="ddlTruckType" class="form-control">
-                            <option value="Select">Select</option>
-                            <option value="1">Canters (0 -10 feet)</option>
-                            <option value="2">Canters (5 -15 feet)</option>
-                            <option value="3">Canters (11 -16 feet)</option>
-                            <option value="4">Canters (15 -17 feet)</option>
-                            <option value="5">Canters (14 -30 feet)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Scheduled Date <em style="color:red"> *</em></label><div class="input-group date form_datetime-component">
-                            <input name="txtDate" maxlength="10" id="txtDate" class="form-control hasDatepicker" readonly type="text">
-                            <span class="input-group-btn">
-                                <button id="datePicker" class="btn btn-danger date-set" type="button"><i class="fa fa-calendar"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Weight(MT) <em style="color:red"> *</em></label> <select name="ddlWeight" id="ddlWeight" required class="form-control">
-                            <option value="Select">Select</option>
-                            <option value="0-3">0-3</option>
-                            <option value="3 - 5">3 - 5</option>
-                            <option value="5 - 7">5 - 7</option>
-                            <option value="7 - 9">7 - 9</option>
-                            <option value="9 - 15">9 - 15</option>
-                            <option value="15 - 20">15 - 20</option>
-                            <option value="20 - 30">20 - 30</option>
-                            <option value="30 - 40">30 - 40</option>
-                            <option value="40 Above">40 Above</option>
-
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Quantity <em style="color:red"> *</em></label><select name="ddlNoOfTrucks" id="ddlNoOfTrucks" class="form-control">
-                            <option value="0">Select</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <br>
-                        <br>
-                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" onClick="location.href='loaddetails.html'" type="submit"><strong>SUBMIT</strong></button>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-6 form-group">
+            <label for="gender" class="col-form-label">Facility Name:</label>
+            <select name="ddlFacilityName" id="ddlFacilityName" class="form-control">
+                <option selected="selected" value="Select">Select</option>
+                <option value="1">KIMS</option>
+                <option value="2">GITAM</option>
+            </select>
         </div>
-        <div class="col-md-4" style="padding-left:20px;">
-            <h2 class="font-bold  text-danger">Already Registered</h2>
-
-            <p>
-                Click Here to Login
-            </p><br>
-            <h2 class="font-bold text-danger">Registered Options</h2>
-
-            <ul>
-                <li>Customer Registration</li>
-                <li>Transporter Registration</li>
-                <li>Packers And Movers Registration</li>
-            </ul>
-
-
-
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="bg-success">
+                            <th>Facility Name</th>
+                            <th>patient Name</th>
+                            <th>Age</th>
+                            <th>Registration Date</th>
+                            <th>Gender</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>KIMS</td>
+                            <td>Kumar</td>
+                            <td>40</td>
+                            <td>05-02-2021</td>
+                            <td>Male</td>
+                            <td>Registered</td>
+                            <td class="text-navy">
+                                <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
+                                        onClick="location.href='@Url.Action("ViewPatient", "Home")'"
+                                        type="submit">
+                                    &nbsp;&nbsp;<strong>
+                                        <i class="fa fa-login"></i>
+                                        &nbsp;View
+                                    </strong>&nbsp;&nbsp;
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GITAM</td>
+                            <td>Lokesh</td>
+                            <td>50</td>
+                            <td>05-05-2021</td>
+                            <td>Male</td>
+                            <td>Registered</td>
+                            <td class="text-navy">
+                                <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
+                                        onClick="location.href='@Url.Action("ViewPatient", "Home")'"
+                                        type="submit">
+                                    &nbsp;&nbsp;<strong>
+                                        <i class="fa fa-login"></i>
+                                        &nbsp;View
+                                    </strong>&nbsp;&nbsp;
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
