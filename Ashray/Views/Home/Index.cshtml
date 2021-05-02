@@ -2,30 +2,256 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content text-center p-md">
+                <h2><span class="text-navy">ASHRAY - A REALPAGE INITIATIVE</span></h2>
+                <p>
+                    Ashray is the ray of hope for servicing nation to fight back the Pandemic by providing services as much as we can.
+                    RealPage Came up with a initiative of Pop-Up Hospital extending services as much as we can.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5" style="padding:0px 5px 0px 10px;">
+                <div class="ibox float-e-margins" style="margin:5px; padding:0px;">
+                    <div class="ibox-title" style="background:#1A7BB9; color:#fff;">
+                        <h5>SEARCH AVAILABILITY </h5>
+
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group"><label>STATE</label> <input placeholder="Enter email" class="form-control" type="email"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group"><label>PINCODE</label> <input placeholder="Enter email" class="form-control" type="email"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>AREA</label><select name="ddlMaterial" id="ddlMaterial" class="form-control">
+                                                <option selected="selected" value="Select">Select</option>
+                                                <option value="1">Madhapur</option>
+                                                <option value="2">Hitech-City</option>
+                                                <option value="3">Kondapur</option>
+                                                <option value="4">Kukatpally</option>
+                                                <option value="5">Charminar</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Bed Type</label>
+                                            <select name="ddlTruckType" id="ddlTruckType" class="form-control">
+                                                <option selected="selected" value="Select">Select</option>
+                                                <option value="1">Isolation bed</option>
+                                                <option value="2">Non-Critical + O2</option>
+                                                <option value="3">Critical + O2</option>
+                                                <option value="4">ICU + Ventilator </option>
+
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label> Date</label><div class="input-group date form_datetime-component">
+                                                <input name="txtDate" maxlength="10" id="txtDate" class="form-control hasDatepicker" type="text">
+                                                <span class="input-group-btn">
+                                                    <button id="datePicker" class="btn btn-danger date-set" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>No. of Beds</label><select name="ddlNoOfTrucks" id="ddlNoOfTrucks" class="form-control">
+                                                <option value="0">Select</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <br>
+                                            <br>
+                                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>SEARCH</strong></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 red-bg p-lg text-center" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4 text-left">
+                                    <i class="fa fa-trophy fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>TOTAL BEDS </span>
+                                    <h2 class="font-bold">4,232</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 navy-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-cloud fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span> AVAILABLE BEDS </span>
+                                    <h2 class="font-bold">1,111</h2>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 lazur-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-envelope-o fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span> RECOVERED / DISCHARGED </span>
+                                    <h2 class="font-bold">5,000</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 yellow-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-truck fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>AVAILABLE AMBULANCE</span>
+                                    <h2 class="font-bold">100</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="col-lg-12" style="margin:5px; padding:0px;">
+                    <div class="ibox  float-e-margins">
+                        <div class="ibox-title" style="background:#1A7BB9; color:#fff;">
+                            <h5>Customer Feed Back</h5>
+                        </div>
+                        <div class="ibox-content inspinia-timeline">
+
+
+                            <div class="timeline-item">
+                                <div class="row">
+                                    <div class="col-xs-3 date">
+                                        <i class="fa fa-coffee"></i> 8:00 am <br />
+                                    </div>
+                                    <div class="col-xs-7 content">
+                                        <p class="m-b-xs"><strong>Nice Experience</strong></p>
+                                        <p> Treated well with atmost care ,quick response and 100% likes </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="row">
+                                    <div class="col-xs-3 date">
+                                        <i class="fa fa-phone"></i> 11:00 am <br />
+                                        <small class="text-navy">21 hour ago</small>
+                                    </div>
+                                    <div class="col-xs-7 content">
+                                        <p class="m-b-xs"><strong>Unable to Find the Bed at the centre </strong></p>
+                                        <p>Guys!! i have searched for a single bed in my location unable to get it. can you arrange ?  </p>
+                                    </div>
+                                </div><br>
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+
+                <div>
+                    <div class="col-lg-12" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
+                        <div class="widget lazur-bg p-xl" style="width:100% !important; padding:30px;">
+                            <h2> CONTACT US </h2>
+                            <br>
+                            <h3> Ashray </h3>
+                            <ul class="list-unstyled m-t-md">
+                                <li>
+                                    <span class="fa fa-envelope m-r-xs"></span>
+                                    <label>Email:</label>
+                                    Ashray@realpage.com
+                                </li>
+                                <li>
+                                    <span class="fa fa-home m-r-xs"></span>
+                                    <label>Address:</label>
+                                    Street 200, Avenue 10
+                                </li>
+                                <li>
+                                    <span class="fa fa-phone m-r-xs"></span>
+                                    <label>Contact:</label>
+                                    (+91) 999 99 999 99
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
+                        <iframe allowfullscreen="" src="http://www.youtube.com/embed/6NbAAmDuv_8?feature=player_detailpage" width="100%" frameborder="0" height="235"></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="footer">
+            <div class="pull-right"> Ashray - A RealPage Initiative </div>
+            <div> <strong>Copyright</strong> RealPage &copy; 2015 </div>
+        </div>
     </div>
 </div>

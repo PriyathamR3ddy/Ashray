@@ -13,6 +13,36 @@ namespace Ashray.Controllers
             return View();
         }
 
+        public ActionResult Registration()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult FindHospital()
+        {
+            return View();
+        }
+
+        public ActionResult FindBed()
+        {
+            return View();
+        }
+
+        public ActionResult PostHospital()
+        {
+            return View();
+        }
+
+        public ActionResult PostBed()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
