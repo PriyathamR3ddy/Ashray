@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "PostBed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Post <span class="text-danger">a Truck</span></h2>
+
+        <ol class="breadcrumb">
+            <li>
+                <a href="index-2.html">Home</a>
+            </li>
+
+            <li class="active">
+                <strong>Post a Bed</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<br>
+
+<div class="ibox-content">
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Truck Reg Number <em style="color:red"> *</em></label>
+                        <div class="row">
+                            <div class="col-sm-4"><input placeholder="Ex-HR" class="form-control"></div>
+                            <div class="col-sm-4"><input placeholder="Ex-51" class="form-control"></div>
+                            <div class="col-sm-4"><input placeholder="Ex-j7323" class="form-control"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group"><label>Registered State <em style="color:red"> *</em></label> <input placeholder="Enter Registered State" class="form-control"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Truck Owner <em style="color:red"> *</em></label>
+                        <div class="row">
+                            <div class="col-sm-6"><input placeholder="Truck Owner1" class="form-control"></div>
+                            <div class="col-sm-6"><input placeholder="Truck Owner2" class="form-control"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group"><label>Owner PAN</label> <input placeholder="Owner PAN" class="form-control"></div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Truck Type <em style="color:red"> *</em></label> <select name="ddlTruckType" id="ddlTruckType" class="form-control">
+                            <option value="Select">Select</option>
+                            <option value="1">Canters (0 -10 feet)</option>
+                            <option value="2">Canters (5 -15 feet)</option>
+                            <option value="3">Canters (11 -16 feet)</option>
+                            <option value="4">Canters (15 -17 feet)</option>
+                            <option value="5">Canters (14 -30 feet)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Full Load <em style="color:red"> *</em></label>
+                        <div class="row">
+                            <div class="col-sm-4"><input placeholder="Capacity" class="form-control"></div>
+                            <div class="col-sm-6">
+                                <select name="ddlWeight" id="ddlWeight" class="form-control">
+                                    <option value="Select">Select</option>
+                                    <option value="MT">MT</option>
+                                    <option value="CF">CF</option>
+                                    <option value="KG">KG</option>
+                                    <option value="TU">TU</option>
+                                    <option value="GF">GF</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+
+                <div class="col-sm-4">
+                    <div class="form-group"><label>Base Location <em style="color:red"> *</em></label><input placeholder="Box Location" class="form-control"></div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group"><label>Current Location <em style="color:red"> *</em></label><input placeholder="Current Location" class="form-control"></div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group"><label>Previous Location <em style="color:red"> *</em></label><input placeholder="Previous Location" class="form-control"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <br>
+                        <br>
+                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>SUBMIT</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="padding-left:20px;">
+            <h2 class="font-bold  text-danger">Already Registered</h2>
+
+            <p>
+                Click Here to Login
+            </p><br>
+            <h2 class="font-bold text-danger">Registered Options</h2>
+
+            <ul>
+                <li>Customer Registration</li>
+                <li>Transporter Registration</li>
+                <li>Packers And Movers Registration</li>
+            </ul>
+
+
+
+        </div>
+    </div>
+</div>

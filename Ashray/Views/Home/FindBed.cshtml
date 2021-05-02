@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "FindBed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Find <span class="text-danger">a Truck</span></h2>
+
+        <ol class="breadcrumb">
+            <li>
+                <a href="index-2.html">Home</a>
+            </li>
+
+            <li class="active">
+                <strong>Find a Bed</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<br>
+
+<div class="ibox-content">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group"><label>Source </label> <input placeholder="Select Source" class="form-control" type="email"></div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group"><label>Destination </label> <input placeholder="Destination" class="form-control" type="email"></div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Radius </label><select name="ddlMaterial" id="ddlMaterial" class="form-control">
+                            <option selected="selected" value="Select">Select</option>
+                            <option value="45">Within 50 KM</option>
+                            <option value="18">Within 100 KM</option>
+                            <option value="4">Within 200 KM</option>
+                            <option value="16">Within 300 KM</option>
+                            <option value="6">Within 400 KM</option>
+                            <option value="6">More than 500</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Date </label><div class="input-group date form_datetime-component">
+                            <input name="txtDate" maxlength="10" id="txtDate" class="form-control hasDatepicker" readonly type="text">
+                            <span class="input-group-btn">
+                                <button id="datePicker" class="btn btn-danger date-set" type="button"><i class="fa fa-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Truck Type </label><select name="ddlTruckType" id="ddlTruckType" class="form-control">
+                            <option value="Select">Select</option>
+                            <option value="1">Canters (0 -10 feet)</option>
+                            <option value="2">Canters (5 -15 feet)</option>
+                            <option value="3">Canters (11 -16 feet)</option>
+                            <option value="4">Canters (15 -17 feet)</option>
+                            <option value="5">Canters (14 -30 feet)</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group" align="center">
+                        <br>
+                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs" type="submit">&nbsp;&nbsp;<strong><i class="fa fa-search"></i> &nbsp;Search</strong>&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <div class="col-lg-12" style="margin:0px; padding:0px;">
+                <div class="ibox" style="margin:0px; padding:0px;">
+                    <div class="ibox-title">
+                        <h5>Available<span class="text-danger"> Trucks</span>  </h5>
+
+                    </div>
+                    <div class="table-responsive" style="margin:0px; padding:0px;">
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr class="bg-success">
+                                    <th>Type</th>
+                                    <th>Details</th>
+                                    <th>Distance/Duration</th>
+                                    <th>Signin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="~/Content/img/truck1.jpg" width="50" height="30"><br>
+                                        Regular trip<br>
+                                        T21011
+                                    </td>
+                                    <td>
+                                        Chennai to Coimbatore <br>
+                                        On 07th Dec 2015
+                                    </td>
+                                    <td>
+                                        509 km (8hrs)<br>
+
+                                        <a href="#">View Map</a>
+                                    </td>
+                                    <td class="text-navy">
+                                        <br>
+                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs" onClick="location.href='login.html'" type="submit">&nbsp;&nbsp;<strong><i class="fa fa-login"></i> &nbsp;Sign in</strong>&nbsp;&nbsp;</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="~/Content/img/truck1.jpg" width="50" height="30"><br>
+                                        Regular trip<br>
+                                        T21287
+                                    </td>
+                                    <td>
+                                        Bengaluru to Hyderabad<br>
+                                        On 04th Dec 2015
+                                    </td>
+                                    <td>
+                                        576 km (7hrs)
+                                        <a href="#">View Map</a>
+                                    </td>
+                                    <td class="text-warning">
+                                        <br>
+                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs" onClick="location.href='login.html'" type="submit">&nbsp;&nbsp;<strong><i class="fa fa-login"></i> &nbsp;Sign in</strong>&nbsp;&nbsp;</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="~/Content/img/truck1.jpg" width="50" height="30"><br>
+                                        Regular trip<br>
+                                        T21086
+                                    </td>
+                                    <td>
+                                        Bengaluru to Vijayawada<br>
+                                        On 04th Dec 2015
+                                    </td>
+                                    <td>
+                                        661 km (10hrs)
+                                        <a href="#">View Map</a>
+                                    </td>
+                                    <td class="text-navy">
+                                        <br>
+                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs" onClick="location.href='login.html'" type="submit">&nbsp;&nbsp;<strong><i class="fa fa-login"></i> &nbsp;Sign in</strong>&nbsp;&nbsp;</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="~/Content/img/truck1.jpg" width="50" height="30"><br>
+                                        Regular trip<br>
+                                        T21087
+                                    </td>
+                                    <td>
+                                        Chennai to Coimbatore <br>
+                                        On 07th Dec 2015
+                                    </td>
+                                    <td>
+                                        509 km (8hrs)<br>
+
+                                        <a href="#">View Map</a>
+                                    </td>
+                                    <td class="text-navy">
+                                        <br>
+                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs" onClick="location.href='login.html'" type="submit">&nbsp;&nbsp;<strong><i class="fa fa-login"></i> &nbsp;Sign in</strong>&nbsp;&nbsp;</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="~/Content/img/truck1.jpg" width="50" height="30"><br>
+                                        Regular trip<br>
+                                        T24087
+                                    </td>
+                                    <td>
+                                        Bengaluru to Hyderabad<br>
+                                        On 04th Dec 2015
+                                    </td>
+                                    <td>
+                                        576 km (7hrs)
+                                        <a href="#">View Map</a>
+                                    </td>
+                                    <td class="text-warning">
+                                        <br>
+                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs" onClick="location.href='login.html'" type="submit">&nbsp;&nbsp;<strong><i class="fa fa-login"></i> &nbsp;Sign in</strong>&nbsp;&nbsp;</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="~/Content/img/truck1.jpg" width="50" height="30"><br>
+                                        Regular trip<br>
+                                        T21037
+                                    </td>
+                                    <td>
+                                        Bengaluru to Vijayawada<br>
+                                        On 04th Dec 2015
+                                    </td>
+                                    <td>
+                                        661 km (10hrs)
+                                        <a href="#">View Map</a>
+                                    </td>
+                                    <td class="text-navy">
+                                        <br>
+                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs" onClick="location.href='login.html'" type="submit">&nbsp;&nbsp;<strong><i class="fa fa-login"></i> &nbsp;Sign in</strong>&nbsp;&nbsp;</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
