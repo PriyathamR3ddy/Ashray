@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,15 +128,58 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Ashray.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ashray.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ashray.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ashray.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ashray.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CentreRegistration.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LocationDetail.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Registation .cs" />
+    <Compile Include="PatientInfo.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleDetail.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StateDetail.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserDetail.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ashray.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Ashray.Context.cs</LastGenOutput>
+      <DependentUpon>Ashray.edmx</DependentUpon>
+    </Content>
+    <Content Include="Ashray.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Ashray.edmx</DependentUpon>
+      <LastGenOutput>Ashray.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\jquery-ui.css" />
@@ -363,6 +414,13 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regulard41d.eot" />
+    <EntityDeploy Include="Ashray.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Ashray.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Ashray.edmx.diagram">
+      <DependentUpon>Ashray.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
@@ -370,6 +428,9 @@
     <Content Include="Views\Home\FindBed.cshtml" />
     <Content Include="Views\Home\PostHospital.cshtml" />
     <Content Include="Views\Home\PostBed.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

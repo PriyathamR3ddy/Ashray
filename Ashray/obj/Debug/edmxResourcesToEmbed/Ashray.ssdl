@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AshrayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CentreRegistration">
+    <Key>
+      <PropertyRef Name="CentreId" />
+    </Key>
+    <Property Name="CentreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CentreName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactPerson" Type="varchar" MaxLength="25" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="BedCount" Type="int" />
+    <Property Name="LocationId" Type="int" />
+    <Property Name="StateId" Type="int" />
+  </EntityType>
+  <EntityType Name="LocationDetails">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="varchar" MaxLength="50" />
+    <Property Name="LocationPinCode" Type="varchar" MaxLength="6" />
+    <Property Name="StateId" Type="int" />
+  </EntityType>
+  <EntityType Name="PatientInfo">
+    <Key>
+      <PropertyRef Name="PatientId" />
+    </Key>
+    <Property Name="PatientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientName" Type="varchar" MaxLength="50" />
+    <Property Name="RTPCRTestNumber" Type="varchar" MaxLength="25" />
+    <Property Name="TestResult" Type="varchar" MaxLength="10" />
+    <Property Name="GovtIdNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PatientAddress" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="EmergencyContactName1" Type="varchar" MaxLength="50" />
+    <Property Name="EmergencyContactNumber1" Type="varchar" MaxLength="50" />
+    <Property Name="EmergencyContactName2" Type="varchar" MaxLength="50" />
+    <Property Name="EmergencyContactNumber2" Type="varchar" MaxLength="50" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="CentreId" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleDetails">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StateDetails">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserDetails">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <Association Name="FK__CentreReg__Locat__2D27B809">
+    <End Role="LocationDetails" Type="Self.LocationDetails" Multiplicity="0..1" />
+    <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationDetails">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="CentreRegistration">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CentreReg__State__2E1BDC42">
+    <End Role="StateDetails" Type="Self.StateDetails" Multiplicity="0..1" />
+    <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateDetails">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="CentreRegistration">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LocationD__State__2A4B4B5E">
+    <End Role="StateDetails" Type="Self.StateDetails" Multiplicity="0..1" />
+    <End Role="LocationDetails" Type="Self.LocationDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateDetails">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="LocationDetails">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PatientIn__Centr__30F848ED">
+    <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="0..1" />
+    <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CentreRegistration">
+        <PropertyRef Name="CentreId" />
+      </Principal>
+      <Dependent Role="PatientInfo">
+        <PropertyRef Name="CentreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserDetai__RoleI__25869641">
+    <End Role="RoleDetails" Type="Self.RoleDetails" Multiplicity="0..1" />
+    <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleDetails">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserDetails">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="USPInsertUpdateCentreRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CentreName" Type="varchar" Mode="In" />
+    <Parameter Name="ContactPerson" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="BedCount" Type="int" Mode="In" />
+    <Parameter Name="LocationId" Type="int" Mode="In" />
+    <Parameter Name="StateId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USPInsertUpdatePatientInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PatientName" Type="varchar" Mode="In" />
+    <Parameter Name="RTPCRTestNumber" Type="varchar" Mode="In" />
+    <Parameter Name="TestResult" Type="varchar" Mode="In" />
+    <Parameter Name="GovtIdNumber" Type="varchar" Mode="In" />
+    <Parameter Name="PatientAddress" Type="varchar" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+    <Parameter Name="EmergencyContactName1" Type="varchar" Mode="In" />
+    <Parameter Name="EmergencyContactNumber1" Type="varchar" Mode="In" />
+    <Parameter Name="EmergencyContactName2" Type="varchar" Mode="In" />
+    <Parameter Name="EmergencyContactNumber2" Type="varchar" Mode="In" />
+    <Parameter Name="DateTime" Type="datetime" Mode="In" />
+    <Parameter Name="CentreId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="AshrayModelStoreContainer">
+    <EntitySet Name="CentreRegistration" EntityType="Self.CentreRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LocationDetails" EntityType="Self.LocationDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientInfo" EntityType="Self.PatientInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleDetails" EntityType="Self.RoleDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StateDetails" EntityType="Self.StateDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CentreReg__Locat__2D27B809" Association="Self.FK__CentreReg__Locat__2D27B809">
+      <End Role="LocationDetails" EntitySet="LocationDetails" />
+      <End Role="CentreRegistration" EntitySet="CentreRegistration" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CentreReg__State__2E1BDC42" Association="Self.FK__CentreReg__State__2E1BDC42">
+      <End Role="StateDetails" EntitySet="StateDetails" />
+      <End Role="CentreRegistration" EntitySet="CentreRegistration" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LocationD__State__2A4B4B5E" Association="Self.FK__LocationD__State__2A4B4B5E">
+      <End Role="StateDetails" EntitySet="StateDetails" />
+      <End Role="LocationDetails" EntitySet="LocationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PatientIn__Centr__30F848ED" Association="Self.FK__PatientIn__Centr__30F848ED">
+      <End Role="CentreRegistration" EntitySet="CentreRegistration" />
+      <End Role="PatientInfo" EntitySet="PatientInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserDetai__RoleI__25869641" Association="Self.FK__UserDetai__RoleI__25869641">
+      <End Role="RoleDetails" EntitySet="RoleDetails" />
+      <End Role="UserDetails" EntitySet="UserDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

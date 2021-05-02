@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cca174aced634d49a6eb9426c1462021" Name="Diagram1">
+        <EntityTypeShape EntityType="AshrayModel.CentreRegistration" Width="1.5" PointX="4.375" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AshrayModel.LocationDetail" Width="1.5" PointX="1.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="AshrayModel.PatientInfo" Width="1.5" PointX="6.625" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AshrayModel.RoleDetail" Width="1.5" PointX="2.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AshrayModel.StateDetail" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AshrayModel.UserDetail" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="AshrayModel.FK__CentreReg__Locat__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="AshrayModel.FK__CentreReg__State__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="AshrayModel.FK__PatientIn__Centr__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="AshrayModel.FK__LocationD__State__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="AshrayModel.FK__UserDetai__RoleI__25869641" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

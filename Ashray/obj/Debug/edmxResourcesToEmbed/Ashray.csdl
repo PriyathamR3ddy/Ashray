@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AshrayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CentreRegistration">
+    <Key>
+      <PropertyRef Name="CentreId" />
+    </Key>
+    <Property Name="CentreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CentreName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactPerson" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BedCount" Type="Int32" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="StateId" Type="Int32" />
+    <NavigationProperty Name="LocationDetail" Relationship="Self.FK__CentreReg__Locat__2D27B809" FromRole="CentreRegistration" ToRole="LocationDetails" />
+    <NavigationProperty Name="StateDetail" Relationship="Self.FK__CentreReg__State__2E1BDC42" FromRole="CentreRegistration" ToRole="StateDetails" />
+    <NavigationProperty Name="PatientInfoes" Relationship="Self.FK__PatientIn__Centr__30F848ED" FromRole="CentreRegistration" ToRole="PatientInfo" />
+  </EntityType>
+  <EntityType Name="LocationDetail">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LocationPinCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="StateId" Type="Int32" />
+    <NavigationProperty Name="CentreRegistrations" Relationship="Self.FK__CentreReg__Locat__2D27B809" FromRole="LocationDetails" ToRole="CentreRegistration" />
+    <NavigationProperty Name="StateDetail" Relationship="Self.FK__LocationD__State__2A4B4B5E" FromRole="LocationDetails" ToRole="StateDetails" />
+  </EntityType>
+  <EntityType Name="PatientInfo">
+    <Key>
+      <PropertyRef Name="PatientId" />
+    </Key>
+    <Property Name="PatientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RTPCRTestNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="TestResult" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="GovtIdNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PatientAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContactName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContactNumber1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContactName2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContactNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="CentreId" Type="Int32" />
+    <NavigationProperty Name="CentreRegistration" Relationship="Self.FK__PatientIn__Centr__30F848ED" FromRole="PatientInfo" ToRole="CentreRegistration" />
+  </EntityType>
+  <EntityType Name="RoleDetail">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserDetails" Relationship="Self.FK__UserDetai__RoleI__25869641" FromRole="RoleDetails" ToRole="UserDetails" />
+  </EntityType>
+  <EntityType Name="StateDetail">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CentreRegistrations" Relationship="Self.FK__CentreReg__State__2E1BDC42" FromRole="StateDetails" ToRole="CentreRegistration" />
+    <NavigationProperty Name="LocationDetails" Relationship="Self.FK__LocationD__State__2A4B4B5E" FromRole="StateDetails" ToRole="LocationDetails" />
+  </EntityType>
+  <EntityType Name="UserDetail">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="RoleDetail" Relationship="Self.FK__UserDetai__RoleI__25869641" FromRole="UserDetails" ToRole="RoleDetails" />
+  </EntityType>
+  <Association Name="FK__CentreReg__Locat__2D27B809">
+    <End Role="LocationDetails" Type="Self.LocationDetail" Multiplicity="0..1" />
+    <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationDetails">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="CentreRegistration">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CentreReg__State__2E1BDC42">
+    <End Role="StateDetails" Type="Self.StateDetail" Multiplicity="0..1" />
+    <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateDetails">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="CentreRegistration">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PatientIn__Centr__30F848ED">
+    <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="0..1" />
+    <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CentreRegistration">
+        <PropertyRef Name="CentreId" />
+      </Principal>
+      <Dependent Role="PatientInfo">
+        <PropertyRef Name="CentreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LocationD__State__2A4B4B5E">
+    <End Role="StateDetails" Type="Self.StateDetail" Multiplicity="0..1" />
+    <End Role="LocationDetails" Type="Self.LocationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateDetails">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="LocationDetails">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserDetai__RoleI__25869641">
+    <End Role="RoleDetails" Type="Self.RoleDetail" Multiplicity="0..1" />
+    <End Role="UserDetails" Type="Self.UserDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleDetails">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserDetails">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AshrayEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CentreRegistrations" EntityType="Self.CentreRegistration" />
+    <EntitySet Name="LocationDetails" EntityType="Self.LocationDetail" />
+    <EntitySet Name="PatientInfoes" EntityType="Self.PatientInfo" />
+    <EntitySet Name="RoleDetails" EntityType="Self.RoleDetail" />
+    <EntitySet Name="StateDetails" EntityType="Self.StateDetail" />
+    <EntitySet Name="UserDetails" EntityType="Self.UserDetail" />
+    <AssociationSet Name="FK__CentreReg__Locat__2D27B809" Association="Self.FK__CentreReg__Locat__2D27B809">
+      <End Role="LocationDetails" EntitySet="LocationDetails" />
+      <End Role="CentreRegistration" EntitySet="CentreRegistrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CentreReg__State__2E1BDC42" Association="Self.FK__CentreReg__State__2E1BDC42">
+      <End Role="StateDetails" EntitySet="StateDetails" />
+      <End Role="CentreRegistration" EntitySet="CentreRegistrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PatientIn__Centr__30F848ED" Association="Self.FK__PatientIn__Centr__30F848ED">
+      <End Role="CentreRegistration" EntitySet="CentreRegistrations" />
+      <End Role="PatientInfo" EntitySet="PatientInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LocationD__State__2A4B4B5E" Association="Self.FK__LocationD__State__2A4B4B5E">
+      <End Role="StateDetails" EntitySet="StateDetails" />
+      <End Role="LocationDetails" EntitySet="LocationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserDetai__RoleI__25869641" Association="Self.FK__UserDetai__RoleI__25869641">
+      <End Role="RoleDetails" EntitySet="RoleDetails" />
+      <End Role="UserDetails" EntitySet="UserDetails" />
+    </AssociationSet>
+    <FunctionImport Name="USPInsertUpdateCentreRegistration">
+      <Parameter Name="CentreName" Mode="In" Type="String" />
+      <Parameter Name="ContactPerson" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="BedCount" Mode="In" Type="Int32" />
+      <Parameter Name="LocationId" Mode="In" Type="Int32" />
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USPInsertUpdatePatientInfo">
+      <Parameter Name="PatientName" Mode="In" Type="String" />
+      <Parameter Name="RTPCRTestNumber" Mode="In" Type="String" />
+      <Parameter Name="TestResult" Mode="In" Type="String" />
+      <Parameter Name="GovtIdNumber" Mode="In" Type="String" />
+      <Parameter Name="PatientAddress" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="EmergencyContactName1" Mode="In" Type="String" />
+      <Parameter Name="EmergencyContactNumber1" Mode="In" Type="String" />
+      <Parameter Name="EmergencyContactName2" Mode="In" Type="String" />
+      <Parameter Name="EmergencyContactNumber2" Mode="In" Type="String" />
+      <Parameter Name="DateTime" Mode="In" Type="DateTime" />
+      <Parameter Name="CentreId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

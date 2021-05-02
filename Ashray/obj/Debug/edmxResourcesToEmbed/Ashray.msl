@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AshrayModelStoreContainer" CdmEntityContainer="AshrayEntities">
+    <EntitySetMapping Name="CentreRegistrations">
+      <EntityTypeMapping TypeName="AshrayModel.CentreRegistration">
+        <MappingFragment StoreEntitySet="CentreRegistration">
+          <ScalarProperty Name="CentreId" ColumnName="CentreId" />
+          <ScalarProperty Name="CentreName" ColumnName="CentreName" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="BedCount" ColumnName="BedCount" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationDetails">
+      <EntityTypeMapping TypeName="AshrayModel.LocationDetail">
+        <MappingFragment StoreEntitySet="LocationDetails">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="LocationPinCode" ColumnName="LocationPinCode" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatientInfoes">
+      <EntityTypeMapping TypeName="AshrayModel.PatientInfo">
+        <MappingFragment StoreEntitySet="PatientInfo">
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="RTPCRTestNumber" ColumnName="RTPCRTestNumber" />
+          <ScalarProperty Name="TestResult" ColumnName="TestResult" />
+          <ScalarProperty Name="GovtIdNumber" ColumnName="GovtIdNumber" />
+          <ScalarProperty Name="PatientAddress" ColumnName="PatientAddress" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="EmergencyContactName1" ColumnName="EmergencyContactName1" />
+          <ScalarProperty Name="EmergencyContactNumber1" ColumnName="EmergencyContactNumber1" />
+          <ScalarProperty Name="EmergencyContactName2" ColumnName="EmergencyContactName2" />
+          <ScalarProperty Name="EmergencyContactNumber2" ColumnName="EmergencyContactNumber2" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="CentreId" ColumnName="CentreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleDetails">
+      <EntityTypeMapping TypeName="AshrayModel.RoleDetail">
+        <MappingFragment StoreEntitySet="RoleDetails">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateDetails">
+      <EntityTypeMapping TypeName="AshrayModel.StateDetail">
+        <MappingFragment StoreEntitySet="StateDetails">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDetails">
+      <EntityTypeMapping TypeName="AshrayModel.UserDetail">
+        <MappingFragment StoreEntitySet="UserDetails">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USPInsertUpdateCentreRegistration" FunctionName="AshrayModel.Store.USPInsertUpdateCentreRegistration" />
+    <FunctionImportMapping FunctionImportName="USPInsertUpdatePatientInfo" FunctionName="AshrayModel.Store.USPInsertUpdatePatientInfo" />
+  </EntityContainerMapping>
+</Mapping>
