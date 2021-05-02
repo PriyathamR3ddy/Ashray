@@ -39,7 +39,8 @@ namespace Ashray.Controllers
 
         public ActionResult FindHospital()
         {
-            return View();
+            var dashboard = Registation.GetDashboard();            
+            return View(dashboard);
         }
 
         public ActionResult FindBed()
@@ -60,7 +61,8 @@ namespace Ashray.Controllers
 
         public ActionResult BedTypes()
         {
-            return View();
+            var bedInfo = Registation.GetBedTypeInfo();
+            return View(bedInfo);
         }
 
         public ActionResult PatientRegistration()

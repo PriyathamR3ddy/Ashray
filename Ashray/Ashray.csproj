@@ -153,6 +153,7 @@
     <Compile Include="LocationDetail.cs">
       <DependentUpon>Ashray.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BedTypes.cs" />
     <Compile Include="Models\Dashboard.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\PostHospital.cs" />

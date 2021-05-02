@@ -3,7 +3,12 @@
 	ViewBag.Title = "PatientRegistration";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$("#txtCheckInTime").val(new Date());
+	});
+</script>
 <div class="row wrapper border-bottom white-bg page-heading">
 	<div class="col-lg-10">
 		<h2>Available <span class="text-danger">Bed Types</span></h2>
@@ -42,15 +47,13 @@
 									<label for="controlCenterName" class="col-form-label col-md-3">Facility Name:</label>
 									@Html.DropDownList("centerId", new List<SelectListItem>
 								{
-									  new SelectListItem{ Text="Select Center", Value = "0" },
-									 new SelectListItem{ Text="KIMS", Value = "1" },
-									 new SelectListItem{ Text="GITAM ", Value = "2" },
+									 new SelectListItem{ Text="Project Ashray", Value = "1" }
 								}, new { @class = "form-control col-md-4 controlWidth" })
 
 								</div>
 								<div class="col-md-6 form-group">
 									<label for="dateTime" class="col-form-label col-md-3">Date Time:</label>
-									@Html.TextBoxFor(m => m.DateTime, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "txtCheckInTime" })
+									@Html.TextBoxFor(m => m.DateTime, new { @value = DateTime.Now.ToShortDateString(), @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "txtCheckInTime" })
 								</div>
 							</div>
 							<div class="row">

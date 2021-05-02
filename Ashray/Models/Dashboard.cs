@@ -7,11 +7,11 @@ namespace Ashray.Models
 {
 	public class Dashboard
 	{
-		public int CenterId { get; set; }
+		public int CentreId { get; set; }
 
-		public string CenterName { get; set; }
+		public string CentreName { get; set; }
 
-		public int TotalBeds { get; set; }
+		public int BedCount { get; set; }
 
 		public int OccupiedBeds { get; set; }
 

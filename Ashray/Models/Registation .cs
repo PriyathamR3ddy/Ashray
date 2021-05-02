@@ -369,6 +369,24 @@ namespace Ashray.Models
             }
             return postHospital;
         }
+
+        public static List<BedTypes> GetBedTypeInfo()
+        {
+            List<BedTypes> bedTypes;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    bedTypes = db.Database.SqlQuery<BedTypes>("[dbo].[USPGetBedTypeInfo]", pram.ToArray()).ToList();
+                }
+            }
+            catch (Exception exs)
+            {
+                bedTypes = null;
+            }
+            return bedTypes;
+        }
     }
 
 }

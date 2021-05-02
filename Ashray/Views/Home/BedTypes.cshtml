@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Ashray.Models.BedTypes>
 @{
     ViewBag.Title = "BedTypes";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -33,60 +33,60 @@
                         <h5>Available<span class="text-danger"> Beds</span> </h5>
 
                     </div>
-                    <div class="ibox-content">
+					<div class="ibox-content">
 
-                        <table class="table table-striped">
-                            <thead>
-                                <tr class="bg-success">
-                                    <th>Name</th>
-                                    <th>Location</th>
-                                    <th>Isolation bed</th>
-                                    <th>Non-Critical + O2</th>
-                                    <th>Critical + O2</th>
-                                    <th>ICU + Ventilator</th>
-                                    <th>Registeration</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>KIMS</td>
-                                    <td>Kondpur</td>
-                                    <td>2</td>
-                                    <td>5</td>
-                                    <td>Not-Avilable</td>
-                                    <td>1</td>
-                                    <td class="text-navy">
-                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
-                                                onClick="location.href='@Url.Action("PatientRegistration", "Home")'"
-                                                type="submit">
-                                            &nbsp;&nbsp;<strong>
-                                                <i class="fa fa-login"></i>
-                                                &nbsp;Register
-                                            </strong>&nbsp;&nbsp;
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>GITAM</td>
-                                    <td>Gachibowli</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                    <td>10</td>
-                                    <td>Not-Avilable</td>
-                                    <td class="text-navy">
-                                        <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
-                                                onClick="location.href='@Url.Action("PatientRegistration", "Home")'"
-                                                type="submit">
-                                            &nbsp;&nbsp;<strong>
-                                                <i class="fa fa-login"></i>
-                                                &nbsp;Register
-                                            </strong>&nbsp;&nbsp;
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+						<table class="table">
+							<tr>
+								<th>
+									@Html.DisplayNameFor(model => model.CenterName)
+								</th>
+								<th>
+									@Html.DisplayNameFor(model => model.Location)
+								</th>
+								<th>
+									@Html.DisplayNameFor(model => model.IsolationBed)
+								</th>
+								<th>
+									@Html.DisplayNameFor(model => model.Oxygen)
+								</th>
+								<th>
+									@Html.DisplayNameFor(model => model.ICUBed)
+								</th>							
+								<th>Registeration</th>
+							</tr>
+
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td>
+										@Html.DisplayFor(modelItem => item.CenterName)
+									</td>
+									<td>
+										@Html.DisplayFor(modelItem => item.Location)
+									</td>
+									<td>
+										@Html.DisplayFor(modelItem => item.IsolationBed)
+									</td>
+									<td>
+										@Html.DisplayFor(modelItem => item.Oxygen)
+									</td>
+									<td>
+										@Html.DisplayFor(modelItem => item.ICUBed)
+									</td>
+									<td class="text-navy">
+										<button class="btn btn-sm btn-primary pull-center m-t-n-xs"
+												onClick="location.href='@Url.Action("PatientRegistration", "Home")'"
+												type="submit">
+											&nbsp;&nbsp;<strong>
+												<i class="fa fa-login"></i>
+												&nbsp;Register
+											</strong>&nbsp;&nbsp;
+										</button>
+									</td>
+								</tr>
+							}
+						</table>						
+					</div>
                 </div>
             </div>
         </div>
