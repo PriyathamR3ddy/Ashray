@@ -170,7 +170,7 @@ namespace Ashray.Models
                     pram.Add(new SqlParameter()
                     {
                         ParameterName = "@PatientAddress",
-                        SqlDbType = System.Data.SqlDbType.Int,
+                        SqlDbType = System.Data.SqlDbType.VarChar,
                         Size = 50,
                         Direction = System.Data.ParameterDirection.Input,
                         Value = patientInfo.PatientAddress
@@ -218,10 +218,9 @@ namespace Ashray.Models
                     pram.Add(new SqlParameter()
                     {
                         ParameterName = "@CentreId",
-                        SqlDbType = System.Data.SqlDbType.VarChar,
-                        Size = 50,
+                        SqlDbType = System.Data.SqlDbType.Int,                      
                         Direction = System.Data.ParameterDirection.Input,
-                        Value = patientInfo.CentreId
+                        Value = 1
                     });
                     db.Database.ExecuteSqlCommand("[dbo].[USPInsertUpdatePatientInfo]  @PatientName,@RTPCRTestNumber,@TestResult,@GovtIdNumber,@PatientAddress,@Gender,@EmergencyContactName1,@EmergencyContactNumber1 ,@EmergencyContactName2,@EmergencyContactNumber2,@CentreId", pram.ToArray());
                     db.SaveChanges();

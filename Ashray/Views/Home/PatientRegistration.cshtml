@@ -1,110 +1,144 @@
-﻿
+﻿@model Ashray.PatientInfo
 @{
-    ViewBag.Title = "PatientRegistration";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "PatientRegistration";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <h2>Available <span class="text-danger">Bed Types</span></h2>
+	<div class="col-lg-10">
+		<h2>Available <span class="text-danger">Bed Types</span></h2>
 
-        <ol class="breadcrumb">
-            <li>
-                <a href="index-2.html">Home</a>
-            </li>
+		<ol class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
 
-            <li class="active">
-                <strong>Bed Types</strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
+			<li class="active">
+				<strong>Bed Types</strong>
+			</li>
+		</ol>
+	</div>
+	<div class="col-lg-2">
 
-    </div>
+	</div>
 </div>
 <br>
 
 <div class="ibox-content">
-    <div class="row">
-        <div class="col-md-12" style="padding-left:20px;">
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Available<span class="text-danger"> Beds</span> </h5>
+	<div class="row">
+		<div class="col-md-12" style="padding-left:20px;">
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Available<span class="text-danger"> Beds</span> </h5>
 
-                    </div>
-                    <div class="ibox-content">
-                        <form role="patientReg">
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="controlCenterName" class="col-form-label">Control Center Name:</label>
-                                    <input type="text" class="form-control" id="controlCenterName" placeholder="Enter contol center name">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="dateTime" class="col-form-label">Date Time:</label>
-                                    <input type="text" class="form-control" id="dateTime">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="patientName" class="col-form-label">Patient Name:</label>
-                                    <input type="text" class="form-control" id="patientName" placeholder="Enter patient name">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="rtpcrTestNum" class="col-form-label">RTPCR Test Number:</label>
-                                    <input type="text" class="form-control" id="rtpcrTestNum">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="result" class="col-form-label">Result:</label>
-                                    <input type="text" class="form-control" id="dateTime">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="governmantId" class="col-form-label">Governmant ID:</label>
-                                    <input type="text" class="form-control" id="governmantId">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="attenderName" class="col-form-label">Attender Name:</label>
-                                    <input type="text" class="form-control" id="attenderName">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="contactNumber" class="col-form-label">Contact Number:</label>
-                                    <input type="text" class="form-control" id="contactNumber">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="address" class="col-form-label">Address:</label>
-                                    <input type="text" class="form-control" id="address">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="gender" class="col-form-label">Gender:</label>
-                                    <input type="text" class="form-control" id="gender">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="refferedTo" class="col-form-label">Reffered To:</label>
-                                    <input type="text" class="form-control" id="refferedTo">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="bedsAvailable" class="col-form-label">Beds Available:</label>
-                                    <input type="text" class="form-control" id="bedsAvailable">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+					</div>
+					@using (Html.BeginForm("PatientRegistration", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+					{
+				<div class="ibox-content">
+
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="controlCenterName" class="col-form-label">Control Center Name:</label>
+							@Html.DropDownList("centerId", new List<SelectListItem>
+						{
+							  new SelectListItem{ Text="Select Center", Value = "0" },
+							 new SelectListItem{ Text="Hitech City", Value = "1" },
+							 new SelectListItem{ Text="Kondapur ", Value = "2" },
+						})
+
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="dateTime" class="col-form-label">Date Time:</label>
+							@Html.TextBoxFor(m => m.DateTime, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "txtCheckInTime" })
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="patientName" class="col-form-label">Patient Name:</label>
+							@Html.TextBoxFor(m => m.PatientName, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "txtPatientName" })
+						</div>
+						<div class="col-md-6 form-group">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="rtpcrTestNum" class="col-form-label">RTPCR Test Number:</label>
+							@Html.TextBoxFor(m => m.RTPCRTestNumber, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter RTPCRTestNumber", @maxlength = "50", @id = "txtRTPCRTestNumber" })
+
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="result" class="col-form-label">Result:</label>
+							@Html.TextBoxFor(m => m.TestResult, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter TestResult ", @maxlength = "50", @id = "txtTestResult" })
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="governmantId" class="col-form-label">Governmant ID:</label>
+							@Html.TextBoxFor(m => m.GovtIdNumber, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter GovtIdNumber", @maxlength = "50", @id = "txtGovtIdNumber" })
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="address" class="col-form-label">Address:</label>
+							@Html.TextBoxFor(m => m.PatientAddress, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter Patient Address", @maxlength = "50", @id = "txtPatientAddress" })
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="gender" class="col-form-label">Gender:</label>
+							@Html.TextBoxFor(m => m.Gender, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter Gender", @maxlength = "50", @id = "txtGender" })
+						</div>
+						<div class="col-md-6 form-group">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="attenderName" class="col-form-label">Attender Name1:</label>
+							@Html.TextBoxFor(m => m.EmergencyContactName1, new { @class = "form-control",@style = " position:relative", @required = "required", @title = "Please enter Emergency Contact Name1", @maxlength = "50", @id = "txtEmergencyContactName1" })
+							
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="contactNumber" class="col-form-label">Contact Number1:</label>
+							@Html.TextBoxFor(m => m.EmergencyContactNumber1, new { @class="form-control", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Number1", @maxlength = "50", @id = "txtEmergencyContactNumber1" })
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="attenderName" class="col-form-label">Attender Name2:</label>
+							@Html.TextBoxFor(m => m.EmergencyContactName2, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Name2", @maxlength = "50", @id = "txtEmergencyContactName2" })
+							
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="contactNumber" class="col-form-label">Contact Number1:</label>
+							@Html.TextBoxFor(m => m.EmergencyContactNumber2, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Number2", @maxlength = "50", @id = "txtEmergencyContactNumber2" })
+							
+						</div>
+					</div>
+
+					@*<div class="row">
+			<div class="col-md-6 form-group">
+				<label for="refferedTo" class="col-form-label">Reffered To:</label>
+				@Html.TextBoxFor(m => m.CentreRegistration.CentreName, new { @style = "position:relative", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
+				<input type="text" class="form-control" id="refferedTo">
+			</div>
+			<div class="col-md-6 form-group">
+				<label for="bedsAvailable" class="col-form-label">Beds Available:</label>
+				@Html.TextBoxFor(m => m.CentreRegistration.CentreName, new { @style = "position:relative", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
+				<input type="text" class="form-control" id="bedsAvailable">
+			</div>
+		</div>
+
+				</div>*@
+					<div class="row">
+						<div class="col-lg-5"></div>
+						<div class="col-lg-12">
+							<input class="btn btn-sm btn-primary pull-Center m-t-n-xs" type="submit">
+						</div>
+					</div>
+				</div>
+					}						
+			</div>
+		</div>
+	</div>
 </div>

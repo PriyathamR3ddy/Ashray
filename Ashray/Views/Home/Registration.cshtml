@@ -34,21 +34,21 @@
                 <div class="row">
                     <div class="col-lg-5"><label><em style="color:red"> *</em>&nbsp;Control Center Name:</label> </div>
                     <div class="col-lg-7">                        
-                        @Html.TextBoxFor(m => m.ControlCentreName, new { @style = "position:relative", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
+                        @Html.TextBoxFor(m => m.ControlCentreName, new { @style = "position:relative", @class = "form-control",@required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
                     </div>
                 </div><br>
                 <div class="row">
                     <div class="col-lg-5"><label class="control-label"><em style="color:red"> *</em>&nbsp;Person Name:</label>  </div>
                     <div class="col-lg-7">
                        
-                        @Html.TextBoxFor(m => m.PersonName, new { @style = "position:relative", @required = "required", @title = "Please enter ContactPerson", @maxlength = "25", @id = "txtContactPerson" })
+                        @Html.TextBoxFor(m => m.PersonName, new { @style = "position:relative", @class = "form-control",@required = "required", @title = "Please enter ContactPerson", @maxlength = "25", @id = "txtContactPerson" })
                     </div>
                 </div><br>
                 <div class="row">
                     <div class="col-lg-5"><label class="control-label"><em style="color:red"> *</em>&nbsp;Mobile Number:</label> </div>
                     <div class="col-lg-7">
                      
-                        @Html.TextBoxFor(m => m.MobileNumber, new { @style = "position:relative", @required = "required", @title = "Please enter MobileNumber", @maxlength = "10", @id = "txtMobileNumber" })
+                        @Html.TextBoxFor(m => m.MobileNumber, new { @style = "position:relative", @class = "form-control",@required = "required", @title = "Please enter MobileNumber", @maxlength = "10", @id = "txtMobileNumber" })
                     </div>
                 </div>
                 <br>
@@ -57,14 +57,14 @@
                     <div class="col-lg-5"><label class="control-label">&nbsp;Email Address:</label>  </div>
                     <div class="col-lg-7">
                       
-                        @Html.TextBoxFor(m => m.EmailAddress, new { @style = "position:relative", @required = "required", @title = "Please enter Email", @maxlength = "50", @id = "txtEmail" })
+                        @Html.TextBoxFor(m => m.EmailAddress, new { @style = "position:relative", @class = "form-control",@required = "required", @title = "Please enter Email", @maxlength = "50", @id = "txtEmail" })
                     </div>
                 </div><br>
 
                 <div class="row">
                     <div class="col-lg-5"><label class="control-label"><em style="color:red"> *</em>&nbsp;Password:</label>   </div>
                     <div class="col-lg-7">
-                        @Html.PasswordFor(m => m.Password, new { @id = "Password", @title = "Password is required.", @autocomplete = "off" })
+                        @Html.PasswordFor(m => m.Password, new { @id = "Password", @class = "form-control", @title = "Password is required.", @autocomplete = "off" })
                        
                     </div>
                 </div><br>
@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col-lg-5"><label class=" control-label"><em style="color:red"> *</em>&nbsp;Confirm Password:</label>   </div>
                     <div class="col-lg-7">
-                        @Html.Password("ConfUserPassword", "", new { @id = "ConfUserPassword", @title = "Conf. Password is required.", @onblur = "User.prototype.confPasswordBlur();", @required = "required", @autocomplete = "off" })
+                        @Html.Password("ConfUserPassword", "", new { @id = "ConfUserPassword", @class = "form-control", @title = "Conf. Password is required.", @onblur = "User.prototype.confPasswordBlur();", @required = "required", @autocomplete = "off" })
                         
                     </div>
                 </div><br>
@@ -82,7 +82,7 @@
 					<div class="col-lg-7">
 						@Html.DropDownList("StateDropDown", new List<SelectListItem>
                         {
-	                        new SelectListItem{ Text="Telangana", Value = "1" },
+	                        new SelectListItem{ Text= "Telangana", Value = "1" },
                         })
 					
 					</div>
@@ -92,16 +92,16 @@
 					<div class="col-lg-7">
 						@Html.DropDownList("LocationDropDown", new List<SelectListItem>
                         {
-	                         new SelectListItem{ Text="Select Location", Value = "0" },
-	                         new SelectListItem{ Text="Hitech City", Value = "1" },
-	                         new SelectListItem{ Text="Kondapur ", Value = "2" },
+	                         new SelectListItem{ Text = "Select Location", Value = "0" },
+	                         new SelectListItem{ Text = "Hitech City", Value = "1" },
+	                         new SelectListItem{ Text = "Kondapur ", Value = "2" },
                         })						
 					</div>
                 </div><br>               
                 <div class="row">
                     <div class="col-lg-5"><label class=" control-label"><em style="color:red"> *</em>&nbsp;Bed Count:</label>     </div>
                     <div class="col-lg-7">
-                        @Html.TextBoxFor(m => m.BedCount, new { @style = "position:relative", @required = "required", @title = "Please enter BedCount", @maxlength = "50", @id = "txtBedCount" })                        
+                        @Html.TextBoxFor(m => m.BedCount, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter BedCount", @maxlength = "50", @id = "txtBedCount" })                        
                     </div>
                 </div><br>
 
