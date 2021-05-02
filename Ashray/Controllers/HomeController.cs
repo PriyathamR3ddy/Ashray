@@ -78,7 +78,19 @@ namespace Ashray.Controllers
             patientHistory.PatientInfo.PatientId = id;
             patientHistory.PatientInfo.PatientName = name;
             patientHistory.PatientInfo.RTPCRTestNumber = rtpctr;
-            return View(patientHistory);
+            var history = Registation.GetPatientHistory(id);
+			if (history != null)
+			{
+				patientHistory.SPO2 = history.SPO2;
+				patientHistory.BP = history.BP;
+				patientHistory.Temperature = history.Temperature;
+				patientHistory.BedNumber = history.BedNumber;
+				patientHistory.RoomNumber = history.RoomNumber;
+				patientHistory.CheckinDateTime = history.CheckinDateTime;
+				patientHistory.CheckoutDatetime = history.CheckoutDatetime;
+				patientHistory.DischargeInfo = history.DischargeInfo;
+			}
+			return View(patientHistory);
         }
 
         public ActionResult About()

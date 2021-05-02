@@ -387,6 +387,31 @@ namespace Ashray.Models
             }
             return bedTypes;
         }
+
+        public static PatientHistory GetPatientHistory(int patientId)
+        {
+            PatientHistory patientHistory;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@PatientId",
+                        SqlDbType = System.Data.SqlDbType.Int,                      
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientId
+                    });
+                    patientHistory = db.Database.SqlQuery<PatientHistory>("[dbo].[USPGetPatientHistory] @PatientId", pram.ToArray()).ToList()[0];
+                }
+            }
+            catch (Exception exs)
+            {
+                patientHistory = null;
+            }
+            return patientHistory;
+        }
     }
 
 }

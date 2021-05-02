@@ -6,7 +6,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function () {
-		$("#txtCheckInTime").val(new Date());
+		$("#txtCheckInTime").val($.format.date(new Date(), 'dd M yy'));
 	});
 </script>
 <div class="row wrapper border-bottom white-bg page-heading">
