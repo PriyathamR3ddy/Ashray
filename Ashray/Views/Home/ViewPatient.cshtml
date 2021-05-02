@@ -1,29 +1,35 @@
 ﻿@model Ashray.PatientHistory
 @{
-	ViewBag.Title = "ViewPatient";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "ViewPatient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script type='text/javascript'>
+    $(function () {
+        $('.date-picker').datepicker();
+    })
+</script>
+<meta charset="utf-8">
 <div class="row wrapper border-bottom white-bg page-heading">
-	<div class="col-lg-10">
-		<h2>Create <span class="text-danger"> Your Account</span></h2>
-		<ol class="breadcrumb">
-			<li>
-				<a href="index-2.html">Home</a>
-			</li>
-
-			<li class="active">
-				<strong>Registation Form</strong>
-			</li>
-		</ol>
-	</div>
-	<div class="col-lg-2">
-
-	</div>
+    <div class="col-lg-10">
+        <h2>Create <span class="text-danger"> Your Account</span></h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index-2.html">Home</a>
+            </li>
+            <li class="active">
+                <strong>Registation Form</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
 </div>
 <br>
 <div class="ibox-content">
-	<div class="row">
+    <div class="row">
         <div class="col-md-12">
             <h3 class="m-t-none m-b text-navy">Sign in</h3>
             @using (Html.BeginForm("ViewPatient", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -119,13 +125,13 @@
                             </label>
                         </div>
                         <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.CheckinDateTime, new { placeholder = "CheckIn Date", @style = "position:relative", @class = "form-control datepicker", @required = "required", @title = "CheckIn Date", @maxlength = "50", @id = "txtCheckInDate" })
+                            @Html.TextBoxFor(m => m.CheckinDateTime, new { placeholder = "CheckIn Date", @style = "position:relative", @class = "form-control date-picker ", @required = "required", @title = "CheckIn Date", @maxlength = "50", @id = "txtCheckInDate" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="col-md-4"><label class="control-label">CheckOut Date</label></div>
                         <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.CheckoutDatetime, new { placeholder = "CheckOut Date", @style = "position:relative", @class = "form-control datepicker", @required = "required", @title = "CheckOut Date", @maxlength = "50", @id = "txtCheckOutDate" })
+                            @Html.TextBoxFor(m => m.CheckoutDatetime, new { placeholder = "CheckOut Date", @style = "position:relative", @class = "form-control date-picker", @required = "required", @title = "CheckOut Date", @maxlength = "50", @id = "txtCheckOutDate" })
                         </div>
                     </div>
                 </div><br>
@@ -186,5 +192,5 @@
 
 
         </div>
-	</div>
+    </div>
 </div>
