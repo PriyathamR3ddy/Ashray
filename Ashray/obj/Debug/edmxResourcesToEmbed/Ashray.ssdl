@@ -22,6 +22,22 @@
     <Property Name="LocationPinCode" Type="varchar" MaxLength="6" />
     <Property Name="StateId" Type="int" />
   </EntityType>
+  <EntityType Name="PatientHistory">
+    <Key>
+      <PropertyRef Name="HistoryId" />
+    </Key>
+    <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientId" Type="int" />
+    <Property Name="CheckinDateTime" Type="datetime" />
+    <Property Name="CheckoutDatetime" Type="datetime" />
+    <Property Name="DischargeInfo" Type="varchar(max)" />
+    <Property Name="BP" Type="varchar" MaxLength="10" />
+    <Property Name="SPO2" Type="varchar" MaxLength="10" />
+    <Property Name="Temperature" Type="varchar" MaxLength="10" />
+    <Property Name="PatientDocumentPath" Type="varchar" MaxLength="200" />
+    <Property Name="RoomNumber" Type="varchar" MaxLength="20" />
+    <Property Name="BedNumber" Type="varchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="PatientInfo">
     <Key>
       <PropertyRef Name="PatientId" />
@@ -101,6 +117,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__PatientHi__Patie__412EB0B6">
+    <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
+    <End Role="PatientHistory" Type="Self.PatientHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientInfo">
+        <PropertyRef Name="PatientId" />
+      </Principal>
+      <Dependent Role="PatientHistory">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__PatientIn__Centr__30F848ED">
     <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="0..1" />
     <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="*" />
@@ -125,6 +153,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="USPBedAvailabilityDashboardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USPInsertPatientHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PatientId" Type="int" Mode="In" />
+    <Parameter Name="CheckinDateTime" Type="datetime" Mode="In" />
+    <Parameter Name="CheckoutDatetime" Type="datetime" Mode="In" />
+    <Parameter Name="DischargeInfo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientDocumentPath" Type="varchar" Mode="In" />
+    <Parameter Name="RoomNumber" Type="varchar" Mode="In" />
+    <Parameter Name="BedNumber" Type="varchar" Mode="In" />
+    <Parameter Name="BP" Type="varchar" Mode="In" />
+    <Parameter Name="SPO2" Type="varchar" Mode="In" />
+    <Parameter Name="Temperature" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="USPInsertUpdateCentreRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CentreName" Type="varchar" Mode="In" />
     <Parameter Name="ContactPerson" Type="varchar" Mode="In" />
@@ -133,6 +174,7 @@
     <Parameter Name="BedCount" Type="int" Mode="In" />
     <Parameter Name="LocationId" Type="int" Mode="In" />
     <Parameter Name="StateId" Type="int" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
   </Function>
   <Function Name="USPInsertUpdatePatientInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="PatientName" Type="varchar" Mode="In" />
@@ -145,12 +187,12 @@
     <Parameter Name="EmergencyContactNumber1" Type="varchar" Mode="In" />
     <Parameter Name="EmergencyContactName2" Type="varchar" Mode="In" />
     <Parameter Name="EmergencyContactNumber2" Type="varchar" Mode="In" />
-    <Parameter Name="DateTime" Type="datetime" Mode="In" />
     <Parameter Name="CentreId" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="AshrayModelStoreContainer">
     <EntitySet Name="CentreRegistration" EntityType="Self.CentreRegistration" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LocationDetails" EntityType="Self.LocationDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientHistory" EntityType="Self.PatientHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PatientInfo" EntityType="Self.PatientInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoleDetails" EntityType="Self.RoleDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StateDetails" EntityType="Self.StateDetails" Schema="dbo" store:Type="Tables" />
@@ -166,6 +208,10 @@
     <AssociationSet Name="FK__LocationD__State__2A4B4B5E" Association="Self.FK__LocationD__State__2A4B4B5E">
       <End Role="StateDetails" EntitySet="StateDetails" />
       <End Role="LocationDetails" EntitySet="LocationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="Self.FK__PatientHi__Patie__412EB0B6">
+      <End Role="PatientInfo" EntitySet="PatientInfo" />
+      <End Role="PatientHistory" EntitySet="PatientHistory" />
     </AssociationSet>
     <AssociationSet Name="FK__PatientIn__Centr__30F848ED" Association="Self.FK__PatientIn__Centr__30F848ED">
       <End Role="CentreRegistration" EntitySet="CentreRegistration" />

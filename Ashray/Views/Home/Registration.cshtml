@@ -1,123 +1,108 @@
 ﻿@model Ashray.Models.Registation
 @{
-    /**/
+	/**/
 
-    ViewBag.Title = "Registration";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Registration";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <h2>Create   <span class="text-danger"> Your Account</span></h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="index-2.html">Home</a>
-            </li>
+	<div class="col-lg-10">
+		<h2>Create   <span class="text-danger"> Your Account</span></h2>
+		<ol class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
 
-            <li class="active">
-                <strong>Registation Form</strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
+			<li class="active">
+				<strong>Registation Form</strong>
+			</li>
+		</ol>
+	</div>
+	<div class="col-lg-2">
 
-    </div>
+	</div>
 </div>
 <br>
 
 <div class="ibox-content">
-    <div class="row">
-        <div class="col-sm-4">
-            <h3 class="m-t-none m-b text-navy">Sign in</h3>
-            @using (Html.BeginForm("Registration", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <div class="row">
-                    <div class="col-lg-5"><label><em style="color:red"> *</em>&nbsp;Control Center Name:</label> </div>
-                    <div class="col-lg-7">                        
-                        @Html.TextBoxFor(m => m.ControlCentreName, new { @style = "position:relative", @class = "form-control",@required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-5"><label class="control-label"><em style="color:red"> *</em>&nbsp;Person Name:</label>  </div>
-                    <div class="col-lg-7">
-                       
-                        @Html.TextBoxFor(m => m.PersonName, new { @style = "position:relative", @class = "form-control",@required = "required", @title = "Please enter ContactPerson", @maxlength = "25", @id = "txtContactPerson" })
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-5"><label class="control-label"><em style="color:red"> *</em>&nbsp;Mobile Number:</label> </div>
-                    <div class="col-lg-7">
-                     
-                        @Html.TextBoxFor(m => m.MobileNumber, new { @style = "position:relative", @class = "form-control",@required = "required", @title = "Please enter MobileNumber", @maxlength = "10", @id = "txtMobileNumber" })
-                    </div>
-                </div>
-                <br>
-
-                <div class="row">
-                    <div class="col-lg-5"><label class="control-label">&nbsp;Email Address:</label>  </div>
-                    <div class="col-lg-7">
-                      
-                        @Html.TextBoxFor(m => m.EmailAddress, new { @style = "position:relative", @class = "form-control",@required = "required", @title = "Please enter Email", @maxlength = "50", @id = "txtEmail" })
-                    </div>
-                </div><br>
-
-                <div class="row">
-                    <div class="col-lg-5"><label class="control-label"><em style="color:red"> *</em>&nbsp;Password:</label>   </div>
-                    <div class="col-lg-7">
-                        @Html.PasswordFor(m => m.Password, new { @id = "Password", @class = "form-control", @title = "Password is required.", @autocomplete = "off" })
-                       
-                    </div>
-                </div><br>
-
-                <div class="row">
-                    <div class="col-lg-5"><label class=" control-label"><em style="color:red"> *</em>&nbsp;Confirm Password:</label>   </div>
-                    <div class="col-lg-7">
-                        @Html.Password("ConfUserPassword", "", new { @id = "ConfUserPassword", @class = "form-control", @title = "Conf. Password is required.", @onblur = "User.prototype.confPasswordBlur();", @required = "required", @autocomplete = "off" })
-                        
-                    </div>
-                </div><br>
-
-                <div class="row">
-                    <div class="col-lg-5"><label class="control-label">State</label>   </div>
-					<div class="col-lg-7">
-						@Html.DropDownList("StateDropDown", new List<SelectListItem>
-                        {
-	                        new SelectListItem{ Text= "Telangana", Value = "1" },
-                        })
-					
+	<div class="row">
+		<div class="col-md-12" style="padding-left:20px;">
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h3 class="m-t-none m-b text-navy">Sign in</h3>
 					</div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-5"><label class=" control-label"><em style="color:red"> *</em>&nbsp;Location:</label>     </div>
-					<div class="col-lg-7">
-						@Html.DropDownList("LocationDropDown", new List<SelectListItem>
-                        {
-	                         new SelectListItem{ Text = "Select Location", Value = "0" },
-	                         new SelectListItem{ Text = "Hitech City", Value = "1" },
-	                         new SelectListItem{ Text = "Kondapur ", Value = "2" },
-                        })						
-					</div>
-                </div><br>               
-                <div class="row">
-                    <div class="col-lg-5"><label class=" control-label"><em style="color:red"> *</em>&nbsp;Bed Count:</label>     </div>
-                    <div class="col-lg-7">
-                        @Html.TextBoxFor(m => m.BedCount, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter BedCount", @maxlength = "50", @id = "txtBedCount" })                        
-                    </div>
-                </div><br>
+					@using (Html.BeginForm("Registration", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+					{
+						<div class="ibox-content">
+							<br />
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="controlCenterName" class="col-form-label"><em style="color:red"> *</em>&nbsp;Control Center Name:</label>
+									@Html.TextBoxFor(m => m.ControlCentreName, new { placeholder = "Control Center Name", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="PersonName" class="col-form-label col-md-3"><em style="color:red"> *</em>&nbsp;Person Name:</label>
+									@Html.TextBoxFor(m => m.PersonName, new { placeholder = "Person Name", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter ContactPerson", @maxlength = "25", @id = "txtContactPerson" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="MobileNumber" class="col-form-label"><em style="color:red"> *</em>&nbsp;Mobile Number:</label>
+									@Html.TextBoxFor(m => m.MobileNumber, new { placeholder = "Mobile Number", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter MobileNumber", @maxlength = "10", @id = "txtMobileNumber" })
+								</div>
 
-                <div class="row">
-                    <div class="col-lg-5"></div>
-                    <div class="col-lg-12">
-                        <div class="i-checks"><label> <input type="checkbox" value=""> <i></i>   I have read and agree to the <a href="#">Terms and Conditions </a></label></div>
-
-                        <input class="btn btn-sm btn-primary pull-Center m-t-n-xs" type="submit"><strong>Create My Account</strong>
-                    </div>
-                </div>
-            }
-
-        </div>
-        <div class="col-sm-8">
-        </div>
-    </div>
+								<div class="col-md-6 form-group">
+									<label for="EmailAddress" class="col-form-label">&nbsp;Email Address:</label>
+									@Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Email Address", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter Email", @maxlength = "50", @id = "txtEmail" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="Password" class="col-form-label"><em style="color:red"> *</em>&nbsp;Password:</label>
+									@Html.PasswordFor(m => m.Password, new { placeholder = "Password", @id = "Password", @class = "form-control", @title = "Password is required.", @autocomplete = "off" })
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="ConfUserPassword" class="col-form-label"><em style="color:red"> *</em>&nbsp;Confirm Password:</label>
+									@Html.Password("ConfUserPassword", "", new { placeholder = "Confirm Password", @id = "ConfUserPassword", @class = "form-control", @title = "Conf. Password is required.", @onblur = "User.prototype.confPasswordBlur();", @required = "required", @autocomplete = "off" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="StateDropDown" class="col-form-label">State:</label>
+									@Html.DropDownList("StateDropDown", new List<SelectListItem>
+									{
+										new SelectListItem{ Text= "Telangana", Value = "1" },
+									}, new { placeholder = "State", @class = "form-control" })
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="LocationDropDown" class="col-form-labelc"><em style="color:red"> *</em>&nbsp;Location:</label>
+									@Html.DropDownList("LocationDropDown", new List<SelectListItem>
+									{
+										 new SelectListItem{ Text = "Select Location", Value = "0" },
+										 new SelectListItem{ Text = "Hitech City", Value = "1" },
+										 new SelectListItem{ Text = "Kondapur ", Value = "2" },
+									}, new { placeholder = "Location", @class = "form-control" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="BedCount" class="col-form-label"><em style="color:red"> *</em>&nbsp;Bed Count: </label>
+									@Html.TextBoxFor(m => m.BedCount, new { placeholder = "Bed Count", @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter BedCount", @maxlength = "50", @id = "txtBedCount" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<div class="i-checks"><label> <input type="checkbox" value=""> <i></i>   I have read and agree to the <a href="#">Terms and Conditions </a></label></div>
+									<br />
+									<input class="btn btn-sm btn-primary pull-Center m-t-n-xs" type="submit">
+								</div>
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-

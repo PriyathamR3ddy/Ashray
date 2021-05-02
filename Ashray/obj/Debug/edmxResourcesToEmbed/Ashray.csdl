@@ -45,6 +45,7 @@
     <Property Name="DateTime" Type="DateTime" Precision="3" />
     <Property Name="CentreId" Type="Int32" />
     <NavigationProperty Name="CentreRegistration" Relationship="Self.FK__PatientIn__Centr__30F848ED" FromRole="PatientInfo" ToRole="CentreRegistration" />
+    <NavigationProperty Name="PatientHistories" Relationship="AshrayModel.FK__PatientHi__Patie__412EB0B6" FromRole="PatientInfo" ToRole="PatientHistory" />
   </EntityType>
   <EntityType Name="RoleDetail">
     <Key>
@@ -170,6 +171,7 @@
       <Parameter Name="BedCount" Mode="In" Type="Int32" />
       <Parameter Name="LocationId" Mode="In" Type="Int32" />
       <Parameter Name="StateId" Mode="In" Type="Int32" />
+      <Parameter Name="Password" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="USPInsertUpdatePatientInfo">
       <Parameter Name="PatientName" Mode="In" Type="String" />
@@ -182,8 +184,60 @@
       <Parameter Name="EmergencyContactNumber1" Mode="In" Type="String" />
       <Parameter Name="EmergencyContactName2" Mode="In" Type="String" />
       <Parameter Name="EmergencyContactNumber2" Mode="In" Type="String" />
-      <Parameter Name="DateTime" Mode="In" Type="DateTime" />
       <Parameter Name="CentreId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="PatientHistories" EntityType="AshrayModel.PatientHistory" />
+    <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="AshrayModel.FK__PatientHi__Patie__412EB0B6">
+      <End Role="PatientInfo" EntitySet="PatientInfoes" />
+      <End Role="PatientHistory" EntitySet="PatientHistories" />
+    </AssociationSet>
+    <FunctionImport Name="USPBedAvailabilityDashboardInfo" ReturnType="Collection(AshrayModel.USPBedAvailabilityDashboardInfo_Result)" />
+    <FunctionImport Name="USPInsertPatientHistory">
+      <Parameter Name="PatientId" Mode="In" Type="Int32" />
+      <Parameter Name="CheckinDateTime" Mode="In" Type="DateTime" />
+      <Parameter Name="CheckoutDatetime" Mode="In" Type="DateTime" />
+      <Parameter Name="DischargeInfo" Mode="In" Type="String" />
+      <Parameter Name="PatientDocumentPath" Mode="In" Type="String" />
+      <Parameter Name="RoomNumber" Mode="In" Type="String" />
+      <Parameter Name="BedNumber" Mode="In" Type="String" />
+      <Parameter Name="BP" Mode="In" Type="String" />
+      <Parameter Name="SPO2" Mode="In" Type="String" />
+      <Parameter Name="Temperature" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <EntityType Name="PatientHistory">
+    <Key>
+      <PropertyRef Name="HistoryId" />
+    </Key>
+    <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientId" Type="Int32" />
+    <Property Name="CheckinDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CheckoutDatetime" Type="DateTime" Precision="3" />
+    <Property Name="DischargeInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SPO2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Temperature" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PatientDocumentPath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RoomNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BedNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PatientInfo" Relationship="AshrayModel.FK__PatientHi__Patie__412EB0B6" FromRole="PatientHistory" ToRole="PatientInfo" />
+  </EntityType>
+  <Association Name="FK__PatientHi__Patie__412EB0B6">
+    <End Type="AshrayModel.PatientInfo" Role="PatientInfo" Multiplicity="0..1" />
+    <End Type="AshrayModel.PatientHistory" Role="PatientHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientInfo">
+        <PropertyRef Name="PatientId" />
+      </Principal>
+      <Dependent Role="PatientHistory">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="USPBedAvailabilityDashboardInfo_Result">
+    <Property Type="Int32" Name="CentreId" Nullable="false" />
+    <Property Type="String" Name="CentreName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="BedCount" Nullable="true" />
+    <Property Type="Int32" Name="occupiedbeds" Nullable="true" />
+  </ComplexType>
 </Schema>

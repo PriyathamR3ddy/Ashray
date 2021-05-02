@@ -74,5 +74,33 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="USPInsertUpdateCentreRegistration" FunctionName="AshrayModel.Store.USPInsertUpdateCentreRegistration" />
     <FunctionImportMapping FunctionImportName="USPInsertUpdatePatientInfo" FunctionName="AshrayModel.Store.USPInsertUpdatePatientInfo" />
+    <EntitySetMapping Name="PatientHistories">
+      <EntityTypeMapping TypeName="AshrayModel.PatientHistory">
+        <MappingFragment StoreEntitySet="PatientHistory">
+          <ScalarProperty Name="BedNumber" ColumnName="BedNumber" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="PatientDocumentPath" ColumnName="PatientDocumentPath" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="SPO2" ColumnName="SPO2" />
+          <ScalarProperty Name="BP" ColumnName="BP" />
+          <ScalarProperty Name="DischargeInfo" ColumnName="DischargeInfo" />
+          <ScalarProperty Name="CheckoutDatetime" ColumnName="CheckoutDatetime" />
+          <ScalarProperty Name="CheckinDateTime" ColumnName="CheckinDateTime" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USPBedAvailabilityDashboardInfo" FunctionName="AshrayModel.Store.USPBedAvailabilityDashboardInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AshrayModel.USPBedAvailabilityDashboardInfo_Result">
+          <ScalarProperty Name="CentreId" ColumnName="CentreId" />
+          <ScalarProperty Name="CentreName" ColumnName="CentreName" />
+          <ScalarProperty Name="BedCount" ColumnName="BedCount" />
+          <ScalarProperty Name="occupiedbeds" ColumnName="occupiedbeds" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USPInsertPatientHistory" FunctionName="AshrayModel.Store.USPInsertPatientHistory" />
   </EntityContainerMapping>
 </Mapping>

@@ -99,5 +99,12 @@ namespace Ashray.Controllers
             var res = Registation.InsertPatientInfo(patientInfo);
             return View();
         }
+
+        [HttpPost]
+        public ActionResult ViewPatient(PatientHistory ph)
+        {
+            var res = Registation.InsertPatientHistory(ph);
+            return View();
+        }
     }
 }

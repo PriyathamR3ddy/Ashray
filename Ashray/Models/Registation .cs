@@ -233,6 +233,124 @@ namespace Ashray.Models
             }
             return Id;
         }
+
+        public static Dashboard GetDashboard()
+        {
+            Dashboard dashboard;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    dashboard  =  db.Database.SqlQuery<Dashboard>("[dbo].[USPBedAvailabilityDashboardInfo]", pram.ToArray()).ToList()[0];                    
+                }
+            }
+            catch (Exception exs)
+            {
+                dashboard = null;
+            }
+            return dashboard;
+        }
+
+        public static int InsertPatientHistory(PatientHistory patientHistory)
+        {
+            int Id = 0;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@PatientId",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.PatientId
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@CheckinDateTime",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.CheckinDateTime
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@CheckoutDatetime",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.CheckoutDatetime
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@DischargeInfo",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.DischargeInfo
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@BP",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.BP
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@SPO2",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.SPO2
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@Temperature",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.Temperature
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@PatientDocumentPath",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.PatientDocumentPath
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@RoomNumber",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.RoomNumber
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@BedNumber",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.BedNumber
+                    });
+                    db.Database.ExecuteSqlCommand("[dbo].[USPInsertUpdatePatientInfo]  @PatientId,@CheckinDateTime,@CheckoutDatetime,@DischargeInfo,@BP,@SPO2,@Temperature,@PatientDocumentPath,@RoomNumber,@BedNumber", pram.ToArray());
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception exs)
+            {
+                Id = 0;
+
+            }
+            return Id;
+        }
     }
 
 }
