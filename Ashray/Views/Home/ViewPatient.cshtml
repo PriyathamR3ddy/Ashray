@@ -143,8 +143,8 @@
                             </label>
                         </div>
                         <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PatientDocumentPath, "", new { type = "file", @style = "position:relative", @class = "form-control", @id = "txtPrejoining" })
-                        </div>
+                            <input type="file" class = "form-control" name="files" id="filePrejoining" />
+                            </div>
                     </div>
                         <div class="col-md-6">
                         </div>
@@ -157,7 +157,7 @@
                             </label>
                         </div>
                         <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PatientDocumentPath, "", new { type = "file", @style = "position:relative", @class = "form-control", @id = "txtPostjoining" })
+                            <input type="file" class="form-control" name="files" id="filePostjoining" />
                         </div>
                     </div>
                         <div class="col-md-6">
@@ -171,7 +171,7 @@
                             </label>
                         </div>
                         <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PatientDocumentPath, "", new { type = "file", @style = "position:relative", @class = "form-control", @id = "txtDischarge" })
+                            <input type="file" class="form-control" name="files" id="fileDisCharge" />
                         </div>
                     </div>
                         <div class="col-md-6">
