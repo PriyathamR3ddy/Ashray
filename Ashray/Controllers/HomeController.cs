@@ -18,8 +18,16 @@ namespace Ashray.Controllers
         {
             using (var db = new AshrayEntities())
             {
-                ViewBag.states = db.StateDetails.ToList();
-                ViewBag.location = db.LocationDetails.ToList();
+                ViewBag.states = db.StateDetails.ToList().Select(state => new SelectListItem
+                {
+                    Text = state.StateName,
+                    Value = state.StateId.ToString()
+                });
+                ViewBag.location = db.LocationDetails.ToList().Select(loc => new SelectListItem
+                {
+                    Text = loc.LocationName,
+                    Value = loc.LocationId.ToString()
+                });
             }
             return View();
         }
@@ -81,6 +89,7 @@ namespace Ashray.Controllers
         [HttpPost]
         public ActionResult Registration(Registation registation)
         {
+            var res = Registation.InsertRegistration(registation);
             return View();
         }
     }
