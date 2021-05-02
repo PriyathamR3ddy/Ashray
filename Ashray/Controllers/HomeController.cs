@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Ashray.Models;
 
 namespace Ashray.Controllers
 {
@@ -15,6 +16,11 @@ namespace Ashray.Controllers
 
         public ActionResult Registration()
         {
+            using (var db = new AshrayEntities())
+            {
+                ViewBag.states = db.StateDetails.ToList();
+                ViewBag.location = db.LocationDetails.ToList();
+            }
             return View();
         }
 
@@ -64,6 +70,12 @@ namespace Ashray.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Registration(Registation registation)
+        {
             return View();
         }
     }

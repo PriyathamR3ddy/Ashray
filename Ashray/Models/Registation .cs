@@ -1,13 +1,19 @@
 ﻿using Newtonsoft.Json;
+using Ashray.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Ashray.Models
 {
     public class Registation
     {
+        public CentreRegistration cr { get; set; }
+        public UserDetail ur { get; set; }
+
         [JsonProperty(PropertyName = "controlCentreName")]
         public string ControlCentreName { get; set; }
 
@@ -37,5 +43,30 @@ namespace Ashray.Models
 
         [JsonProperty(PropertyName = "bedCount")]
         public int BedCount { get; set; }
+
+        public static int InsertRegistration(Registation egistration)
+        {
+            int Id = 0;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    //pram.Add(db.co("@PaymentId", SqlDbType.Int, 0, PaymentId));
+                    //Id = db.RunProc("InsertRegistation", pram.ToArray());
+                }
+            }
+            catch (Exception ex)
+            {
+                Id = 0;
+
+            }
+
+
+
+            return Id;
+        }
+
     }
+
 }
