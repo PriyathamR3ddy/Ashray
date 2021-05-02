@@ -35,110 +35,105 @@
 					</div>
 					@using (Html.BeginForm("PatientRegistration", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 					{
-				<div class="ibox-content">
+						<div class="ibox-content">
+							<br />
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="controlCenterName" class="col-form-label col-md-3">Control Center Name:</label>
+									@Html.DropDownList("centerId", new List<SelectListItem>
+								{
+									  new SelectListItem{ Text="Select Center", Value = "0" },
+									 new SelectListItem{ Text="Hitech City", Value = "1" },
+									 new SelectListItem{ Text="Kondapur ", Value = "2" },
+								}, new { @class = "form-control col-md-4 controlWidth" })
 
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="controlCenterName" class="col-form-label">Control Center Name:</label>
-							@Html.DropDownList("centerId", new List<SelectListItem>
-						{
-							  new SelectListItem{ Text="Select Center", Value = "0" },
-							 new SelectListItem{ Text="Hitech City", Value = "1" },
-							 new SelectListItem{ Text="Kondapur ", Value = "2" },
-						})
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="dateTime" class="col-form-label col-md-3">Date Time:</label>
+									@Html.TextBoxFor(m => m.DateTime, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "txtCheckInTime" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="patientName" class="col-form-label col-md-3">Patient Name:</label>
+									@Html.TextBoxFor(m => m.PatientName, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "txtPatientName" })
+								</div>
 
-						</div>
-						<div class="col-md-6 form-group">
-							<label for="dateTime" class="col-form-label">Date Time:</label>
-							@Html.TextBoxFor(m => m.DateTime, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "txtCheckInTime" })
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="patientName" class="col-form-label">Patient Name:</label>
-							@Html.TextBoxFor(m => m.PatientName, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "txtPatientName" })
-						</div>
-						<div class="col-md-6 form-group">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="rtpcrTestNum" class="col-form-label">RTPCR Test Number:</label>
-							@Html.TextBoxFor(m => m.RTPCRTestNumber, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter RTPCRTestNumber", @maxlength = "50", @id = "txtRTPCRTestNumber" })
+								<div class="col-md-6 form-group">
+									<label for="result" class="col-form-label col-md-3">Result:</label>
+									@Html.TextBoxFor(m => m.TestResult, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter TestResult ", @maxlength = "50", @id = "txtTestResult" })
 
-						</div>
-						<div class="col-md-6 form-group">
-							<label for="result" class="col-form-label">Result:</label>
-							@Html.TextBoxFor(m => m.TestResult, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter TestResult ", @maxlength = "50", @id = "txtTestResult" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="rtpcrTestNum" class="col-form-label col-md-3">RTPCR Test Number:</label>
+									@Html.TextBoxFor(m => m.RTPCRTestNumber, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter RTPCRTestNumber", @maxlength = "50", @id = "txtRTPCRTestNumber" })
 
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="governmantId" class="col-form-label">Governmant ID:</label>
-							@Html.TextBoxFor(m => m.GovtIdNumber, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter GovtIdNumber", @maxlength = "50", @id = "txtGovtIdNumber" })
-						</div>
-						<div class="col-md-6 form-group">
-							<label for="address" class="col-form-label">Address:</label>
-							@Html.TextBoxFor(m => m.PatientAddress, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter Patient Address", @maxlength = "50", @id = "txtPatientAddress" })
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="gender" class="col-form-label">Gender:</label>
-							@Html.TextBoxFor(m => m.Gender, new { @class = "form-control",@style = "position:relative", @required = "required", @title = "Please enter Gender", @maxlength = "50", @id = "txtGender" })
-						</div>
-						<div class="col-md-6 form-group">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="attenderName" class="col-form-label">Attender Name1:</label>
-							@Html.TextBoxFor(m => m.EmergencyContactName1, new { @class = "form-control",@style = " position:relative", @required = "required", @title = "Please enter Emergency Contact Name1", @maxlength = "50", @id = "txtEmergencyContactName1" })
-							
-						</div>
-						<div class="col-md-6 form-group">
-							<label for="contactNumber" class="col-form-label">Contact Number1:</label>
-							@Html.TextBoxFor(m => m.EmergencyContactNumber1, new { @class="form-control", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Number1", @maxlength = "50", @id = "txtEmergencyContactNumber1" })
-							
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="attenderName" class="col-form-label">Attender Name2:</label>
-							@Html.TextBoxFor(m => m.EmergencyContactName2, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Name2", @maxlength = "50", @id = "txtEmergencyContactName2" })
-							
-						</div>
-						<div class="col-md-6 form-group">
-							<label for="contactNumber" class="col-form-label">Contact Number1:</label>
-							@Html.TextBoxFor(m => m.EmergencyContactNumber2, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Number2", @maxlength = "50", @id = "txtEmergencyContactNumber2" })
-							
-						</div>
-					</div>
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="gender" class="col-form-label col-md-3">Gender:</label>
+									@Html.TextBoxFor(m => m.Gender, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter Gender", @maxlength = "50", @id = "txtGender" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="governmantId" class="col-form-label col-md-3">Governmant ID:</label>
+									@Html.TextBoxFor(m => m.GovtIdNumber, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter GovtIdNumber", @maxlength = "50", @id = "txtGovtIdNumber" })
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="address" class="col-form-labelc col-md-3">Address:</label>
+									@Html.TextBoxFor(m => m.PatientAddress, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter Patient Address", @maxlength = "50", @id = "txtPatientAddress" })
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="attenderName" class="col-form-label col-md-3">Attender Name1:</label>
+									@Html.TextBoxFor(m => m.EmergencyContactName1, new { @class = "form-control controlWidth", @style = " position:relative", @required = "required", @title = "Please enter Emergency Contact Name1", @maxlength = "50", @id = "txtEmergencyContactName1" })
 
-					@*<div class="row">
-			<div class="col-md-6 form-group">
-				<label for="refferedTo" class="col-form-label">Reffered To:</label>
-				@Html.TextBoxFor(m => m.CentreRegistration.CentreName, new { @style = "position:relative", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
-				<input type="text" class="form-control" id="refferedTo">
-			</div>
-			<div class="col-md-6 form-group">
-				<label for="bedsAvailable" class="col-form-label">Beds Available:</label>
-				@Html.TextBoxFor(m => m.CentreRegistration.CentreName, new { @style = "position:relative", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
-				<input type="text" class="form-control" id="bedsAvailable">
-			</div>
-		</div>
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="contactNumber" class="col-form-label col-md-3">Contact Number1:</label>
+									@Html.TextBoxFor(m => m.EmergencyContactNumber1, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Number1", @maxlength = "50", @id = "txtEmergencyContactNumber1" })
 
-				</div>*@
-					<div class="row">
-						<div class="col-lg-5"></div>
-						<div class="col-lg-12">
-							<input class="btn btn-sm btn-primary pull-Center m-t-n-xs" type="submit">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label for="attenderName" class="col-form-label col-md-3">Attender Name2:</label>
+									@Html.TextBoxFor(m => m.EmergencyContactName2, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Name2", @maxlength = "50", @id = "txtEmergencyContactName2" })
+
+								</div>
+								<div class="col-md-6 form-group">
+									<label for="contactNumber" class="col-form-label col-md-3">Contact Number1:</label>
+									@Html.TextBoxFor(m => m.EmergencyContactNumber2, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter Emergency Contact Number2", @maxlength = "50", @id = "txtEmergencyContactNumber2" })
+
+								</div>
+							</div>
+
+							@*<div class="row">
+									<div class="col-md-6 form-group">
+										<label for="refferedTo" class="col-form-label">Reffered To:</label>
+										@Html.TextBoxFor(m => m.CentreRegistration.CentreName, new { @style = "position:relative", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
+										<input type="text" class="form-control" id="refferedTo">
+									</div>
+									<div class="col-md-6 form-group">
+										<label for="bedsAvailable" class="col-form-label">Beds Available:</label>
+										@Html.TextBoxFor(m => m.CentreRegistration.CentreName, new { @style = "position:relative", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
+										<input type="text" class="form-control" id="bedsAvailable">
+									</div>
+								</div>
+
+										</div>*@
+							<div class="row">
+								<div class="col-lg-5"></div>
+								<div class="col-lg-12">
+									<input class="btn btn-sm btn-primary pull-Center m-t-n-xs" type="submit">
+								</div>
+							</div>
 						</div>
-					</div>
+					}
 				</div>
-					}						
 			</div>
 		</div>
 	</div>
-</div>

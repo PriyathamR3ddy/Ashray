@@ -153,8 +153,12 @@
     <Compile Include="LocationDetail.cs">
       <DependentUpon>Ashray.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dashboard.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Registation .cs" />
+    <Compile Include="PatientHistory.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
     <Compile Include="PatientInfo.cs">
       <DependentUpon>Ashray.tt</DependentUpon>
     </Compile>
@@ -166,6 +170,9 @@
       <DependentUpon>Ashray.tt</DependentUpon>
     </Compile>
     <Compile Include="UserDetail.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USPBedAvailabilityDashboardInfo_Result.cs">
       <DependentUpon>Ashray.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -16,6 +16,8 @@
         <AssociationConnector Association="AshrayModel.FK__PatientIn__Centr__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="AshrayModel.FK__LocationD__State__2A4B4B5E" ManuallyRouted="false" />
         <AssociationConnector Association="AshrayModel.FK__UserDetai__RoleI__25869641" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AshrayModel.PatientHistory" Width="1.5" PointX="8.875" PointY="5" />
+        <AssociationConnector Association="AshrayModel.FK__PatientHi__Patie__412EB0B6" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

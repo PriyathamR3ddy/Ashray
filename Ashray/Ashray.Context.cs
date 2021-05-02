@@ -33,8 +33,9 @@ namespace Ashray
         public virtual DbSet<RoleDetail> RoleDetails { get; set; }
         public virtual DbSet<StateDetail> StateDetails { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
+        public virtual DbSet<PatientHistory> PatientHistories { get; set; }
     
-        public virtual int USPInsertUpdateCentreRegistration(string centreName, string contactPerson, string mobileNumber, string email, Nullable<int> bedCount, Nullable<int> locationId, Nullable<int> stateId)
+        public virtual int USPInsertUpdateCentreRegistration(string centreName, string contactPerson, string mobileNumber, string email, Nullable<int> bedCount, Nullable<int> locationId, Nullable<int> stateId, string password)
         {
             var centreNameParameter = centreName != null ?
                 new ObjectParameter("CentreName", centreName) :
@@ -64,10 +65,14 @@ namespace Ashray
                 new ObjectParameter("StateId", stateId) :
                 new ObjectParameter("StateId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertUpdateCentreRegistration", centreNameParameter, contactPersonParameter, mobileNumberParameter, emailParameter, bedCountParameter, locationIdParameter, stateIdParameter);
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertUpdateCentreRegistration", centreNameParameter, contactPersonParameter, mobileNumberParameter, emailParameter, bedCountParameter, locationIdParameter, stateIdParameter, passwordParameter);
         }
     
-        public virtual int USPInsertUpdatePatientInfo(string patientName, string rTPCRTestNumber, string testResult, string govtIdNumber, string patientAddress, string gender, string emergencyContactName1, string emergencyContactNumber1, string emergencyContactName2, string emergencyContactNumber2, Nullable<System.DateTime> dateTime, Nullable<int> centreId)
+        public virtual int USPInsertUpdatePatientInfo(string patientName, string rTPCRTestNumber, string testResult, string govtIdNumber, string patientAddress, string gender, string emergencyContactName1, string emergencyContactNumber1, string emergencyContactName2, string emergencyContactNumber2, Nullable<int> centreId)
         {
             var patientNameParameter = patientName != null ?
                 new ObjectParameter("PatientName", patientName) :
@@ -109,15 +114,61 @@ namespace Ashray
                 new ObjectParameter("EmergencyContactNumber2", emergencyContactNumber2) :
                 new ObjectParameter("EmergencyContactNumber2", typeof(string));
     
-            var dateTimeParameter = dateTime.HasValue ?
-                new ObjectParameter("DateTime", dateTime) :
-                new ObjectParameter("DateTime", typeof(System.DateTime));
-    
             var centreIdParameter = centreId.HasValue ?
                 new ObjectParameter("CentreId", centreId) :
                 new ObjectParameter("CentreId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertUpdatePatientInfo", patientNameParameter, rTPCRTestNumberParameter, testResultParameter, govtIdNumberParameter, patientAddressParameter, genderParameter, emergencyContactName1Parameter, emergencyContactNumber1Parameter, emergencyContactName2Parameter, emergencyContactNumber2Parameter, dateTimeParameter, centreIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertUpdatePatientInfo", patientNameParameter, rTPCRTestNumberParameter, testResultParameter, govtIdNumberParameter, patientAddressParameter, genderParameter, emergencyContactName1Parameter, emergencyContactNumber1Parameter, emergencyContactName2Parameter, emergencyContactNumber2Parameter, centreIdParameter);
+        }
+    
+        public virtual ObjectResult<USPBedAvailabilityDashboardInfo_Result> USPBedAvailabilityDashboardInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USPBedAvailabilityDashboardInfo_Result>("USPBedAvailabilityDashboardInfo");
+        }
+    
+        public virtual int USPInsertPatientHistory(Nullable<int> patientId, Nullable<System.DateTime> checkinDateTime, Nullable<System.DateTime> checkoutDatetime, string dischargeInfo, string patientDocumentPath, string roomNumber, string bedNumber, string bP, string sPO2, string temperature)
+        {
+            var patientIdParameter = patientId.HasValue ?
+                new ObjectParameter("PatientId", patientId) :
+                new ObjectParameter("PatientId", typeof(int));
+    
+            var checkinDateTimeParameter = checkinDateTime.HasValue ?
+                new ObjectParameter("CheckinDateTime", checkinDateTime) :
+                new ObjectParameter("CheckinDateTime", typeof(System.DateTime));
+    
+            var checkoutDatetimeParameter = checkoutDatetime.HasValue ?
+                new ObjectParameter("CheckoutDatetime", checkoutDatetime) :
+                new ObjectParameter("CheckoutDatetime", typeof(System.DateTime));
+    
+            var dischargeInfoParameter = dischargeInfo != null ?
+                new ObjectParameter("DischargeInfo", dischargeInfo) :
+                new ObjectParameter("DischargeInfo", typeof(string));
+    
+            var patientDocumentPathParameter = patientDocumentPath != null ?
+                new ObjectParameter("PatientDocumentPath", patientDocumentPath) :
+                new ObjectParameter("PatientDocumentPath", typeof(string));
+    
+            var roomNumberParameter = roomNumber != null ?
+                new ObjectParameter("RoomNumber", roomNumber) :
+                new ObjectParameter("RoomNumber", typeof(string));
+    
+            var bedNumberParameter = bedNumber != null ?
+                new ObjectParameter("BedNumber", bedNumber) :
+                new ObjectParameter("BedNumber", typeof(string));
+    
+            var bPParameter = bP != null ?
+                new ObjectParameter("BP", bP) :
+                new ObjectParameter("BP", typeof(string));
+    
+            var sPO2Parameter = sPO2 != null ?
+                new ObjectParameter("SPO2", sPO2) :
+                new ObjectParameter("SPO2", typeof(string));
+    
+            var temperatureParameter = temperature != null ?
+                new ObjectParameter("Temperature", temperature) :
+                new ObjectParameter("Temperature", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertPatientHistory", patientIdParameter, checkinDateTimeParameter, checkoutDatetimeParameter, dischargeInfoParameter, patientDocumentPathParameter, roomNumberParameter, bedNumberParameter, bPParameter, sPO2Parameter, temperatureParameter);
         }
     }
 }

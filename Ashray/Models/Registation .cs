@@ -233,6 +233,24 @@ namespace Ashray.Models
             }
             return Id;
         }
+
+        public static Dashboard GetDashboard()
+        {
+            Dashboard dashboard;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    dashboard  =  db.Database.SqlQuery<Dashboard>("[dbo].[USPBedAvailabilityDashboardInfo]", pram.ToArray()).ToList()[0];                    
+                }
+            }
+            catch (Exception exs)
+            {
+                dashboard = null;
+            }
+            return dashboard;
+        }
     }
 
 }

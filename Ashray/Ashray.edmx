@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AshrayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AshrayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CentreRegistration">
           <Key>
             <PropertyRef Name="CentreId" />
@@ -26,6 +26,22 @@
           <Property Name="LocationName" Type="varchar" MaxLength="50" />
           <Property Name="LocationPinCode" Type="varchar" MaxLength="6" />
           <Property Name="StateId" Type="int" />
+        </EntityType>
+        <EntityType Name="PatientHistory">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="CheckinDateTime" Type="datetime" />
+          <Property Name="CheckoutDatetime" Type="datetime" />
+          <Property Name="DischargeInfo" Type="varchar(max)" />
+          <Property Name="BP" Type="varchar" MaxLength="10" />
+          <Property Name="SPO2" Type="varchar" MaxLength="10" />
+          <Property Name="Temperature" Type="varchar" MaxLength="10" />
+          <Property Name="PatientDocumentPath" Type="varchar" MaxLength="200" />
+          <Property Name="RoomNumber" Type="varchar" MaxLength="20" />
+          <Property Name="BedNumber" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="PatientInfo">
           <Key>
@@ -106,6 +122,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__PatientHi__Patie__412EB0B6">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
+          <End Role="PatientHistory" Type="Self.PatientHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="PatientHistory">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__PatientIn__Centr__30F848ED">
           <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="0..1" />
           <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="*" />
@@ -130,6 +158,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="USPBedAvailabilityDashboardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USPInsertPatientHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PatientId" Type="int" Mode="In" />
+          <Parameter Name="CheckinDateTime" Type="datetime" Mode="In" />
+          <Parameter Name="CheckoutDatetime" Type="datetime" Mode="In" />
+          <Parameter Name="DischargeInfo" Type="varchar(max)" Mode="In" />
+          <Parameter Name="PatientDocumentPath" Type="varchar" Mode="In" />
+          <Parameter Name="RoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="BedNumber" Type="varchar" Mode="In" />
+          <Parameter Name="BP" Type="varchar" Mode="In" />
+          <Parameter Name="SPO2" Type="varchar" Mode="In" />
+          <Parameter Name="Temperature" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="USPInsertUpdateCentreRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CentreName" Type="varchar" Mode="In" />
           <Parameter Name="ContactPerson" Type="varchar" Mode="In" />
@@ -138,6 +179,7 @@
           <Parameter Name="BedCount" Type="int" Mode="In" />
           <Parameter Name="LocationId" Type="int" Mode="In" />
           <Parameter Name="StateId" Type="int" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
         </Function>
         <Function Name="USPInsertUpdatePatientInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PatientName" Type="varchar" Mode="In" />
@@ -150,12 +192,12 @@
           <Parameter Name="EmergencyContactNumber1" Type="varchar" Mode="In" />
           <Parameter Name="EmergencyContactName2" Type="varchar" Mode="In" />
           <Parameter Name="EmergencyContactNumber2" Type="varchar" Mode="In" />
-          <Parameter Name="DateTime" Type="datetime" Mode="In" />
           <Parameter Name="CentreId" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="AshrayModelStoreContainer">
           <EntitySet Name="CentreRegistration" EntityType="Self.CentreRegistration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LocationDetails" EntityType="Self.LocationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientHistory" EntityType="Self.PatientHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PatientInfo" EntityType="Self.PatientInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleDetails" EntityType="Self.RoleDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StateDetails" EntityType="Self.StateDetails" Schema="dbo" store:Type="Tables" />
@@ -172,6 +214,10 @@
             <End Role="StateDetails" EntitySet="StateDetails" />
             <End Role="LocationDetails" EntitySet="LocationDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="Self.FK__PatientHi__Patie__412EB0B6">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="PatientHistory" EntitySet="PatientHistory" />
+          </AssociationSet>
           <AssociationSet Name="FK__PatientIn__Centr__30F848ED" Association="Self.FK__PatientIn__Centr__30F848ED">
             <End Role="CentreRegistration" EntitySet="CentreRegistration" />
             <End Role="PatientInfo" EntitySet="PatientInfo" />
@@ -181,8 +227,7 @@
             <End Role="UserDetails" EntitySet="UserDetails" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AshrayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -231,6 +276,7 @@
           <Property Name="DateTime" Type="DateTime" Precision="3" />
           <Property Name="CentreId" Type="Int32" />
           <NavigationProperty Name="CentreRegistration" Relationship="Self.FK__PatientIn__Centr__30F848ED" FromRole="PatientInfo" ToRole="CentreRegistration" />
+          <NavigationProperty Name="PatientHistories" Relationship="AshrayModel.FK__PatientHi__Patie__412EB0B6" FromRole="PatientInfo" ToRole="PatientHistory" />
         </EntityType>
         <EntityType Name="RoleDetail">
           <Key>
@@ -356,6 +402,7 @@
             <Parameter Name="BedCount" Mode="In" Type="Int32" />
             <Parameter Name="LocationId" Mode="In" Type="Int32" />
             <Parameter Name="StateId" Mode="In" Type="Int32" />
+            <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="USPInsertUpdatePatientInfo">
             <Parameter Name="PatientName" Mode="In" Type="String" />
@@ -368,10 +415,62 @@
             <Parameter Name="EmergencyContactNumber1" Mode="In" Type="String" />
             <Parameter Name="EmergencyContactName2" Mode="In" Type="String" />
             <Parameter Name="EmergencyContactNumber2" Mode="In" Type="String" />
-            <Parameter Name="DateTime" Mode="In" Type="DateTime" />
             <Parameter Name="CentreId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="PatientHistories" EntityType="AshrayModel.PatientHistory" />
+          <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="AshrayModel.FK__PatientHi__Patie__412EB0B6">
+            <End Role="PatientInfo" EntitySet="PatientInfoes" />
+            <End Role="PatientHistory" EntitySet="PatientHistories" />
+          </AssociationSet>
+          <FunctionImport Name="USPBedAvailabilityDashboardInfo" ReturnType="Collection(AshrayModel.USPBedAvailabilityDashboardInfo_Result)" />
+          <FunctionImport Name="USPInsertPatientHistory">
+            <Parameter Name="PatientId" Mode="In" Type="Int32" />
+            <Parameter Name="CheckinDateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="CheckoutDatetime" Mode="In" Type="DateTime" />
+            <Parameter Name="DischargeInfo" Mode="In" Type="String" />
+            <Parameter Name="PatientDocumentPath" Mode="In" Type="String" />
+            <Parameter Name="RoomNumber" Mode="In" Type="String" />
+            <Parameter Name="BedNumber" Mode="In" Type="String" />
+            <Parameter Name="BP" Mode="In" Type="String" />
+            <Parameter Name="SPO2" Mode="In" Type="String" />
+            <Parameter Name="Temperature" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <EntityType Name="PatientHistory">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="CheckinDateTime" Type="DateTime" Precision="3" />
+          <Property Name="CheckoutDatetime" Type="DateTime" Precision="3" />
+          <Property Name="DischargeInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SPO2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Temperature" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PatientDocumentPath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RoomNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BedNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PatientInfo" Relationship="AshrayModel.FK__PatientHi__Patie__412EB0B6" FromRole="PatientHistory" ToRole="PatientInfo" />
+        </EntityType>
+        <Association Name="FK__PatientHi__Patie__412EB0B6">
+          <End Type="AshrayModel.PatientInfo" Role="PatientInfo" Multiplicity="0..1" />
+          <End Type="AshrayModel.PatientHistory" Role="PatientHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="PatientHistory">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="USPBedAvailabilityDashboardInfo_Result">
+          <Property Type="Int32" Name="CentreId" Nullable="false" />
+          <Property Type="String" Name="CentreName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="BedCount" Nullable="true" />
+          <Property Type="Int32" Name="occupiedbeds" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -451,6 +550,34 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="USPInsertUpdateCentreRegistration" FunctionName="AshrayModel.Store.USPInsertUpdateCentreRegistration" />
           <FunctionImportMapping FunctionImportName="USPInsertUpdatePatientInfo" FunctionName="AshrayModel.Store.USPInsertUpdatePatientInfo" />
+          <EntitySetMapping Name="PatientHistories">
+            <EntityTypeMapping TypeName="AshrayModel.PatientHistory">
+              <MappingFragment StoreEntitySet="PatientHistory">
+                <ScalarProperty Name="BedNumber" ColumnName="BedNumber" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="PatientDocumentPath" ColumnName="PatientDocumentPath" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="SPO2" ColumnName="SPO2" />
+                <ScalarProperty Name="BP" ColumnName="BP" />
+                <ScalarProperty Name="DischargeInfo" ColumnName="DischargeInfo" />
+                <ScalarProperty Name="CheckoutDatetime" ColumnName="CheckoutDatetime" />
+                <ScalarProperty Name="CheckinDateTime" ColumnName="CheckinDateTime" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USPBedAvailabilityDashboardInfo" FunctionName="AshrayModel.Store.USPBedAvailabilityDashboardInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AshrayModel.USPBedAvailabilityDashboardInfo_Result">
+                <ScalarProperty Name="CentreId" ColumnName="CentreId" />
+                <ScalarProperty Name="CentreName" ColumnName="CentreName" />
+                <ScalarProperty Name="BedCount" ColumnName="BedCount" />
+                <ScalarProperty Name="occupiedbeds" ColumnName="occupiedbeds" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USPInsertPatientHistory" FunctionName="AshrayModel.Store.USPInsertPatientHistory" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

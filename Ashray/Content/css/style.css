@@ -8091,6 +8091,10 @@ body.md-skin {
     display: none;
   }
 }
+.controlWidth {
+    width: 75%;
+}
+
 
 
 .blue_color{ background:#2BAAB1 !important; color:#fff;}
