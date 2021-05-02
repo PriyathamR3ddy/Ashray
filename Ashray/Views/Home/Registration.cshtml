@@ -39,7 +39,7 @@
 							<br />
 							<div class="row">
 								<div class="col-md-6 form-group">
-									<label for="controlCenterName" class="col-form-label"><em style="color:red"> *</em>&nbsp;Control Center Name:</label>
+									<label for="controlCenterName" class="col-form-label"><em style="color:red"> *</em>&nbsp;Facility Name:</label>
 									@Html.TextBoxFor(m => m.ControlCentreName, new { placeholder = "Facility Name", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter CentreName", @maxlength = "50", @id = "txtCentreName" })
 								</div>
 								<div class="col-md-6 form-group">
@@ -81,8 +81,8 @@
 									@Html.DropDownList("LocationDropDown", new List<SelectListItem>
 									{
 										 new SelectListItem{ Text = "Select Location", Value = "0" },
-										 new SelectListItem{ Text = "Kims", Value = "1" },
-										 new SelectListItem{ Text = "GITAM ", Value = "2" },
+										 new SelectListItem{ Text = "Kundapur", Value = "1" },
+										 new SelectListItem{ Text = "Gachibowli ", Value = "2" },
 									}, new { placeholder = "Location", @class = "form-control" })
 								</div>
 							</div>

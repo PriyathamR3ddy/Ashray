@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -109,8 +110,17 @@ namespace Ashray.Controllers
         }
 
         [HttpPost]
-        public ActionResult ViewPatient(PatientHistory ph)
+        public ActionResult ViewPatient(PatientHistory ph, IEnumerable<HttpPostedFileBase> files)
         {
+            foreach (var file in files)
+            {
+                if (file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
+                    file.SaveAs(path);
+                }
+            }
             var res = Registation.InsertPatientHistory(ph);
             return RedirectToAction("PostHospital");
         }
