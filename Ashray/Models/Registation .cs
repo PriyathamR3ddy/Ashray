@@ -257,16 +257,16 @@ namespace Ashray.Models
             int Id = 0;
             try
             {
+                patientHistory.PatientDocumentPath = string.IsNullOrEmpty(patientHistory.PatientDocumentPath) ? "" : patientHistory.PatientDocumentPath;
                 using (var db = new AshrayEntities())
                 {
                     List<SqlParameter> pram = new List<SqlParameter>();
                     pram.Add(new SqlParameter()
                     {
                         ParameterName = "@PatientId",
-                        SqlDbType = System.Data.SqlDbType.VarChar,
-                        Size = 50,
+                        SqlDbType = System.Data.SqlDbType.Int,                        
                         Direction = System.Data.ParameterDirection.Input,
-                        Value = patientHistory.PatientId
+                        Value = patientHistory.PatientInfo.PatientId
                     });
                     pram.Add(new SqlParameter()
                     {
@@ -288,9 +288,33 @@ namespace Ashray.Models
                     {
                         ParameterName = "@DischargeInfo",
                         SqlDbType = System.Data.SqlDbType.VarChar,
-                        Size = 50,
+                        Size = 250,
                         Direction = System.Data.ParameterDirection.Input,
                         Value = patientHistory.DischargeInfo
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@PatientDocumentPath",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 200,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.PatientDocumentPath
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@RoomNumber",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 20,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.RoomNumber
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@BedNumber",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 20,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientHistory.BedNumber
                     });
                     pram.Add(new SqlParameter()
                     {
@@ -316,31 +340,7 @@ namespace Ashray.Models
                         Direction = System.Data.ParameterDirection.Input,
                         Value = patientHistory.Temperature
                     });
-                    pram.Add(new SqlParameter()
-                    {
-                        ParameterName = "@PatientDocumentPath",
-                        SqlDbType = System.Data.SqlDbType.VarChar,
-                        Size = 50,
-                        Direction = System.Data.ParameterDirection.Input,
-                        Value = patientHistory.PatientDocumentPath
-                    });
-                    pram.Add(new SqlParameter()
-                    {
-                        ParameterName = "@RoomNumber",
-                        SqlDbType = System.Data.SqlDbType.VarChar,
-                        Size = 50,
-                        Direction = System.Data.ParameterDirection.Input,
-                        Value = patientHistory.RoomNumber
-                    });
-                    pram.Add(new SqlParameter()
-                    {
-                        ParameterName = "@BedNumber",
-                        SqlDbType = System.Data.SqlDbType.VarChar,
-                        Size = 50,
-                        Direction = System.Data.ParameterDirection.Input,
-                        Value = patientHistory.BedNumber
-                    });
-                    db.Database.ExecuteSqlCommand("[dbo].[USPInsertUpdatePatientInfo]  @PatientId,@CheckinDateTime,@CheckoutDatetime,@DischargeInfo,@BP,@SPO2,@Temperature,@PatientDocumentPath,@RoomNumber,@BedNumber", pram.ToArray());
+                    db.Database.ExecuteSqlCommand("[dbo].[USPInsertPatientHistory]  @PatientId,@CheckinDateTime,@CheckoutDatetime,@DischargeInfo,@PatientDocumentPath,@RoomNumber,@BedNumber,@BP,@SPO2,@Temperature", pram.ToArray());
                     db.SaveChanges();
                 }
             }
@@ -350,6 +350,24 @@ namespace Ashray.Models
 
             }
             return Id;
+        }
+
+        public static List<PostHospital> GetPosthospitalInfo()
+        {
+            List<PostHospital> postHospital;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    postHospital = db.Database.SqlQuery<PostHospital>("[dbo].[USPGetPostHospitalInfo]", pram.ToArray()).ToList();
+                }
+            }
+            catch (Exception exs)
+            {
+                postHospital = null;
+            }
+            return postHospital;
         }
     }
 

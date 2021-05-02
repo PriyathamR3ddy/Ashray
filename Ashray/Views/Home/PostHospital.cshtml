@@ -1,93 +1,93 @@
-﻿
+﻿@model IEnumerable<Ashray.Models.PostHospital>
+
 @{
-    ViewBag.Title = "PostHospital";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "PostHospital";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>PostHospital</h2>
+
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <h2>Post <span class="text-danger">a Load</span></h2>
+	<div class="col-lg-10">
+		<h2>Post <span class="text-danger">a Load</span></h2>
 
-        <ol class="breadcrumb">
-            <li>
-                <a href="index-2.html">Home</a>
-            </li>
+		<ol class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
 
-            <li class="active">
-                <strong>Post a Hospital</strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
+			<li class="active">
+				<strong>Post a Hospital</strong>
+			</li>
+		</ol>
+	</div>
+	<div class="col-lg-2">
 
-    </div>
+	</div>
 </div>
 <br>
-
 <div class="ibox-content">
-    <div class="row">
-        <div class="col-md-6 form-group">
-            <label for="gender" class="col-form-label">Facility Name:</label>
-            <select name="ddlFacilityName" id="ddlFacilityName" class="form-control">
-                <option selected="selected" value="Select">Select</option>
-                <option value="1">KIMS</option>
-                <option value="2">GITAM</option>
-            </select>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr class="bg-success">
-                            <th>Facility Name</th>
-                            <th>patient Name</th>
-                            <th>Age</th>
-                            <th>Registration Date</th>
-                            <th>Gender</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>KIMS</td>
-                            <td>Kumar</td>
-                            <td>40</td>
-                            <td>05-02-2021</td>
-                            <td>Male</td>
-                            <td>Registered</td>
-                            <td class="text-navy">
-                                <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
-                                        onClick="location.href='@Url.Action("ViewPatient", "Home")'"
-                                        type="submit">
-                                    &nbsp;&nbsp;<strong>
-                                        <i class="fa fa-login"></i>
-                                        &nbsp;View
-                                    </strong>&nbsp;&nbsp;
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>GITAM</td>
-                            <td>Lokesh</td>
-                            <td>50</td>
-                            <td>05-05-2021</td>
-                            <td>Male</td>
-                            <td>Registered</td>
-                            <td class="text-navy">
-                                <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
-                                        onClick="location.href='@Url.Action("ViewPatient", "Home")'"
-                                        type="submit">
-                                    &nbsp;&nbsp;<strong>
-                                        <i class="fa fa-login"></i>
-                                        &nbsp;View
-                                    </strong>&nbsp;&nbsp;
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-md-6 form-group">
+			<label for="gender" class="col-form-label">Facility Name:</label>
+			<select name="ddlFacilityName" id="ddlFacilityName" class="form-control">
+				<option selected="selected" value="Select">Select</option>
+				<option value="1">KIMS</option>
+				<option value="2">GITAM</option>
+			</select>
+		</div>
+		<table class="table">
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.CenterName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.PatientName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.RegistrationDate)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Gender)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Status)
+				</th>
+				<th>Action</th>
+			</tr>
+
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.CenterName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.PatientName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.RegistrationDate)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Gender)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Status)
+					</td>
+					<td class="text-navy">
+						<button class="btn btn-sm btn-primary pull-center m-t-n-xs"
+								onClick="location.href='@Url.Action("ViewPatient", "Home", new {id = item.PatientId,name =item.PatientName,rtpctr = item.RTPCRNumber})'"
+								type="submit">
+							&nbsp;&nbsp;<strong>
+								<i class="fa fa-login"></i>
+								&nbsp;View
+							</strong>&nbsp;&nbsp;
+						</button>
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+</div>
+</div>
 </div>

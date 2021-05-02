@@ -49,7 +49,8 @@ namespace Ashray.Controllers
 
         public ActionResult PostHospital()
         {
-            return View();
+            var list = Registation.GetPosthospitalInfo();
+            return View(list);
         }
 
         public ActionResult PostBed()
@@ -67,9 +68,14 @@ namespace Ashray.Controllers
             return View();
         }
 
-        public ActionResult ViewPatient()
+        public ActionResult ViewPatient(int id,string name,string rtpctr)
         {
-            return View();
+            PatientHistory patientHistory = new PatientHistory();            
+            patientHistory.PatientInfo = new PatientInfo();
+            patientHistory.PatientInfo.PatientId = id;
+            patientHistory.PatientInfo.PatientName = name;
+            patientHistory.PatientInfo.RTPCRTestNumber = rtpctr;
+            return View(patientHistory);
         }
 
         public ActionResult About()
@@ -97,14 +103,14 @@ namespace Ashray.Controllers
         public ActionResult PatientRegistration(PatientInfo patientInfo)
         {
             var res = Registation.InsertPatientInfo(patientInfo);
-            return View();
+            return RedirectToAction("FindHospital");
         }
 
         [HttpPost]
         public ActionResult ViewPatient(PatientHistory ph)
         {
             var res = Registation.InsertPatientHistory(ph);
-            return View();
+            return RedirectToAction("PostHospital");
         }
     }
 }

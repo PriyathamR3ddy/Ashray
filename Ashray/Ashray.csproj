@@ -155,6 +155,7 @@
     </Compile>
     <Compile Include="Models\Dashboard.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\PostHospital.cs" />
     <Compile Include="Models\Registation .cs" />
     <Compile Include="PatientHistory.cs">
       <DependentUpon>Ashray.tt</DependentUpon>
@@ -433,11 +434,11 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\FindHospital.cshtml" />
     <Content Include="Views\Home\FindBed.cshtml" />
-    <Content Include="Views\Home\PostHospital.cshtml" />
     <Content Include="Views\Home\PostBed.cshtml" />
     <Content Include="Views\Home\BedTypes.cshtml" />
     <Content Include="Views\Home\PatientRegistration.cshtml" />
     <Content Include="Views\Home\ViewPatient.cshtml" />
+    <Content Include="Views\Home\PostHospital.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
