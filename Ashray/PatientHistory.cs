@@ -9,7 +9,8 @@
 
 namespace Ashray
 {
-    using System;
+	using Ashray.Models;
+	using System;
     using System.Collections.Generic;
     
     public partial class PatientHistory
@@ -27,5 +28,7 @@ namespace Ashray
         public string BedNumber { get; set; }
     
         public virtual PatientInfo PatientInfo { get; set; }
+
+        public List<FileUpload> Files { get; set; }
     }
 }

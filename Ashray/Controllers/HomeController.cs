@@ -90,7 +90,26 @@ namespace Ashray.Controllers
 				patientHistory.CheckoutDatetime = history.CheckoutDatetime;
 				patientHistory.DischargeInfo = history.DischargeInfo;
 			}
-			return View(patientHistory);
+            patientHistory.Files = new List<FileUpload>();
+            string foldername = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName;
+            string pathname = Server.MapPath("~/UploadedFiles/") + foldername; // Give the specific path
+            if(Directory.Exists(pathname))
+			{
+                var fileInfo = Directory.GetFiles(pathname);
+                if(fileInfo.Length >0)
+				{
+					foreach (var item in fileInfo)
+					{
+                        var file = new FileUpload();
+                        file.FileId = patientHistory.PatientInfo.PatientId.ToString();
+                        file.FileName = Path.GetFileName(item);
+                        file.FileUrl = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName;
+                        patientHistory.Files.Add(file);
+                    }
+				}
+
+            }           
+            return View(patientHistory);
         }
 
         public ActionResult About()
@@ -145,6 +164,16 @@ namespace Ashray.Controllers
             }
             var res = Registation.InsertPatientHistory(ph);
             return RedirectToAction("PostHospital");
+        }
+
+        public FileResult Download(string id)
+		{
+            //string foldername = ph.PatientInfo.PatientId + "_" + ph.PatientInfo.PatientName;
+            //string pathname = Server.MapPath("~/UploadedFiles/") + foldername; // Give the specific path
+            //string path = AppDomain.CurrentDomain.BaseDirectory + foldername;
+            byte[] fileBytes = System.IO.File.ReadAllBytes(id);
+            //string fileName = "filename.extension";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet);
         }
     }
 }

@@ -155,6 +155,7 @@
     </Compile>
     <Compile Include="Models\BedTypes.cs" />
     <Compile Include="Models\Dashboard.cs" />
+    <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\PostHospital.cs" />
     <Compile Include="Models\Registation .cs" />
