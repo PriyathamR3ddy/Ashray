@@ -32,7 +32,7 @@
     <div class="row">
 		<div class="col-md-12">
 			<h3 class="m-t-none m-b text-navy">Sign in</h3>
-			@using (Html.BeginForm("ViewPatient", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			@using (Html.BeginForm("ViewPatient", "Ashray", FormMethod.Post, new { enctype = "multipart/form-data" }))
 			{<div class="row">
 					<div class="col-md-6">
 						<div class="col-md-4">
@@ -214,7 +214,7 @@
                                 @Html.DisplayFor(modelItem => item.FileName)
                             </td>
                             <td>
-                                <a href="~/Home/Download?id=@item.FileUrl" target="_blank">Download</a>
+                                <a href="~/Ashray/Download?id=@item.FileUrl" target="_blank">Download</a>
                             </td>
                         </tr>
                     }

@@ -17,18 +17,22 @@
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
-                <ul class="nav metismenu" id="side-menu">
-                    <li class="nav-header">
-                        <div class="logo-element"> </div>
-                    </li>
-                    <li> <a href="@Url.Action("Index", "Home")" title="Home"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a> </li>
-                    <li> <a href="@Url.Action("FindHospital", "Home")" title="Find a Hospital"><i class="fa fa-pie-chart"></i> <span class="nav-label">Find a Hospital</span> </a> </li>
-                    @*<li> <a href="@Url.Action("FindBed", "Home")" title="Find a Bed"><i class="fa fa-truck"></i> <span class="nav-label">Find a Bed</span></a> </li>*@
-                    <li> <a href="@Url.Action("PostHospital", "Home")" title="Post a Hospital"><i class="fa fa-diamond"></i> <span class="nav-label">Post a Hospital</span></a> </li>
-                    @*<li> <a href="@Url.Action("PostBed", "Home")" title="Post a Bed"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Post a Bed</span></a> </li>
-                    <li> <a href="@Url.Action("About", "Home")" title="About Us"><i class="fa fa-sitemap"></i> <span class="nav-label">About Us </span></a> </li>
-                    <li> <a href="@Url.Action("Contact", "Home")" title="Contact Us"><i class="fa fa-magic"></i> <span class="nav-label">Contact Us </span></a> </li>*@
-                </ul>
+				<ul class="nav metismenu" id="side-menu">
+					<li class="nav-header">
+						<div class="logo-element"> </div>
+					</li>
+					@if (User.Identity.IsAuthenticated)
+					{
+						<li> <a href="@Url.Action("Index", "Ashray")" title="Home"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a> </li>
+						<li> <a href="@Url.Action("FindHospital", "Ashray")" title="Find a Hospital"><i class="fa fa-pie-chart"></i> <span class="nav-label">Find a Hospital</span> </a> </li>
+						@*<li> <a href="@Url.Action("FindBed", "Home")" title="Find a Bed"><i class="fa fa-truck"></i> <span class="nav-label">Find a Bed</span></a> </li>*@
+						<li> <a href="@Url.Action("PostHospital", "Ashray")" title="Post a Hospital"><i class="fa fa-diamond"></i> <span class="nav-label">Post a Hospital</span></a> </li>
+						@*<li> <a href="@Url.Action("PostBed", "Home")" title="Post a Bed"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Post a Bed</span></a> </li>
+			<li> <a href="@Url.Action("About", "Home")" title="About Us"><i class="fa fa-sitemap"></i> <span class="nav-label">About Us </span></a> </li>
+			<li> <a href="@Url.Action("Contact", "Home")" title="Contact Us"><i class="fa fa-magic"></i> <span class="nav-label">Contact Us </span></a> </li>*@
+					}
+
+				</ul>
             </div>
         </nav>
         <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -38,7 +42,7 @@
                         <div class="navbar-header"> <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> </div>
                         <ul class="nav navbar-top-links navbar-right">
                             <li> <span class="m-r-sm text-muted welcome-message"><i class="fa fa-phone text-success"></i>&nbsp;+91-9991234567&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope-o text-success"></i>&nbsp;ashray@realpage.com</span> </li>
-                            <li class="text-muted "> <a href='@Url.Action("Registration", "Home")'> <i class="fa fa-sign-out text-success"></i> <span class="text-muted ">Registration</span> </a> </li>
+                            <li class="text-muted "> <a href='@Url.Action("Registration", "Ashray")'> <i class="fa fa-sign-out text-success"></i> <span class="text-muted ">Registration</span> </a> </li>
                             <li> <a href="@Url.Action("Login", "Home")"> <i class="fa fa-sign-in text-success"></i> <span class="text-muted ">Log In</span> </a> </li>
 
                         </ul>

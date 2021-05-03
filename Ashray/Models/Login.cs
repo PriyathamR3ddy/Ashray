@@ -11,8 +11,8 @@ namespace Ashray.Models
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty(PropertyName = "mobileNo")]
-        public string MobileNo { get; set; }
+        [JsonProperty(PropertyName = "email")]
+        public string Email { get; set; }
 
         /// <summary>
         /// 

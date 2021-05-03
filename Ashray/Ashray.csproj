@@ -146,6 +146,7 @@
     <Compile Include="CentreRegistration.cs">
       <DependentUpon>Ashray.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AshrayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -399,7 +400,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Ashray\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -433,15 +434,15 @@
       <DependentUpon>Ashray.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
-    <Content Include="Views\Home\Registration.cshtml" />
+    <Content Include="Views\Ashray\Registration.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\FindHospital.cshtml" />
+    <Content Include="Views\Ashray\FindHospital.cshtml" />
     <Content Include="Views\Home\FindBed.cshtml" />
     <Content Include="Views\Home\PostBed.cshtml" />
-    <Content Include="Views\Home\BedTypes.cshtml" />
-    <Content Include="Views\Home\PatientRegistration.cshtml" />
-    <Content Include="Views\Home\ViewPatient.cshtml" />
-    <Content Include="Views\Home\PostHospital.cshtml" />
+    <Content Include="Views\Ashray\BedTypes.cshtml" />
+    <Content Include="Views\Ashray\PatientRegistration.cshtml" />
+    <Content Include="Views\Ashray\ViewPatient.cshtml" />
+    <Content Include="Views\Ashray\PostHospital.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

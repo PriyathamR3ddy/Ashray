@@ -431,6 +431,39 @@ namespace Ashray.Models
             return dashboard;
         }
 
+        public static Login ValidateLoginInfo(Login login)
+        {
+            Login result;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@Email",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 100,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = login.Email
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@Password",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = login.Password
+                    });
+                    result = db.Database.SqlQuery<Login>("[dbo].[USPValidateLoginInfo] @Email,@Password", pram.ToArray()).ToList()[0];
+                }
+            }
+            catch (Exception exs)
+            {
+                result = null;
+            }
+            return result;
+        }
 
     }
 
