@@ -258,7 +258,11 @@ namespace Ashray.Models
             try
             {
                 patientHistory.PatientDocumentPath = string.IsNullOrEmpty(patientHistory.PatientDocumentPath) ? "" : patientHistory.PatientDocumentPath;
-                using (var db = new AshrayEntities())
+				if (patientHistory.CheckoutDatetime == null)
+				{
+                    patientHistory.CheckoutDatetime = Convert.ToDateTime("01/01/1900");
+                }
+				using (var db = new AshrayEntities())
                 {
                     List<SqlParameter> pram = new List<SqlParameter>();
                     pram.Add(new SqlParameter()
