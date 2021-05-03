@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Ashray.Models.HomeDashboard
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -125,7 +126,7 @@
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span>TOTAL BEDS </span>
-                                    <h2 class="font-bold">4,232</h2>
+                                    <h2 class="font-bold">@Model.TotalBeds</h2>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +140,7 @@
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span> AVAILABLE BEDS </span>
-                                    <h2 class="font-bold">1,111</h2>
+                                    <h2 class="font-bold">@Model.AvailableBeds</h2>
                                 </div>
                             </div>
 
@@ -153,7 +154,7 @@
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span> RECOVERED / DISCHARGED </span>
-                                    <h2 class="font-bold">5,000</h2>
+                                    <h2 class="font-bold">@Model.Recovered</h2>
                                 </div>
                             </div>
                         </div>
