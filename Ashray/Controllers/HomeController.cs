@@ -155,13 +155,13 @@ namespace Ashray.Controllers
             {
                 foreach (var file in files)
                 {
-                    if (file.ContentLength > 0)
-                    {
-                        var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(pathname, fileName);
-                        file.SaveAs(path);
-                    }
-                }
+					if (file != null && file.ContentLength > 0)
+					{
+						var fileName = Path.GetFileName(file.FileName);
+						var path = Path.Combine(pathname, fileName);
+						file.SaveAs(path);
+					}
+				}
             }
             var res = Registation.InsertPatientHistory(ph);
             return RedirectToAction("PostHospital");
