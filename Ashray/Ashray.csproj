@@ -436,7 +436,7 @@
       <DependentUpon>Ashray.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
-    <Content Include="Views\Ashray\Registration.cshtml" />
+    <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Ashray\FindHospital.cshtml" />
     <Content Include="Views\Home\FindBed.cshtml" />

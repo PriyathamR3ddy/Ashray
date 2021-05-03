@@ -35,6 +35,25 @@ namespace Ashray.Controllers
                 return View();
 			}
         }
+
+		[AllowAnonymous]
+		public ActionResult Registration()
+		{
+			using (var db = new AshrayEntities())
+			{
+				ViewBag.states = db.StateDetails.ToList().Select(state => new SelectListItem
+				{
+					Text = state.StateName,
+					Value = state.StateId.ToString()
+				});
+				ViewBag.location = db.LocationDetails.ToList().Select(loc => new SelectListItem
+				{
+					Text = loc.LocationName,
+					Value = loc.LocationId.ToString()
+				});
+			}
+			return View();
+		}
 		public ActionResult LogOut()
 		{
 			Session["UserName"] = null;
