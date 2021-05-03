@@ -21,8 +21,7 @@
 					<li class="nav-header">
 						<div class="logo-element"> </div>
 					</li>
-					@if (User.Identity.IsAuthenticated)
-					{
+					
 						<li> <a href="@Url.Action("Index", "Ashray")" title="Home"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a> </li>
 						<li> <a href="@Url.Action("FindHospital", "Ashray")" title="Find a Hospital"><i class="fa fa-pie-chart"></i> <span class="nav-label">Find a Hospital</span> </a> </li>
 						@*<li> <a href="@Url.Action("FindBed", "Home")" title="Find a Bed"><i class="fa fa-truck"></i> <span class="nav-label">Find a Bed</span></a> </li>*@
@@ -30,7 +29,7 @@
 						@*<li> <a href="@Url.Action("PostBed", "Home")" title="Post a Bed"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Post a Bed</span></a> </li>
 			<li> <a href="@Url.Action("About", "Home")" title="About Us"><i class="fa fa-sitemap"></i> <span class="nav-label">About Us </span></a> </li>
 			<li> <a href="@Url.Action("Contact", "Home")" title="Contact Us"><i class="fa fa-magic"></i> <span class="nav-label">Contact Us </span></a> </li>*@
-					}
+					
 
 				</ul>
             </div>
