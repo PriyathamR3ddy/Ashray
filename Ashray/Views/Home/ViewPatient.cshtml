@@ -196,28 +196,30 @@
 				</div>
 
 			}
-		<table class="table">
-			<tr>
-				<th>
-					@Html.DisplayNameFor(model => model.Files[0].FileName)
-				</th>
-				<th>
-					Download
-				</th>
-			</tr>
-			@foreach (var item in Model.Files)
-			{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.FileName)
-			</td>			
-			<td>
-				<a href="~/Home/Download?id=@item.FileUrl" target="_blank">Download</a>
-			</td>
-		</tr>
-			}
-		</table>
-
+			<br />
+            <div style="height:100px;overflow-y:auto;">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Files[0].FileName)
+                        </th>
+                        <th>
+                            Download
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.Files)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FileName)
+                            </td>
+                            <td>
+                                <a href="~/Home/Download?id=@item.FileUrl" target="_blank">Download</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
 			
 		</div>
     </div>
