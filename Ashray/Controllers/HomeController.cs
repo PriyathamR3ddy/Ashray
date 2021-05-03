@@ -103,7 +103,7 @@ namespace Ashray.Controllers
                         var file = new FileUpload();
                         file.FileId = patientHistory.PatientInfo.PatientId.ToString();
                         file.FileName = Path.GetFileName(item);
-                        file.FileUrl = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName;
+                        file.FileUrl = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName + System.IO.Path.DirectorySeparatorChar + Path.GetFileName(item);
                         patientHistory.Files.Add(file);
                     }
 				}
@@ -168,12 +168,8 @@ namespace Ashray.Controllers
 
         public FileResult Download(string id)
 		{
-            //string foldername = ph.PatientInfo.PatientId + "_" + ph.PatientInfo.PatientName;
-            //string pathname = Server.MapPath("~/UploadedFiles/") + foldername; // Give the specific path
-            //string path = AppDomain.CurrentDomain.BaseDirectory + foldername;
-            byte[] fileBytes = System.IO.File.ReadAllBytes(id);
-            //string fileName = "filename.extension";
-            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet);
+           byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/UploadedFiles/") + id);          
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, id);
         }
     }
 }
