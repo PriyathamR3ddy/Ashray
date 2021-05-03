@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Ashray.Filter;
 
 namespace Ashray.Controllers
 {
-    [Authorize]
+    [CustomAuthenticationFilter]
     public class AshrayController : Controller
     {
         // GET: Ashray

@@ -26,7 +26,8 @@ namespace Ashray.Controllers
             Login result = Registation.ValidateLoginInfo(login);
             if (result != null)
             {
-                FormsAuthentication.SetAuthCookie(result.Email, false);
+				Session["UserName"] = result.Email;
+               // FormsAuthentication.SetAuthCookie(result.Email, false);
                 return RedirectToAction("Index", "Ashray");
 			}
             else

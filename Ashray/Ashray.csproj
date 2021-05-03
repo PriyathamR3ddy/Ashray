@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="Controllers\AshrayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filter\CustomAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
