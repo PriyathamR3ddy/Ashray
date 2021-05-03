@@ -12,7 +12,8 @@ namespace Ashray.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var homeDashboard = Registation.GetHomeDashboard();
+            return View(homeDashboard);
         }
 
         public ActionResult Registration()

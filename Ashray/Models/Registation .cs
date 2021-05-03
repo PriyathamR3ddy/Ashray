@@ -412,6 +412,26 @@ namespace Ashray.Models
             }
             return patientHistory;
         }
+
+        public static HomeDashboard GetHomeDashboard()
+        {
+            HomeDashboard dashboard;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    dashboard = db.Database.SqlQuery<HomeDashboard>("[dbo].[USPBedAvailabilityHomeDashboardInfo]", pram.ToArray()).ToList()[0];
+                }
+            }
+            catch (Exception exs)
+            {
+                dashboard = null;
+            }
+            return dashboard;
+        }
+
+
     }
 
 }
