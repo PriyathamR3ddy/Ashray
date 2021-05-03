@@ -41,10 +41,16 @@
                     <div style="background:#ceebff; height:55px; color:#fff;">
                         <div class="navbar-header"> <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> </div>
                         <ul class="nav navbar-top-links navbar-right">
-                            <li> <span class="m-r-sm text-muted welcome-message"><i class="fa fa-phone text-success"></i>&nbsp;+91-9991234567&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope-o text-success"></i>&nbsp;ashray@realpage.com</span> </li>
+                            <li> <span class="m-r-sm text-muted welcome-message"><i class="fa fa-phone text-success"></i>&nbsp;080-45811138&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope-o text-success"></i>&nbsp;ashray@realpage.com</span> </li>
                             <li class="text-muted "> <a href='@Url.Action("Registration", "Ashray")'> <i class="fa fa-sign-out text-success"></i> <span class="text-muted ">Registration</span> </a> </li>
-                            <li> <a href="@Url.Action("Login", "Home")"> <i class="fa fa-sign-in text-success"></i> <span class="text-muted " id="logAction">Log In</span> </a> </li>
-
+                            @if (Session["UserName"]==null)
+                            {
+                                <li> <a href="@Url.Action("Login", "Home")"> <i class="fa fa-sign-in text-success"></i> <span class="text-muted " id="logAction">Log In</span> </a> </li>
+                            }
+                            else
+                            {
+                                <li> <a href="@Url.Action("LogOut", "Home")"> <i class="fa fa-sign-in text-success"></i> <span class="text-muted" id="logOut">Log Out</span> </a> </li>
+                            }
                         </ul>
                     </div>
                 </nav>
@@ -154,7 +160,6 @@
 
             var ctx = document.getElementById("lineChart").getContext("2d");
             var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
-
         });
     </script>
 </body>

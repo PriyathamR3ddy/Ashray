@@ -35,48 +35,52 @@ namespace Ashray.Controllers
                 return View();
 			}
         }
+		public ActionResult LogOut()
+		{
+			Session["UserName"] = null;
+			return RedirectToAction("Login", "Home");
+		}
+		//      public ActionResult FindHospital()
+		//      {
+		//          var dashboard = Registation.GetDashboard();            
+		//          return View(dashboard);
+		//      }
 
-  //      public ActionResult FindHospital()
-  //      {
-  //          var dashboard = Registation.GetDashboard();            
-  //          return View(dashboard);
-  //      }
+		//      public ActionResult FindBed()
+		//      {
+		//          return View();
+		//      }
 
-  //      public ActionResult FindBed()
-  //      {
-  //          return View();
-  //      }
+		//      public ActionResult PostHospital()
+		//      {
+		//          var list = Registation.GetPosthospitalInfo();
+		//          return View(list);
+		//      }
 
-  //      public ActionResult PostHospital()
-  //      {
-  //          var list = Registation.GetPosthospitalInfo();
-  //          return View(list);
-  //      }
+		//      public ActionResult PostBed()
+		//      {
+		//          return View();
+		//      }
 
-  //      public ActionResult PostBed()
-  //      {
-  //          return View();
-  //      }
+		//      public ActionResult BedTypes()
+		//      {
+		//          var bedInfo = Registation.GetBedTypeInfo();
+		//          return View(bedInfo);
+		//      }
 
-  //      public ActionResult BedTypes()
-  //      {
-  //          var bedInfo = Registation.GetBedTypeInfo();
-  //          return View(bedInfo);
-  //      }
+		//      public ActionResult PatientRegistration()
+		//      {
+		//          return View();
+		//      }
 
-  //      public ActionResult PatientRegistration()
-  //      {
-  //          return View();
-  //      }
-
-  //      public ActionResult ViewPatient(int id,string name,string rtpctr)
-  //      {
-  //          PatientHistory patientHistory = new PatientHistory();            
-  //          patientHistory.PatientInfo = new PatientInfo();
-  //          patientHistory.PatientInfo.PatientId = id;
-  //          patientHistory.PatientInfo.PatientName = name;
-  //          patientHistory.PatientInfo.RTPCRTestNumber = rtpctr;
-  //          var history = Registation.GetPatientHistory(id);
+		//      public ActionResult ViewPatient(int id,string name,string rtpctr)
+		//      {
+		//          PatientHistory patientHistory = new PatientHistory();            
+		//          patientHistory.PatientInfo = new PatientInfo();
+		//          patientHistory.PatientInfo.PatientId = id;
+		//          patientHistory.PatientInfo.PatientName = name;
+		//          patientHistory.PatientInfo.RTPCRTestNumber = rtpctr;
+		//          var history = Registation.GetPatientHistory(id);
 		//	if (history != null)
 		//	{
 		//		patientHistory.SPO2 = history.SPO2;
@@ -88,70 +92,70 @@ namespace Ashray.Controllers
 		//		patientHistory.CheckoutDatetime = history.CheckoutDatetime;
 		//		patientHistory.DischargeInfo = history.DischargeInfo;
 		//	}
-  //          patientHistory.Files = new List<FileUpload>();
-  //          string foldername = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName;
-  //          string pathname = Server.MapPath("~/UploadedFiles/") + foldername; // Give the specific path
-  //          if(Directory.Exists(pathname))
+		//          patientHistory.Files = new List<FileUpload>();
+		//          string foldername = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName;
+		//          string pathname = Server.MapPath("~/UploadedFiles/") + foldername; // Give the specific path
+		//          if(Directory.Exists(pathname))
 		//	{
-  //              var fileInfo = Directory.GetFiles(pathname);
-  //              if(fileInfo.Length >0)
+		//              var fileInfo = Directory.GetFiles(pathname);
+		//              if(fileInfo.Length >0)
 		//		{
 		//			foreach (var item in fileInfo)
 		//			{
-  //                      var file = new FileUpload();
-  //                      file.FileId = patientHistory.PatientInfo.PatientId.ToString();
-  //                      file.FileName = Path.GetFileName(item);
-  //                      file.FileUrl = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName + System.IO.Path.DirectorySeparatorChar + Path.GetFileName(item);
-  //                      patientHistory.Files.Add(file);
-  //                  }
+		//                      var file = new FileUpload();
+		//                      file.FileId = patientHistory.PatientInfo.PatientId.ToString();
+		//                      file.FileName = Path.GetFileName(item);
+		//                      file.FileUrl = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName + System.IO.Path.DirectorySeparatorChar + Path.GetFileName(item);
+		//                      patientHistory.Files.Add(file);
+		//                  }
 		//		}
 
-  //          }           
-  //          return View(patientHistory);
-  //      }
+		//          }           
+		//          return View(patientHistory);
+		//      }
 
-  //      public ActionResult About()
-  //      {
-  //          ViewBag.Message = "Your application description page.";
+		//      public ActionResult About()
+		//      {
+		//          ViewBag.Message = "Your application description page.";
 
-  //          return View();
-  //      }
+		//          return View();
+		//      }
 
-  //      public ActionResult Contact()
-  //      {
-  //          ViewBag.Message = "Your contact page.";
+		//      public ActionResult Contact()
+		//      {
+		//          ViewBag.Message = "Your contact page.";
 
-  //          return View();
-  //      }
+		//          return View();
+		//      }
 
-  //      [HttpPost]
-  //      public ActionResult Registration(Registation registation)
-  //      {
-  //          var res = Registation.InsertRegistration(registation);
-  //          return View();
-  //      }
+		//      [HttpPost]
+		//      public ActionResult Registration(Registation registation)
+		//      {
+		//          var res = Registation.InsertRegistration(registation);
+		//          return View();
+		//      }
 
-  //      [HttpPost]
-  //      public ActionResult PatientRegistration(PatientInfo patientInfo)
-  //      {
-  //          var res = Registation.InsertPatientInfo(patientInfo);
-  //          return RedirectToAction("FindHospital");
-  //      }
+		//      [HttpPost]
+		//      public ActionResult PatientRegistration(PatientInfo patientInfo)
+		//      {
+		//          var res = Registation.InsertPatientInfo(patientInfo);
+		//          return RedirectToAction("FindHospital");
+		//      }
 
-  //      [HttpPost]
-  //      public ActionResult ViewPatient(PatientHistory ph, IEnumerable<HttpPostedFileBase> files)
-  //      {
+		//      [HttpPost]
+		//      public ActionResult ViewPatient(PatientHistory ph, IEnumerable<HttpPostedFileBase> files)
+		//      {
 
-  //          string foldername = ph.PatientInfo.PatientId +"_"+ ph.PatientInfo.PatientName;
-  //          string pathname = Server.MapPath("~/UploadedFiles/") + foldername;  // Give the specific path  
-  //          if (!(Directory.Exists(pathname)))
-  //          {
-  //              Directory.CreateDirectory(pathname);
-  //          }
-  //          if (files != null)
-  //          {
-  //              foreach (var file in files)
-  //              {
+		//          string foldername = ph.PatientInfo.PatientId +"_"+ ph.PatientInfo.PatientName;
+		//          string pathname = Server.MapPath("~/UploadedFiles/") + foldername;  // Give the specific path  
+		//          if (!(Directory.Exists(pathname)))
+		//          {
+		//              Directory.CreateDirectory(pathname);
+		//          }
+		//          if (files != null)
+		//          {
+		//              foreach (var file in files)
+		//              {
 		//			if (file != null && file.ContentLength > 0)
 		//			{
 		//				var fileName = Path.GetFileName(file.FileName);
@@ -159,15 +163,15 @@ namespace Ashray.Controllers
 		//				file.SaveAs(path);
 		//			}
 		//		}
-  //          }
-  //          var res = Registation.InsertPatientHistory(ph);
-  //          return RedirectToAction("PostHospital");
-  //      }
+		//          }
+		//          var res = Registation.InsertPatientHistory(ph);
+		//          return RedirectToAction("PostHospital");
+		//      }
 
-  //      public FileResult Download(string id)
+		//      public FileResult Download(string id)
 		//{
-  //         byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/UploadedFiles/") + id);          
-  //          return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, id);
-  //      }
-    }
+		//         byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/UploadedFiles/") + id);          
+		//          return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, id);
+		//      }
+	}
 }
