@@ -121,6 +121,12 @@ namespace Ashray.Controllers
             return RedirectToAction("FindHospital");
         }
 
+        public ActionResult Delete(int id)
+		{
+            Registation.DeletePatientInfo(id);
+            return RedirectToAction("PostHospital");
+		}
+
         [HttpPost]
         public ActionResult ViewPatient(PatientHistory ph, IEnumerable<HttpPostedFileBase> files)
         {

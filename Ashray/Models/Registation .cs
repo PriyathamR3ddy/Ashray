@@ -222,7 +222,38 @@ namespace Ashray.Models
                         Direction = System.Data.ParameterDirection.Input,
                         Value = 1
                     });
-                    db.Database.ExecuteSqlCommand("[dbo].[USPInsertUpdatePatientInfo]  @PatientName,@RTPCRTestNumber,@TestResult,@GovtIdNumber,@PatientAddress,@Gender,@EmergencyContactName1,@EmergencyContactNumber1 ,@EmergencyContactName2,@EmergencyContactNumber2,@CentreId", pram.ToArray());
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@PatientPhoneNumber",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 15,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientInfo.PatientPhoneNumber
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@EmergencyContactRelationShip1",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 20,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientInfo.EmergencyContactRelationShip1
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@EmergencyContactRelationShip2",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 20,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientInfo.EmergencyContactRelationShip2
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@RTPCRTestDate",
+                        SqlDbType = System.Data.SqlDbType.DateTime,                       
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientInfo.RTPCRTestDate
+                    });                    
+                    db.Database.ExecuteSqlCommand("[dbo].[USPInsertUpdatePatientInfo]  @PatientName,@RTPCRTestNumber,@TestResult,@GovtIdNumber,@PatientAddress,@Gender,@EmergencyContactName1,@EmergencyContactNumber1 ,@EmergencyContactName2,@EmergencyContactNumber2,@CentreId,@PatientPhoneNumber,@EmergencyContactRelationShip1,@EmergencyContactRelationShip2,@RTPCRTestDate", pram.ToArray());
                     db.SaveChanges();
                 }
             }
@@ -469,6 +500,31 @@ namespace Ashray.Models
             return result;
         }
 
+        public static int DeletePatientInfo(int patientId)
+        {
+            int Id = 0;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@patientId",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientId
+                    });                    
+                    Id =  db.Database.ExecuteSqlCommand("[dbo].[USPDeletePatientInfo]  @patientId", pram.ToArray());
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception exs)
+            {
+                Id = 0;
+            }
+            return Id;
+        }
     }
-
 }

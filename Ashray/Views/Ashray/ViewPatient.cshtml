@@ -189,9 +189,17 @@
                     </div>
                 </div><br />
                 <div class="row">
-                    <div class="col-md-12">
-                        <input class="btn btn-sm btn-primary pull-Center m-t-n-xs" type="submit">
-                    </div>
+					<div class="col-md-12">
+						<input class="btn btn-sm btn-primary pull-Center m-t-n-xs" type="submit">
+						<button class="btn btn-sm btn-primary pull-center m-t-n-xs"
+								onClick="location.href='@Url.Action("Delete", "Ashray", new { id = Model.PatientInfo.PatientId })'"
+								type="submit">
+							&nbsp;&nbsp;<strong>
+								<i class="fa fa-login"></i>
+								&nbsp;Refer To Home Isolation
+							</strong>&nbsp;&nbsp;
+						</button>
+					</div>
                 </div>
 
             }
