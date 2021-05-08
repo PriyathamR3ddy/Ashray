@@ -46,6 +46,10 @@
     <Property Name="CentreId" Type="Int32" />
     <NavigationProperty Name="CentreRegistration" Relationship="Self.FK__PatientIn__Centr__30F848ED" FromRole="PatientInfo" ToRole="CentreRegistration" />
     <NavigationProperty Name="PatientHistories" Relationship="AshrayModel.FK__PatientHi__Patie__412EB0B6" FromRole="PatientInfo" ToRole="PatientHistory" />
+    <Property Name="PatientPhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContactRelationShip1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContactRelationShip2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RTPCRTestDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="RoleDetail">
     <Key>

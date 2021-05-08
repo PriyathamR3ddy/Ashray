@@ -33,6 +33,10 @@ namespace Ashray
         public string EmergencyContactNumber2 { get; set; }
         public Nullable<System.DateTime> DateTime { get; set; }
         public Nullable<int> CentreId { get; set; }
+        public string PatientPhoneNumber { get; set; }
+        public string EmergencyContactRelationShip1 { get; set; }
+        public string EmergencyContactRelationShip2 { get; set; }
+        public Nullable<System.DateTime> RTPCRTestDate { get; set; }
     
         public virtual CentreRegistration CentreRegistration { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

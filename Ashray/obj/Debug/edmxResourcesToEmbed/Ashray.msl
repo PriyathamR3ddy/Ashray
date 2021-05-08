@@ -28,6 +28,10 @@
     <EntitySetMapping Name="PatientInfoes">
       <EntityTypeMapping TypeName="AshrayModel.PatientInfo">
         <MappingFragment StoreEntitySet="PatientInfo">
+          <ScalarProperty Name="RTPCRTestDate" ColumnName="RTPCRTestDate" />
+          <ScalarProperty Name="EmergencyContactRelationShip2" ColumnName="EmergencyContactRelationShip2" />
+          <ScalarProperty Name="EmergencyContactRelationShip1" ColumnName="EmergencyContactRelationShip1" />
+          <ScalarProperty Name="PatientPhoneNumber" ColumnName="PatientPhoneNumber" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="PatientName" ColumnName="PatientName" />
           <ScalarProperty Name="RTPCRTestNumber" ColumnName="RTPCRTestNumber" />
