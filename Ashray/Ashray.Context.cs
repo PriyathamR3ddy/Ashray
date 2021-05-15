@@ -72,7 +72,7 @@ namespace Ashray
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertUpdateCentreRegistration", centreNameParameter, contactPersonParameter, mobileNumberParameter, emailParameter, bedCountParameter, locationIdParameter, stateIdParameter, passwordParameter);
         }
     
-        public virtual int USPInsertUpdatePatientInfo(string patientName, string rTPCRTestNumber, string testResult, string govtIdNumber, string patientAddress, string gender, string emergencyContactName1, string emergencyContactNumber1, string emergencyContactName2, string emergencyContactNumber2, Nullable<int> centreId)
+        public virtual int USPInsertUpdatePatientInfo(string patientName, string rTPCRTestNumber, string testResult, string govtIdNumber, string patientAddress, string gender, string emergencyContactName1, string emergencyContactNumber1, string emergencyContactName2, string emergencyContactNumber2, Nullable<int> centreId, string patientPhoneNumber, string emergencyContactRelationShip1, string emergencyContactRelationShip2, Nullable<System.DateTime> rTPCRTestDate)
         {
             var patientNameParameter = patientName != null ?
                 new ObjectParameter("PatientName", patientName) :
@@ -118,7 +118,23 @@ namespace Ashray
                 new ObjectParameter("CentreId", centreId) :
                 new ObjectParameter("CentreId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertUpdatePatientInfo", patientNameParameter, rTPCRTestNumberParameter, testResultParameter, govtIdNumberParameter, patientAddressParameter, genderParameter, emergencyContactName1Parameter, emergencyContactNumber1Parameter, emergencyContactName2Parameter, emergencyContactNumber2Parameter, centreIdParameter);
+            var patientPhoneNumberParameter = patientPhoneNumber != null ?
+                new ObjectParameter("PatientPhoneNumber", patientPhoneNumber) :
+                new ObjectParameter("PatientPhoneNumber", typeof(string));
+    
+            var emergencyContactRelationShip1Parameter = emergencyContactRelationShip1 != null ?
+                new ObjectParameter("EmergencyContactRelationShip1", emergencyContactRelationShip1) :
+                new ObjectParameter("EmergencyContactRelationShip1", typeof(string));
+    
+            var emergencyContactRelationShip2Parameter = emergencyContactRelationShip2 != null ?
+                new ObjectParameter("EmergencyContactRelationShip2", emergencyContactRelationShip2) :
+                new ObjectParameter("EmergencyContactRelationShip2", typeof(string));
+    
+            var rTPCRTestDateParameter = rTPCRTestDate.HasValue ?
+                new ObjectParameter("RTPCRTestDate", rTPCRTestDate) :
+                new ObjectParameter("RTPCRTestDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertUpdatePatientInfo", patientNameParameter, rTPCRTestNumberParameter, testResultParameter, govtIdNumberParameter, patientAddressParameter, genderParameter, emergencyContactName1Parameter, emergencyContactNumber1Parameter, emergencyContactName2Parameter, emergencyContactNumber2Parameter, centreIdParameter, patientPhoneNumberParameter, emergencyContactRelationShip1Parameter, emergencyContactRelationShip2Parameter, rTPCRTestDateParameter);
         }
     
         public virtual ObjectResult<USPBedAvailabilityDashboardInfo_Result> USPBedAvailabilityDashboardInfo()
@@ -169,6 +185,52 @@ namespace Ashray
                 new ObjectParameter("Temperature", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPInsertPatientHistory", patientIdParameter, checkinDateTimeParameter, checkoutDatetimeParameter, dischargeInfoParameter, patientDocumentPathParameter, roomNumberParameter, bedNumberParameter, bPParameter, sPO2Parameter, temperatureParameter);
+        }
+    
+        public virtual ObjectResult<USPBedAvailabilityHomeDashboardInfo_Result> USPBedAvailabilityHomeDashboardInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USPBedAvailabilityHomeDashboardInfo_Result>("USPBedAvailabilityHomeDashboardInfo");
+        }
+    
+        public virtual int USPDeletePatientInfo(Nullable<int> patientId)
+        {
+            var patientIdParameter = patientId.HasValue ?
+                new ObjectParameter("patientId", patientId) :
+                new ObjectParameter("patientId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPDeletePatientInfo", patientIdParameter);
+        }
+    
+        public virtual int USPGetBedTypeInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USPGetBedTypeInfo");
+        }
+    
+        public virtual ObjectResult<USPGetPatientHistory_Result> USPGetPatientHistory(Nullable<int> patientId)
+        {
+            var patientIdParameter = patientId.HasValue ?
+                new ObjectParameter("PatientId", patientId) :
+                new ObjectParameter("PatientId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USPGetPatientHistory_Result>("USPGetPatientHistory", patientIdParameter);
+        }
+    
+        public virtual ObjectResult<USPGetPostHospitalInfo_Result> USPGetPostHospitalInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USPGetPostHospitalInfo_Result>("USPGetPostHospitalInfo");
+        }
+    
+        public virtual ObjectResult<USPValidateLoginInfo_Result> USPValidateLoginInfo(string email, string password)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USPValidateLoginInfo_Result>("USPValidateLoginInfo", emailParameter, passwordParameter);
         }
     }
 }

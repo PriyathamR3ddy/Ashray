@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ashray.Filter;
-
+using PagedList;
 namespace Ashray.Controllers
 {
     [CustomAuthenticationFilter]
@@ -30,10 +30,12 @@ namespace Ashray.Controllers
             return View();
         }
 
-        public ActionResult PostHospital()
+        public ActionResult PostHospital(int? page)
         {
             var list = Registation.GetPosthospitalInfo();
-            return View(list);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(list.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult PostBed()
@@ -57,7 +59,7 @@ namespace Ashray.Controllers
             PatientHistory patientHistory = new PatientHistory();
             patientHistory.PatientInfo = new PatientInfo();
             patientHistory.PatientInfo.PatientId = id;
-            patientHistory.PatientInfo.PatientName = name;
+            patientHistory.PatientInfo.PatientName = name;            
             patientHistory.PatientInfo.RTPCRTestNumber = rtpctr;
             var history = Registation.GetPatientHistory(id);
             if (history != null)
@@ -70,6 +72,8 @@ namespace Ashray.Controllers
                 patientHistory.CheckinDateTime = history.CheckinDateTime;
                 patientHistory.CheckoutDatetime = history.CheckoutDatetime;
                 patientHistory.DischargeInfo = history.DischargeInfo;
+                patientHistory.PatientInfo.EmergencyContactName1 = history.EmergencyContactName1;
+                patientHistory.PatientInfo.EmergencyContactNumber1 = history.EmergencyContactNumber1;
             }
             patientHistory.Files = new List<FileUpload>();
             string foldername = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName;

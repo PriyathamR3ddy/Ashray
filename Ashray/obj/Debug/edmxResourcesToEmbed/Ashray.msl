@@ -106,5 +106,59 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="USPInsertPatientHistory" FunctionName="AshrayModel.Store.USPInsertPatientHistory" />
+    <FunctionImportMapping FunctionImportName="USPBedAvailabilityHomeDashboardInfo" FunctionName="AshrayModel.Store.USPBedAvailabilityHomeDashboardInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AshrayModel.USPBedAvailabilityHomeDashboardInfo_Result">
+          <ScalarProperty Name="CentreId" ColumnName="CentreId" />
+          <ScalarProperty Name="CentreName" ColumnName="CentreName" />
+          <ScalarProperty Name="TotalBeds" ColumnName="TotalBeds" />
+          <ScalarProperty Name="occupiedbeds" ColumnName="occupiedbeds" />
+          <ScalarProperty Name="AvailableBeds" ColumnName="AvailableBeds" />
+          <ScalarProperty Name="Recovered" ColumnName="Recovered" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USPDeletePatientInfo" FunctionName="AshrayModel.Store.USPDeletePatientInfo" />
+    <FunctionImportMapping FunctionImportName="USPGetBedTypeInfo" FunctionName="AshrayModel.Store.USPGetBedTypeInfo" />
+    <FunctionImportMapping FunctionImportName="USPGetPatientHistory" FunctionName="AshrayModel.Store.USPGetPatientHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AshrayModel.USPGetPatientHistory_Result">
+          <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="CheckinDateTime" ColumnName="CheckinDateTime" />
+          <ScalarProperty Name="CheckoutDatetime" ColumnName="CheckoutDatetime" />
+          <ScalarProperty Name="BP" ColumnName="BP" />
+          <ScalarProperty Name="SPO2" ColumnName="SPO2" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="BedNumber" ColumnName="BedNumber" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="DischargeInfo" ColumnName="DischargeInfo" />
+          <ScalarProperty Name="PatientDocumentPath" ColumnName="PatientDocumentPath" />
+          <ScalarProperty Name="EmergencyContactName1" ColumnName="EmergencyContactName1" />
+          <ScalarProperty Name="EmergencyContactNumber1" ColumnName="EmergencyContactNumber1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USPGetPostHospitalInfo" FunctionName="AshrayModel.Store.USPGetPostHospitalInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AshrayModel.USPGetPostHospitalInfo_Result">
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="RTPCRNumber" ColumnName="RTPCRNumber" />
+          <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USPValidateLoginInfo" FunctionName="AshrayModel.Store.USPValidateLoginInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AshrayModel.USPValidateLoginInfo_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

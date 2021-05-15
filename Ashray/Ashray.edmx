@@ -163,6 +163,15 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="USPBedAvailabilityDashboardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USPBedAvailabilityHomeDashboardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USPDeletePatientInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="patientId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USPGetBedTypeInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USPGetPatientHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PatientId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USPGetPostHospitalInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="USPInsertPatientHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PatientId" Type="int" Mode="In" />
           <Parameter Name="CheckinDateTime" Type="datetime" Mode="In" />
@@ -197,6 +206,14 @@
           <Parameter Name="EmergencyContactName2" Type="varchar" Mode="In" />
           <Parameter Name="EmergencyContactNumber2" Type="varchar" Mode="In" />
           <Parameter Name="CentreId" Type="int" Mode="In" />
+          <Parameter Name="PatientPhoneNumber" Type="varchar" Mode="In" />
+          <Parameter Name="EmergencyContactRelationShip1" Type="varchar" Mode="In" />
+          <Parameter Name="EmergencyContactRelationShip2" Type="varchar" Mode="In" />
+          <Parameter Name="RTPCRTestDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="USPValidateLoginInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="AshrayModelStoreContainer">
           <EntitySet Name="CentreRegistration" EntityType="Self.CentreRegistration" Schema="dbo" store:Type="Tables" />
@@ -424,6 +441,10 @@
             <Parameter Name="EmergencyContactName2" Mode="In" Type="String" />
             <Parameter Name="EmergencyContactNumber2" Mode="In" Type="String" />
             <Parameter Name="CentreId" Mode="In" Type="Int32" />
+            <Parameter Name="PatientPhoneNumber" Mode="In" Type="String" />
+            <Parameter Name="EmergencyContactRelationShip1" Mode="In" Type="String" />
+            <Parameter Name="EmergencyContactRelationShip2" Mode="In" Type="String" />
+            <Parameter Name="RTPCRTestDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="PatientHistories" EntityType="AshrayModel.PatientHistory" />
           <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="AshrayModel.FK__PatientHi__Patie__412EB0B6">
@@ -442,6 +463,19 @@
             <Parameter Name="BP" Mode="In" Type="String" />
             <Parameter Name="SPO2" Mode="In" Type="String" />
             <Parameter Name="Temperature" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USPBedAvailabilityHomeDashboardInfo" ReturnType="Collection(AshrayModel.USPBedAvailabilityHomeDashboardInfo_Result)" />
+          <FunctionImport Name="USPDeletePatientInfo">
+            <Parameter Name="patientId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USPGetBedTypeInfo" />
+          <FunctionImport Name="USPGetPatientHistory" ReturnType="Collection(AshrayModel.USPGetPatientHistory_Result)">
+            <Parameter Name="PatientId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USPGetPostHospitalInfo" ReturnType="Collection(AshrayModel.USPGetPostHospitalInfo_Result)" />
+          <FunctionImport Name="USPValidateLoginInfo" ReturnType="Collection(AshrayModel.USPValidateLoginInfo_Result)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="PatientHistory">
@@ -478,6 +512,42 @@
           <Property Type="String" Name="CentreName" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="BedCount" Nullable="true" />
           <Property Type="Int32" Name="occupiedbeds" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USPBedAvailabilityHomeDashboardInfo_Result">
+          <Property Type="Int32" Name="CentreId" Nullable="false" />
+          <Property Type="String" Name="CentreName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TotalBeds" Nullable="true" />
+          <Property Type="Int32" Name="occupiedbeds" Nullable="true" />
+          <Property Type="Int32" Name="AvailableBeds" Nullable="true" />
+          <Property Type="Int32" Name="Recovered" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USPGetPatientHistory_Result">
+          <Property Type="Int32" Name="HistoryId" Nullable="false" />
+          <Property Type="Int32" Name="PatientId" Nullable="true" />
+          <Property Type="DateTime" Name="CheckinDateTime" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="CheckoutDatetime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="BP" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="SPO2" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Temperature" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="BedNumber" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="RoomNumber" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="DischargeInfo" Nullable="true" />
+          <Property Type="String" Name="PatientDocumentPath" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmergencyContactName1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmergencyContactNumber1" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USPGetPostHospitalInfo_Result">
+          <Property Type="Int32" Name="PatientId" Nullable="false" />
+          <Property Type="String" Name="RTPCRNumber" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="CenterName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PatientName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="RegistrationDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="USPValidateLoginInfo_Result">
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -590,6 +660,60 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="USPInsertPatientHistory" FunctionName="AshrayModel.Store.USPInsertPatientHistory" />
+          <FunctionImportMapping FunctionImportName="USPBedAvailabilityHomeDashboardInfo" FunctionName="AshrayModel.Store.USPBedAvailabilityHomeDashboardInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AshrayModel.USPBedAvailabilityHomeDashboardInfo_Result">
+                <ScalarProperty Name="CentreId" ColumnName="CentreId" />
+                <ScalarProperty Name="CentreName" ColumnName="CentreName" />
+                <ScalarProperty Name="TotalBeds" ColumnName="TotalBeds" />
+                <ScalarProperty Name="occupiedbeds" ColumnName="occupiedbeds" />
+                <ScalarProperty Name="AvailableBeds" ColumnName="AvailableBeds" />
+                <ScalarProperty Name="Recovered" ColumnName="Recovered" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USPDeletePatientInfo" FunctionName="AshrayModel.Store.USPDeletePatientInfo" />
+          <FunctionImportMapping FunctionImportName="USPGetBedTypeInfo" FunctionName="AshrayModel.Store.USPGetBedTypeInfo" />
+          <FunctionImportMapping FunctionImportName="USPGetPatientHistory" FunctionName="AshrayModel.Store.USPGetPatientHistory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AshrayModel.USPGetPatientHistory_Result">
+                <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="CheckinDateTime" ColumnName="CheckinDateTime" />
+                <ScalarProperty Name="CheckoutDatetime" ColumnName="CheckoutDatetime" />
+                <ScalarProperty Name="BP" ColumnName="BP" />
+                <ScalarProperty Name="SPO2" ColumnName="SPO2" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="BedNumber" ColumnName="BedNumber" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="DischargeInfo" ColumnName="DischargeInfo" />
+                <ScalarProperty Name="PatientDocumentPath" ColumnName="PatientDocumentPath" />
+                <ScalarProperty Name="EmergencyContactName1" ColumnName="EmergencyContactName1" />
+                <ScalarProperty Name="EmergencyContactNumber1" ColumnName="EmergencyContactNumber1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USPGetPostHospitalInfo" FunctionName="AshrayModel.Store.USPGetPostHospitalInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AshrayModel.USPGetPostHospitalInfo_Result">
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="RTPCRNumber" ColumnName="RTPCRNumber" />
+                <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USPValidateLoginInfo" FunctionName="AshrayModel.Store.USPValidateLoginInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AshrayModel.USPValidateLoginInfo_Result">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

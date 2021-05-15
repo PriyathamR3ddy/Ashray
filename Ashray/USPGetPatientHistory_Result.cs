@@ -9,31 +9,22 @@
 
 namespace Ashray
 {
-	using Ashray.Models;
-	using System;
-    using System.Collections.Generic;
+    using System;
     
-    public partial class PatientHistory
+    public partial class USPGetPatientHistory_Result
     {
         public int HistoryId { get; set; }
         public Nullable<int> PatientId { get; set; }
         public Nullable<System.DateTime> CheckinDateTime { get; set; }
         public Nullable<System.DateTime> CheckoutDatetime { get; set; }
-        public string DischargeInfo { get; set; }
         public string BP { get; set; }
         public string SPO2 { get; set; }
         public string Temperature { get; set; }
-        public string PatientDocumentPath { get; set; }
-        public string RoomNumber { get; set; }
         public string BedNumber { get; set; }
-
+        public string RoomNumber { get; set; }
+        public string DischargeInfo { get; set; }
+        public string PatientDocumentPath { get; set; }
         public string EmergencyContactName1 { get; set; }
-
         public string EmergencyContactNumber1 { get; set; }
-
-        public virtual PatientInfo PatientInfo { get; set; }
-
-        public List<FileUpload> Files { get; set; }
-
     }
 }

@@ -29,166 +29,188 @@
 <br>
 <div class="ibox-content">
     <div class="row">
-        <div class="col-md-12">
-            <h3 class="m-t-none m-b text-navy">Sign in</h3>
-            @using (Html.BeginForm("ViewPatient", "Ashray", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {<div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label><em style="color:red"> *</em>&nbsp;Patient Name:</label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PatientInfo.PatientName, new { placeholder = "Patient Name", @style = "position:relative", @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class="control-label">
-                                <em style="color:red"> *</em>&nbsp;Patient Id:
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PatientInfo.PatientId, new { placeholder = "Patient ID", @style = "position:relative", @class = "form-control" })
-                        </div>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class="control-label">
-                                <em style="color:red"> *</em>&nbsp;RTPCR Number:
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PatientInfo.RTPCRTestNumber, new { placeholder = "RTPCR Number", @style = "position:relative", @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class="control-label">
-                                <em style="color:red"> *</em>&nbsp;SPO2:
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.SPO2, new { placeholder = "SPO2", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter SPO2", @maxlength = "50", @id = "txtSPO2" })
-                        </div>
-                    </div>
-                </div><br>
+		<div class="col-md-12">
+			<h3 class="m-t-none m-b text-navy">Sign in</h3>
+			@using (Html.BeginForm("ViewPatient", "Ashray", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label><em style="color:red"> *</em>&nbsp;Patient Name:</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.PatientInfo.PatientName, new { placeholder = "Patient Name", @style = "position:relative", @class = "form-control" })
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								<em style="color:red"> *</em>&nbsp;Patient Id:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.PatientInfo.PatientId, new { placeholder = "Patient ID", @style = "position:relative", @class = "form-control" })
+						</div>
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								<em style="color:red"> *</em>&nbsp;Patient Attender Name:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.PatientInfo.EmergencyContactNumber1, new { placeholder = "Emergency Contact Name", @style = "position:relative", @class = "form-control" })
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								<em style="color:red"> *</em>&nbsp;Patient Attender Contact Number:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.PatientInfo.EmergencyContactNumber1, new { placeholder = "Emergency Contact Number", @style = "position:relative", @class = "form-control", @required = "required", @maxlength = "50", @id = "txtSPO2" })
+						</div>
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								<em style="color:red"> *</em>&nbsp;RTPCR Number:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.PatientInfo.RTPCRTestNumber, new { placeholder = "RTPCR Number", @style = "position:relative", @class = "form-control" })
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								<em style="color:red"> *</em>&nbsp;SPO2:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.SPO2, new { placeholder = "SPO2", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter SPO2", @maxlength = "50", @id = "txtSPO2" })
+						</div>
+					</div>
+				</div><br>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class="control-label">
-                                <em style="color:red"> *</em>&nbsp;Body Temperature:
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.Temperature, new { placeholder = "Body Temperature", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter Body Temperature", @maxlength = "50", @id = "txtTemperature" })
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class="control-label">
-                                <em style="color:red"> *</em>&nbsp;BP:
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.BP, new { placeholder = "Blood Pressure", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter BP", @maxlength = "50", @id = "txtBP" })
-                        </div>
-                    </div>
-                </div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								<em style="color:red"> *</em>&nbsp;Body Temperature:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.Temperature, new { placeholder = "Body Temperature", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter Body Temperature", @maxlength = "50", @id = "txtTemperature" })
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								<em style="color:red"> *</em>&nbsp;BP:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.BP, new { placeholder = "Blood Pressure", @style = "position:relative", @class = "form-control", @required = "required", @title = "Please enter BP", @maxlength = "50", @id = "txtBP" })
+						</div>
+					</div>
+				</div><br>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4"><label class="control-label">Room Number:</label></div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.RoomNumber, new { placeholder = "Room Number", @style = "position:relative", @class = "form-control", @title = "Room Number", @maxlength = "50", @id = "txtRoomNumber" })
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class="control-label">
-                               Bed Number:
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.BedNumber, new { placeholder = "Bed Number", @style = "position:relative", @class = "form-control", @title = "Bed Number", @maxlength = "50", @id = "txtBedNumber" })
-                        </div>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class=" control-label">
-                                <em style="color:red"> *</em>&nbsp;CheckIn Date:
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.CheckinDateTime, new { placeholder = "CheckIn Date", @style = "position:relative", @class = "form-control date-picker ", @required = "required", @title = "CheckIn Date", @maxlength = "50", @id = "txtCheckInDate" })
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-4"><label class="control-label">CheckOut Date</label></div>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.CheckoutDatetime, new { placeholder = "CheckOut Date", @style = "position:relative", @class = "form-control date-picker", @title = "CheckOut Date", @maxlength = "50", @id = "txtCheckOutDate" })
-                        </div>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class=" control-label">
-                                <em style="color:red"></em>&nbsp;Pre joining :
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="file" class="form-control" name="files" id="filePrejoining" />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class=" control-label">
-                                <em style="color:red"></em>&nbsp;Post Joining :
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="file" class="form-control" name="files" id="filePostjoining" />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class=" control-label">
-                                <em style="color:red"></em>&nbsp;Discharge :
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="file" class="form-control" name="files" id="fileDisCharge" />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-4">
-                            <label class="control-label">
-                                <em style="color:red"> *</em>&nbsp;Doctor's Inputs:
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            @Html.TextAreaFor(m => m.DischargeInfo, new { placeholder = "Doctor's Inputs", @style = "position:relative", @class = "form-control", @required = "required", @title = "Doctor's Inputs", @maxlength = "50", @id = "txtDoctorsInputs" })
-                        </div>
-                    </div>
-                </div><br />
-                <div class="row">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4"><label class="control-label">Room Number:</label></div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.RoomNumber, new { placeholder = "Room Number", @style = "position:relative", @class = "form-control", @title = "Room Number", @maxlength = "50", @id = "txtRoomNumber" })
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								Bed Number:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.BedNumber, new { placeholder = "Bed Number", @style = "position:relative", @class = "form-control", @title = "Bed Number", @maxlength = "50", @id = "txtBedNumber" })
+						</div>
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class=" control-label">
+								<em style="color:red"> *</em>&nbsp;CheckIn Date:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.CheckinDateTime, new { placeholder = "CheckIn Date", @style = "position:relative", @class = "form-control date-picker ", @required = "required", @title = "CheckIn Date", @maxlength = "50", @id = "txtCheckInDate" })
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-4"><label class="control-label">CheckOut Date</label></div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.CheckoutDatetime, new { placeholder = "CheckOut Date", @style = "position:relative", @class = "form-control date-picker", @title = "CheckOut Date", @maxlength = "50", @id = "txtCheckOutDate" })
+						</div>
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class=" control-label">
+								<em style="color:red"></em>&nbsp;Pre joining :
+							</label>
+						</div>
+						<div class="col-md-8">
+							<input type="file" class="form-control" name="files" id="filePrejoining" />
+						</div>
+					</div>
+					<div class="col-md-6">
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class=" control-label">
+								<em style="color:red"></em>&nbsp;Post Joining :
+							</label>
+						</div>
+						<div class="col-md-8">
+							<input type="file" class="form-control" name="files" id="filePostjoining" />
+						</div>
+					</div>
+					<div class="col-md-6">
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class=" control-label">
+								<em style="color:red"></em>&nbsp;Discharge :
+							</label>
+						</div>
+						<div class="col-md-8">
+							<input type="file" class="form-control" name="files" id="fileDisCharge" />
+						</div>
+					</div>
+					<div class="col-md-6">
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-4">
+							<label class="control-label">
+								<em style="color:red"> *</em>&nbsp;Doctor's Inputs:
+							</label>
+						</div>
+						<div class="col-md-8">
+							@Html.TextAreaFor(m => m.DischargeInfo, new { placeholder = "Doctor's Inputs", @style = "position:relative", @class = "form-control", @required = "required", @title = "Doctor's Inputs", @maxlength = "50", @id = "txtDoctorsInputs" })
+						</div>
+					</div>
+				</div><br />
+				<div class="row">
 					<div class="col-md-12">
 						<input class="btn btn-sm btn-primary pull-Center m-t-n-xs" type="submit" value="Admit to Hospital">
 						<button class="btn btn-sm btn-primary pull-center m-t-n-xs"
@@ -200,34 +222,34 @@
 							</strong>&nbsp;&nbsp;
 						</button>
 					</div>
-                </div>
+				</div>
 
-            }
-            <br />
-            <div style="height:100px;overflow-y:auto;">
-                <table class="table">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Files[0].FileName)
-                        </th>
-                        <th>
-                            Download
-                        </th>
-                    </tr>
-                    @foreach (var item in Model.Files)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FileName)
-                            </td>
-                            <td>
-                                <a href="~/Ashray/Download?id=@item.FileUrl" target="_blank">Download</a>
-                            </td>
-                        </tr>
-                    }
-                </table>
-            </div>
+			}
+			<br />
+			<div style="height:100px;overflow-y:auto;">
+				<table class="table">
+					<tr>
+						<th>
+							@Html.DisplayNameFor(model => model.Files[0].FileName)
+						</th>
+						<th>
+							Download
+						</th>
+					</tr>
+					@foreach (var item in Model.Files)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.FileName)
+							</td>
+							<td>
+								<a href="~/Ashray/Download?id=@item.FileUrl" target="_blank">Download</a>
+							</td>
+						</tr>
+					}
+				</table>
+			</div>
 
-        </div>
+		</div>
     </div>
 </div>

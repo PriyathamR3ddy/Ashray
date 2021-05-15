@@ -189,6 +189,10 @@
       <Parameter Name="EmergencyContactName2" Mode="In" Type="String" />
       <Parameter Name="EmergencyContactNumber2" Mode="In" Type="String" />
       <Parameter Name="CentreId" Mode="In" Type="Int32" />
+      <Parameter Name="PatientPhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="EmergencyContactRelationShip1" Mode="In" Type="String" />
+      <Parameter Name="EmergencyContactRelationShip2" Mode="In" Type="String" />
+      <Parameter Name="RTPCRTestDate" Mode="In" Type="DateTime" />
     </FunctionImport>
     <EntitySet Name="PatientHistories" EntityType="AshrayModel.PatientHistory" />
     <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="AshrayModel.FK__PatientHi__Patie__412EB0B6">
@@ -207,6 +211,19 @@
       <Parameter Name="BP" Mode="In" Type="String" />
       <Parameter Name="SPO2" Mode="In" Type="String" />
       <Parameter Name="Temperature" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USPBedAvailabilityHomeDashboardInfo" ReturnType="Collection(AshrayModel.USPBedAvailabilityHomeDashboardInfo_Result)" />
+    <FunctionImport Name="USPDeletePatientInfo">
+      <Parameter Name="patientId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USPGetBedTypeInfo" />
+    <FunctionImport Name="USPGetPatientHistory" ReturnType="Collection(AshrayModel.USPGetPatientHistory_Result)">
+      <Parameter Name="PatientId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USPGetPostHospitalInfo" ReturnType="Collection(AshrayModel.USPGetPostHospitalInfo_Result)" />
+    <FunctionImport Name="USPValidateLoginInfo" ReturnType="Collection(AshrayModel.USPValidateLoginInfo_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="PatientHistory">
@@ -243,5 +260,41 @@
     <Property Type="String" Name="CentreName" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="BedCount" Nullable="true" />
     <Property Type="Int32" Name="occupiedbeds" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USPBedAvailabilityHomeDashboardInfo_Result">
+    <Property Type="Int32" Name="CentreId" Nullable="false" />
+    <Property Type="String" Name="CentreName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TotalBeds" Nullable="true" />
+    <Property Type="Int32" Name="occupiedbeds" Nullable="true" />
+    <Property Type="Int32" Name="AvailableBeds" Nullable="true" />
+    <Property Type="Int32" Name="Recovered" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USPGetPatientHistory_Result">
+    <Property Type="Int32" Name="HistoryId" Nullable="false" />
+    <Property Type="Int32" Name="PatientId" Nullable="true" />
+    <Property Type="DateTime" Name="CheckinDateTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CheckoutDatetime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="BP" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SPO2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Temperature" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="BedNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="RoomNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DischargeInfo" Nullable="true" />
+    <Property Type="String" Name="PatientDocumentPath" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="EmergencyContactName1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmergencyContactNumber1" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USPGetPostHospitalInfo_Result">
+    <Property Type="Int32" Name="PatientId" Nullable="false" />
+    <Property Type="String" Name="RTPCRNumber" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="CenterName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PatientName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="RegistrationDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="USPValidateLoginInfo_Result">
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

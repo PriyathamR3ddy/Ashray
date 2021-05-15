@@ -309,3 +309,7 @@ C:\Users\sbhamidipati2\Project\Ashray\Ashray\obj\Debug\Ashray.csproj.CoreCompile
 C:\Users\sbhamidipati2\Project\Ashray\Ashray\obj\Debug\Ashray.csproj.CopyComplete
 C:\Users\sbhamidipati2\Project\Ashray\Ashray\obj\Debug\Ashray.dll
 C:\Users\sbhamidipati2\Project\Ashray\Ashray\obj\Debug\Ashray.pdb
+C:\Ashray New code\Ashray\bin\PagedList.dll
+C:\Ashray New code\Ashray\bin\PagedList.Mvc.dll
+C:\Ashray New code\Ashray\bin\PagedList.xml
+C:\Ashray New code\Ashray\bin\PagedList.Mvc.xml

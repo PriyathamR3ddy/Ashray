@@ -158,6 +158,15 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="USPBedAvailabilityDashboardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USPBedAvailabilityHomeDashboardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USPDeletePatientInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="patientId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USPGetBedTypeInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USPGetPatientHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PatientId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USPGetPostHospitalInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="USPInsertPatientHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="PatientId" Type="int" Mode="In" />
     <Parameter Name="CheckinDateTime" Type="datetime" Mode="In" />
@@ -192,6 +201,14 @@
     <Parameter Name="EmergencyContactName2" Type="varchar" Mode="In" />
     <Parameter Name="EmergencyContactNumber2" Type="varchar" Mode="In" />
     <Parameter Name="CentreId" Type="int" Mode="In" />
+    <Parameter Name="PatientPhoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="EmergencyContactRelationShip1" Type="varchar" Mode="In" />
+    <Parameter Name="EmergencyContactRelationShip2" Type="varchar" Mode="In" />
+    <Parameter Name="RTPCRTestDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="USPValidateLoginInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="AshrayModelStoreContainer">
     <EntitySet Name="CentreRegistration" EntityType="Self.CentreRegistration" Schema="dbo" store:Type="Tables" />
