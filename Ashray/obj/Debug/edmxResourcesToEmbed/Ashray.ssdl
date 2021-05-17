@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AshrayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CenterRoomBedInfo">
+    <Key>
+      <PropertyRef Name="CenterRoomBedInfoId" />
+    </Key>
+    <Property Name="CenterRoomBedInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CenterRoomId" Type="int" />
+    <Property Name="BedType" Type="varchar" MaxLength="20" />
+    <Property Name="BedNumber" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CenterRoomInfo">
+    <Key>
+      <PropertyRef Name="CenterRoomId" />
+    </Key>
+    <Property Name="CenterRoomId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CenterId" Type="int" />
+    <Property Name="RoomNumber" Type="varchar" MaxLength="20" />
+    <Property Name="RoomType" Type="varchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="CentreRegistration">
     <Key>
       <PropertyRef Name="CentreId" />
@@ -85,7 +103,7 @@
     <Property Name="Email" Type="varchar" MaxLength="100" />
     <Property Name="RoleId" Type="int" />
   </EntityType>
-  <Association Name="FK__CentreReg__Locat__32E0915F">
+  <Association Name="FK__CentreReg__Locat__2D27B809">
     <End Role="LocationDetails" Type="Self.LocationDetails" Multiplicity="0..1" />
     <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
     <ReferentialConstraint>
@@ -97,7 +115,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CentreReg__State__33D4B598">
+  <Association Name="FK__CentreReg__State__2E1BDC42">
     <End Role="StateDetails" Type="Self.StateDetails" Multiplicity="0..1" />
     <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
     <ReferentialConstraint>
@@ -109,7 +127,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LocationD__State__34C8D9D1">
+  <Association Name="FK__LocationD__State__2A4B4B5E">
     <End Role="StateDetails" Type="Self.StateDetails" Multiplicity="0..1" />
     <End Role="LocationDetails" Type="Self.LocationDetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -121,7 +139,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PatientHi__Patie__35BCFE0A">
+  <Association Name="FK__PatientHi__Patie__412EB0B6">
     <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
     <End Role="PatientHistory" Type="Self.PatientHistory" Multiplicity="*" />
     <ReferentialConstraint>
@@ -133,7 +151,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PatientIn__Centr__36B12243">
+  <Association Name="FK__PatientIn__Centr__30F848ED">
     <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="0..1" />
     <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -145,7 +163,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserDetai__RoleI__37A5467C">
+  <Association Name="FK__UserDetai__RoleI__25869641">
     <End Role="RoleDetails" Type="Self.RoleDetails" Multiplicity="0..1" />
     <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -211,6 +229,8 @@
     <Parameter Name="Password" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="AshrayModelStoreContainer">
+    <EntitySet Name="CenterRoomBedInfo" EntityType="Self.CenterRoomBedInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CenterRoomInfo" EntityType="Self.CenterRoomInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CentreRegistration" EntityType="Self.CentreRegistration" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LocationDetails" EntityType="Self.LocationDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PatientHistory" EntityType="Self.PatientHistory" Schema="dbo" store:Type="Tables" />
@@ -218,27 +238,27 @@
     <EntitySet Name="RoleDetails" EntityType="Self.RoleDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StateDetails" EntityType="Self.StateDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__CentreReg__Locat__32E0915F" Association="Self.FK__CentreReg__Locat__32E0915F">
+    <AssociationSet Name="FK__CentreReg__Locat__2D27B809" Association="Self.FK__CentreReg__Locat__2D27B809">
       <End Role="LocationDetails" EntitySet="LocationDetails" />
       <End Role="CentreRegistration" EntitySet="CentreRegistration" />
     </AssociationSet>
-    <AssociationSet Name="FK__CentreReg__State__33D4B598" Association="Self.FK__CentreReg__State__33D4B598">
+    <AssociationSet Name="FK__CentreReg__State__2E1BDC42" Association="Self.FK__CentreReg__State__2E1BDC42">
       <End Role="StateDetails" EntitySet="StateDetails" />
       <End Role="CentreRegistration" EntitySet="CentreRegistration" />
     </AssociationSet>
-    <AssociationSet Name="FK__LocationD__State__34C8D9D1" Association="Self.FK__LocationD__State__34C8D9D1">
+    <AssociationSet Name="FK__LocationD__State__2A4B4B5E" Association="Self.FK__LocationD__State__2A4B4B5E">
       <End Role="StateDetails" EntitySet="StateDetails" />
       <End Role="LocationDetails" EntitySet="LocationDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK__PatientHi__Patie__35BCFE0A" Association="Self.FK__PatientHi__Patie__35BCFE0A">
+    <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="Self.FK__PatientHi__Patie__412EB0B6">
       <End Role="PatientInfo" EntitySet="PatientInfo" />
       <End Role="PatientHistory" EntitySet="PatientHistory" />
     </AssociationSet>
-    <AssociationSet Name="FK__PatientIn__Centr__36B12243" Association="Self.FK__PatientIn__Centr__36B12243">
+    <AssociationSet Name="FK__PatientIn__Centr__30F848ED" Association="Self.FK__PatientIn__Centr__30F848ED">
       <End Role="CentreRegistration" EntitySet="CentreRegistration" />
       <End Role="PatientInfo" EntitySet="PatientInfo" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserDetai__RoleI__37A5467C" Association="Self.FK__UserDetai__RoleI__37A5467C">
+    <AssociationSet Name="FK__UserDetai__RoleI__25869641" Association="Self.FK__UserDetai__RoleI__25869641">
       <End Role="RoleDetails" EntitySet="RoleDetails" />
       <End Role="UserDetails" EntitySet="UserDetails" />
     </AssociationSet>

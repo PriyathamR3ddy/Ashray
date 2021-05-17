@@ -18,6 +18,8 @@
         <AssociationConnector Association="AshrayModel.FK__UserDetai__RoleI__25869641" ManuallyRouted="false" />
         <EntityTypeShape EntityType="AshrayModel.PatientHistory" Width="1.5" PointX="8.875" PointY="5" />
         <AssociationConnector Association="AshrayModel.FK__PatientHi__Patie__412EB0B6" />
+        <EntityTypeShape EntityType="AshrayModel.CenterRoomBedInfo" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AshrayModel.CenterRoomInfo" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

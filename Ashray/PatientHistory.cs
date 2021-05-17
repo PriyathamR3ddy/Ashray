@@ -26,14 +26,10 @@ namespace Ashray
         public string PatientDocumentPath { get; set; }
         public string RoomNumber { get; set; }
         public string BedNumber { get; set; }
-
-        public string EmergencyContactName1 { get; set; }
-
-        public string EmergencyContactNumber1 { get; set; }
-
-        public virtual PatientInfo PatientInfo { get; set; }
-
+    
         public List<FileUpload> Files { get; set; }
-
+        public string EmergencyContactNumber1 { get; set; }
+        public string EmergencyContactName1 { get; set; }
+        public virtual PatientInfo PatientInfo { get; set; }
     }
 }

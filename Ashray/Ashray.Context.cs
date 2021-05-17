@@ -34,6 +34,8 @@ namespace Ashray
         public virtual DbSet<StateDetail> StateDetails { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
         public virtual DbSet<PatientHistory> PatientHistories { get; set; }
+        public virtual DbSet<CenterRoomBedInfo> CenterRoomBedInfoes { get; set; }
+        public virtual DbSet<CenterRoomInfo> CenterRoomInfoes { get; set; }
     
         public virtual int USPInsertUpdateCentreRegistration(string centreName, string contactPerson, string mobileNumber, string email, Nullable<int> bedCount, Nullable<int> locationId, Nullable<int> stateId, string password)
         {

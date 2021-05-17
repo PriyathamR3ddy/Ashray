@@ -160,5 +160,25 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="CenterRoomBedInfoes">
+      <EntityTypeMapping TypeName="AshrayModel.CenterRoomBedInfo">
+        <MappingFragment StoreEntitySet="CenterRoomBedInfo">
+          <ScalarProperty Name="BedNumber" ColumnName="BedNumber" />
+          <ScalarProperty Name="BedType" ColumnName="BedType" />
+          <ScalarProperty Name="CenterRoomId" ColumnName="CenterRoomId" />
+          <ScalarProperty Name="CenterRoomBedInfoId" ColumnName="CenterRoomBedInfoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CenterRoomInfoes">
+      <EntityTypeMapping TypeName="AshrayModel.CenterRoomInfo">
+        <MappingFragment StoreEntitySet="CenterRoomInfo">
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="CenterId" ColumnName="CenterId" />
+          <ScalarProperty Name="CenterRoomId" ColumnName="CenterRoomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

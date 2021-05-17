@@ -149,6 +149,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ashray.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CenterRoomBedInfo.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CenterRoomInfo.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
     <Compile Include="CentreRegistration.cs">
       <DependentUpon>Ashray.tt</DependentUpon>
     </Compile>

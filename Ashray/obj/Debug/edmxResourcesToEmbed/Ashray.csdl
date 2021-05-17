@@ -225,6 +225,8 @@
       <Parameter Name="Email" Mode="In" Type="String" />
       <Parameter Name="Password" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="CenterRoomBedInfoes" EntityType="AshrayModel.CenterRoomBedInfo" />
+    <EntitySet Name="CenterRoomInfoes" EntityType="AshrayModel.CenterRoomInfo" />
   </EntityContainer>
   <EntityType Name="PatientHistory">
     <Key>
@@ -297,4 +299,22 @@
     <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
   </ComplexType>
+  <EntityType Name="CenterRoomBedInfo">
+    <Key>
+      <PropertyRef Name="CenterRoomBedInfoId" />
+    </Key>
+    <Property Name="CenterRoomBedInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CenterRoomId" Type="Int32" />
+    <Property Name="BedType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BedNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CenterRoomInfo">
+    <Key>
+      <PropertyRef Name="CenterRoomId" />
+    </Key>
+    <Property Name="CenterRoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CenterId" Type="Int32" />
+    <Property Name="RoomNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RoomType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>
