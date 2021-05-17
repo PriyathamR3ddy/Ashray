@@ -74,6 +74,15 @@ namespace Ashray.Controllers
                 patientHistory.DischargeInfo = history.DischargeInfo;
                 patientHistory.PatientInfo.EmergencyContactName1 = history.EmergencyContactName1;
                 patientHistory.PatientInfo.EmergencyContactNumber1 = history.EmergencyContactNumber1;
+                using(var db = new AshrayEntities())
+				{
+                    var matchedInfo = db.PatientInfoes.FirstOrDefault(x => x.PatientId == id);
+                    if(matchedInfo!=null)
+					{
+                        patientHistory.PatientInfo.EmergencyContactName1 = matchedInfo.EmergencyContactName1;
+                        patientHistory.PatientInfo.EmergencyContactNumber1 = matchedInfo.EmergencyContactNumber1;
+                    }
+				}
             }
             patientHistory.Files = new List<FileUpload>();
             string foldername = patientHistory.PatientInfo.PatientId + "_" + patientHistory.PatientInfo.PatientName;
