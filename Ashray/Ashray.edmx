@@ -108,7 +108,7 @@
           <Property Name="Email" Type="varchar" MaxLength="100" />
           <Property Name="RoleId" Type="int" />
         </EntityType>
-        <Association Name="FK__CentreReg__Locat__2D27B809">
+        <Association Name="FK__CentreReg__Locat__33D4B598">
           <End Role="LocationDetails" Type="Self.LocationDetails" Multiplicity="0..1" />
           <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -120,7 +120,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CentreReg__State__2E1BDC42">
+        <Association Name="FK__CentreReg__State__34C8D9D1">
           <End Role="StateDetails" Type="Self.StateDetails" Multiplicity="0..1" />
           <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -132,7 +132,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LocationD__State__2A4B4B5E">
+        <Association Name="FK__LocationD__State__35BCFE0A">
           <End Role="StateDetails" Type="Self.StateDetails" Multiplicity="0..1" />
           <End Role="LocationDetails" Type="Self.LocationDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -144,7 +144,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PatientHi__Patie__412EB0B6">
+        <Association Name="FK__PatientHi__Patie__36B12243">
           <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
           <End Role="PatientHistory" Type="Self.PatientHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -156,7 +156,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PatientIn__Centr__30F848ED">
+        <Association Name="FK__PatientIn__Centr__37A5467C">
           <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="0..1" />
           <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -168,7 +168,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserDetai__RoleI__25869641">
+        <Association Name="FK__UserDetai__RoleI__38996AB5">
           <End Role="RoleDetails" Type="Self.RoleDetails" Multiplicity="0..1" />
           <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -243,27 +243,27 @@
           <EntitySet Name="RoleDetails" EntityType="Self.RoleDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StateDetails" EntityType="Self.StateDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CentreReg__Locat__2D27B809" Association="Self.FK__CentreReg__Locat__2D27B809">
+          <AssociationSet Name="FK__CentreReg__Locat__33D4B598" Association="Self.FK__CentreReg__Locat__33D4B598">
             <End Role="LocationDetails" EntitySet="LocationDetails" />
             <End Role="CentreRegistration" EntitySet="CentreRegistration" />
           </AssociationSet>
-          <AssociationSet Name="FK__CentreReg__State__2E1BDC42" Association="Self.FK__CentreReg__State__2E1BDC42">
+          <AssociationSet Name="FK__CentreReg__State__34C8D9D1" Association="Self.FK__CentreReg__State__34C8D9D1">
             <End Role="StateDetails" EntitySet="StateDetails" />
             <End Role="CentreRegistration" EntitySet="CentreRegistration" />
           </AssociationSet>
-          <AssociationSet Name="FK__LocationD__State__2A4B4B5E" Association="Self.FK__LocationD__State__2A4B4B5E">
+          <AssociationSet Name="FK__LocationD__State__35BCFE0A" Association="Self.FK__LocationD__State__35BCFE0A">
             <End Role="StateDetails" EntitySet="StateDetails" />
             <End Role="LocationDetails" EntitySet="LocationDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="Self.FK__PatientHi__Patie__412EB0B6">
+          <AssociationSet Name="FK__PatientHi__Patie__36B12243" Association="Self.FK__PatientHi__Patie__36B12243">
             <End Role="PatientInfo" EntitySet="PatientInfo" />
             <End Role="PatientHistory" EntitySet="PatientHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK__PatientIn__Centr__30F848ED" Association="Self.FK__PatientIn__Centr__30F848ED">
+          <AssociationSet Name="FK__PatientIn__Centr__37A5467C" Association="Self.FK__PatientIn__Centr__37A5467C">
             <End Role="CentreRegistration" EntitySet="CentreRegistration" />
             <End Role="PatientInfo" EntitySet="PatientInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserDetai__RoleI__25869641" Association="Self.FK__UserDetai__RoleI__25869641">
+          <AssociationSet Name="FK__UserDetai__RoleI__38996AB5" Association="Self.FK__UserDetai__RoleI__38996AB5">
             <End Role="RoleDetails" EntitySet="RoleDetails" />
             <End Role="UserDetails" EntitySet="UserDetails" />
           </AssociationSet>
