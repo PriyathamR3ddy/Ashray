@@ -534,7 +534,7 @@ namespace Ashray.Models
                 using (var db = new AshrayEntities())
                 {
                     List<SqlParameter> pram = new List<SqlParameter>();
-                    patientDashboard = db.Database.SqlQuery<PatientDashboard>("[GetPatientHomePageDashboard]", pram.ToArray()).ToList();
+                    patientDashboard = db.Database.SqlQuery<PatientDashboard>("[dbo].[GetPatientHomePageDashboard]", pram.ToArray()).ToList();
                     db.SaveChanges();
                 }
             }
