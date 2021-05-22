@@ -1,275 +1,200 @@
 ﻿@model Ashray.Models.HomeDashboard
 @{
-	ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Page";
 }
 <script>
 </script>
 <div class="row">
-	<div class="col-lg-12">
-		@*<div class="ibox float-e-margins">
-				<div class="ibox-content text-center p-md">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-5" style="padding:0px 5px 0px 10px;">
+                <div class="ibox float-e-margins" style="margin:5px; padding:0px;">
+                    <div class="ibox-title" style="background:#1A7BB9; color:#fff;">
+                        <h5>Avaliable Doctors </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group"><label>Doctor</label> <input value="Dr.Chinna Babu" disabled class="form-control" type="text"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group"><label>Doctor</label> <input value="Dr.Pramela" disabled class="form-control" type="text"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group"><label>Doctor</label> <input value="Dr.Misbah" disabled class="form-control" type="text"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group"><label>Doctor</label> <input value="Dr.Harish" disabled class="form-control" type="text"></div>
+                                    </div>
 
-					<h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 red-bg p-lg text-center" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4 text-left">
+                                    <i class="fa fa-bed fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>TOTAL BEDS </span>
+                                    <h2 class="font-bold">@Model.TotalBeds</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 navy-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-hospital-o fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span> AVAILABLE BEDS </span>
+                                    <h2 class="font-bold">@Model.AvailableBeds</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 lazur-bg" style="padding:11px; margin:3px;">
 
-						<img src="~/Images/Logo.jpg" style="width:55px;" />
-						<span class="text-navy">ASHRAY - A REALPAGE INITIATIVE</span> <img src="~/Images/RealPageGIVES__Logo_RGB.png" style="width:75px;" />
-					</h2>
+                            <div class="row">
+                                <div class="col-xs-2 text-left">
+                                    <i class="fa fa-envelope-o fa-4x"></i>
+                                </div>
+                                <div class="col-xs-10 text-right">
+                                    <span>RECOVERED / DISCHARGED </span>
+                                    <h2 class="font-bold">@Model.Recovered</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 yellow-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-male fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>Total no.of Males</span>
+                                    <h2 class="font-bold">@Model.MaleCount</h2>
+                                </div>
+                            </div>
+                        </div>
 
-					<p>
-						Ashray is the ray of hope for servicing nation to fight back the Pandemic by providing services as much as we can.
-						RealPage Came up with a initiative of Pop-Up Hospital extending services as much as we can.
-					</p>
-				</div>
-			</div>*@
-		<div class="row">
-			<div class="col-lg-5" style="padding:0px 5px 0px 10px;">
-				<div class="ibox float-e-margins" style="margin:5px; padding:0px;">
-					<div class="ibox-title" style="background:#1A7BB9; color:#fff;">
-						<h5>SEARCH AVAILABILITY </h5>
-					</div>
-					<div class="ibox-content">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="form-group"><label>STATE</label> <input placeholder="Enter email" class="form-control" type="email"></div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group"><label>PINCODE</label> <input placeholder="Enter email" class="form-control" type="email"></div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label>AREA</label><select name="ddlMaterial" id="ddlMaterial" class="form-control">
-												<option selected="selected" value="Select">Select</option>
-												<option value="1">Madhapur</option>
-												<option value="2">Hitech-City</option>
-												<option value="3">Kondapur</option>
-												<option value="4">Kukatpally</option>
-												<option value="5">Charminar</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label>Bed Type</label>
-											<select name="ddlTruckType" id="ddlTruckType" class="form-control">
-												<option selected="selected" value="Select">Select</option>
-												<option value="1">Isolation bed</option>
-												<option value="2">Non-Critical + O2</option>
-												<option value="3">Critical + O2</option>
-												<option value="4">ICU + Ventilator </option>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 red-bg p-lg text-center" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4 text-left">
+                                    <i class="fa fa-folder fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>Discharges FTD</span>
+                                    <h2 class="font-bold">@Model.DischargedCount</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 navy-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-2 text-left">
+                                    <i class="fa fa-folder-open fa-4x"></i>
+                                </div>
+                                <div class="col-xs-10 text-right">
+                                    <span>Admissions FTD </span>
+                                    <h2 class="font-bold">@Model.AdmittedCount</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 lazur-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-2 text-left">
+                                    <i class="fa fa-tasks fa-4x"></i>
+                                </div>
+                                <div class="col-xs-10 text-right">
+                                    <span>Total Admissions till Date </span>
+                                    <h2 class="font-bold">@Model.TotalAdmissions</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 yellow-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-female fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>Total no.of Females</span>
+                                    <h2 class="font-bold">@Model.FemaleCount</h2>
+                                </div>
+                            </div>
+                        </div>
 
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label> Date</label><div class="input-group date form_datetime-component">
-												<input name="txtDate" maxlength="10" id="txtDate" class="form-control hasDatepicker" type="text">
-												<span class="input-group-btn">
-													<button id="datePicker" class="btn btn-danger date-set" type="button"><i class="fa fa-calendar"></i></button>
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label>No. of Beds</label><select name="ddlNoOfTrucks" id="ddlNoOfTrucks" class="form-control">
-												<option value="0">Select</option>
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-6">
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<br>
-											<br>
-											<button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>SEARCH</strong></button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="row">
-					<div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-						<div class="widget style1 red-bg p-lg text-center" style="padding:11px; margin:3px;">
-							<div class="row">
-								<div class="col-xs-4 text-left">
-									<i class="fa fa-bed fa-4x"></i>
-								</div>
-								<div class="col-xs-8 text-right">
-									<span>TOTAL BEDS </span>
-									<h2 class="font-bold">@Model.TotalBeds</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-						<div class="widget style1 navy-bg" style="padding:11px; margin:3px;">
-							<div class="row">
-								<div class="col-xs-4">
-									<i class="fa fa-pr fa-4x"></i>
-								</div>
-								<div class="col-xs-8 text-right">
-									<span> AVAILABLE BEDS </span>
-									<h2 class="font-bold">@Model.AvailableBeds</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-						<div class="widget style1 lazur-bg" style="padding:11px; margin:3px;">
-							<div class="row">
-								<div class="col-xs-4">
-									<i class="fa fa-envelope-o fa-4x"></i>
-								</div>
-								<div class="col-xs-8 text-right">
-									<span> RECOVERED / DISCHARGED </span>
-									<h2 class="font-bold">@Model.Recovered</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-						<div class="widget style1 yellow-bg" style="padding:11px; margin:3px;">
-							<div class="row">
-								<div class="col-xs-4">
-									<i class="fa fa-male fa-4x"></i>
-								</div>
-								<div class="col-xs-8 text-right">
-									<span>Total no.of Males</span>
-									<h2 class="font-bold">@Model.MaleCount</h2>
-								</div>
-							</div>
-						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
 
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="row">
-					<div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-						<div class="widget style1 red-bg p-lg text-center" style="padding:11px; margin:3px;">
-							<div class="row">
-								<div class="col-xs-4 text-left">
-									<i class="fa fa-sign-out fa-4x"></i>
-								</div>
-								<div class="col-xs-8 text-right">
-									<span>Discharges FTD</span>
-									<h2 class="font-bold">@Model.DischargedCount</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-						<div class="widget style1 navy-bg" style="padding:11px; margin:3px;">
-							<div class="row">
-								<div class="col-xs-2 text-left">
-									<i class="fa fa-tasks fa-4x"></i>
-								</div>
-								<div class="col-xs-10 text-right">
-									<span>Admissions FTD </span>
-									<h2 class="font-bold">@Model.AdmittedCount</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-						<div class="widget style1 lazur-bg" style="padding:20px; margin:3px;">
-							<div class="row">
-								<div class="col-xs-2 text-left">
-									<i class="fa fa-tasks fa-4x"></i>
-								</div>
-								<div class="col-xs-10 text-right">
-									<span>Total Admissions till Date </span>
-									<h2 class="font-bold">@Model.TotalAdmissions</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-						<div class="widget style1 yellow-bg" style="padding:11px; margin:3px;">
-							<div class="row">
-								<div class="col-xs-4">
-									<i class="fa fa-female fa-4x"></i>
-								</div>
-								<div class="col-xs-8 text-right">
-									<span>Total no.of Females</span>
-									<h2 class="font-bold">@Model.FemaleCount</h2>
-								</div>
-							</div>
-						</div>
+            <div class="col-lg-12">
 
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div>
-					<div class="col-lg-12" style=" padding:10px 10px 10px 0px;">
-						<div class="table-bed-details" style="background: white;overflow-y: auto;max-height: 475px;">
-							<table class="table table-striped">
-								<thead class="bg-success">
-									<tr>
-										<th>@Html.DisplayNameFor(model => @Model.PatientDashboard[0].RoomNumber)</th>
-										<th>@Html.DisplayNameFor(model => @Model.PatientDashboard[0].PatientName)</th>
-										<th>@Html.DisplayNameFor(model => @Model.PatientDashboard[0].Gender)</th>
-										<th>@Html.DisplayNameFor(model => @Model.PatientDashboard[0].PositiveDate)</th>
-									</tr>
-								</thead>
-								<tbody>
-									@foreach (var item in Model.PatientDashboard)
-									{
-										<tr>
-											<td>
-												@Html.DisplayFor(modelItem => item.RoomNumber)
-											</td>
-											<td>
-												@Html.DisplayFor(modelItem => item.PatientName)
-											</td>
-											<td>
-												@Html.DisplayFor(modelItem => item.Gender)
-											</td>
-											<td>
-												@Html.DisplayFor(modelItem => item.PositiveDate)
-											</td>
-										</tr>
-									}
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
+                <div>
+                    <div class="col-lg-12" style=" padding:10px 10px 10px 0px;">
+                        <div class="table-bed-details" style="background: white;overflow-y: auto;max-height: 475px;">
+                            <table class="table table-striped">
+                                <thead class="bg-success">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => @Model.PatientDashboard[0].RoomNumber)</th>
+                                        <th>@Html.DisplayNameFor(model => @Model.PatientDashboard[0].PatientName)</th>
+                                        <th>@Html.DisplayNameFor(model => @Model.PatientDashboard[0].Gender)</th>
+                                        <th>@Html.DisplayNameFor(model => @Model.PatientDashboard[0].PositiveDate)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.PatientDashboard)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.RoomNumber)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PatientName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Gender)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PositiveDate)
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
 
-		@*<div class="footer">
-				<div class="pull-right"> Ashray - A RealPage Initiative </div>
-				<div> <strong>Copyright</strong> RealPage &copy; 2015 </div>
-			</div>*@
-	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+    </div>
 </div>
