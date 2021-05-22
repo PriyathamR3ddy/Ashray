@@ -15,9 +15,10 @@ namespace Ashray.Controllers
         // GET: Ashray
         public ActionResult Index()
         {
-            var homeDashboard = Registation.GetHomeDashboard();
-            return View(homeDashboard);
-        }
+            var homeDashboard = Registation.GetHomeDashboard();           
+            homeDashboard.PatientDashboard = Registation.GetPatientHomeDashboard();
+			return View(homeDashboard);
+        }      
 
         public ActionResult FindHospital()
         {

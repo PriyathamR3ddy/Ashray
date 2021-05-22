@@ -173,6 +173,7 @@
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\HomeDashboard.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\PatientDashboard.cs" />
     <Compile Include="Models\PostHospital.cs" />
     <Compile Include="Models\Registation .cs" />
     <Compile Include="PatientHistory.cs">

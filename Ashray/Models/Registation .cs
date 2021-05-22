@@ -526,5 +526,23 @@ namespace Ashray.Models
             }
             return Id;
         }
+        public static List<PatientDashboard> GetPatientHomeDashboard()
+        {
+            List<PatientDashboard> patientDashboard;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    patientDashboard = db.Database.SqlQuery<PatientDashboard>("[dbo].[GetPatientHomePageDashboard]", pram.ToArray()).ToList();
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception exs)
+            {
+                patientDashboard = null;
+            }
+            return patientDashboard;
+        }
     }
 }
