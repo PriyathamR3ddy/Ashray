@@ -161,60 +161,71 @@
                         </div>
 
                     </div>
-                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
-                        <div class="widget style1 yellow-bg" style="padding:11px; margin:3px;">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <i class="fa fa-truck fa-4x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span>AVAILABLE AMBULANCE</span>
-                                    <h2 class="font-bold">100</h2>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">                     
 
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="col-lg-12" style="margin:5px; padding:0px;">
-                    <div class="ibox  float-e-margins">
-                        <div class="ibox-title" style="background:#1A7BB9; color:#fff;">
-                            <h5>Customer Feed Back</h5>
-                        </div>
-                        <div class="ibox-content inspinia-timeline">
-
-
-                            <div class="timeline-item">
-                                <div class="row">
-                                    <div class="col-xs-3 date">
-                                        <i class="fa fa-coffee"></i> 8:00 am <br />
-                                    </div>
-                                    <div class="col-xs-7 content">
-                                        <p class="m-b-xs"><strong>Nice Experience</strong></p>
-                                        <p> Treated well with atmost care ,quick response and 100% likes </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="row">
-                                    <div class="col-xs-3 date">
-                                        <i class="fa fa-phone"></i> 11:00 am <br />
-                                        <small class="text-navy">21 hour ago</small>
-                                    </div>
-                                    <div class="col-xs-7 content">
-                                        <p class="m-b-xs"><strong>Unable to Find the Bed at the centre </strong></p>
-                                        <p>Guys!! i have searched for a single bed in my location unable to get it. can you arrange ?  </p>
-                                    </div>
-                                </div><br>
-                                <br>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<div class="col-lg-6">			
+				
+					<div>
+						<div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
+							<div class="widget style1 red-bg p-lg text-center" style="width:100% !important; padding:25px;">
+								<div class="row">
+									<div class="col-xs-2 text-left">
+										<i class="fa fa-sign-out fa-4x"></i>
+									</div>
+									<div class="col-xs-10 text-right">
+										<span>Discharges FTD </span>
+										<h2 class="font-bold">@Model.TotalBeds</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
+							<div class="widget style1 navy-bg p-lg text-center" style="width:100% !important; padding:25px;">
+								<div class="row">
+									<div class="col-xs-2 text-left">
+										<i class="fa fa-tasks fa-4x"></i>
+									</div>
+									<div class="col-xs-10 text-right">
+										<span>Admissions FTD </span>
+										<h2 class="font-bold">@Model.TotalBeds</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
+							<div class="widget style1 yellow-bg p-lg text-center" style="width:100% !important; padding:25px;">
+								<div class="row">
+									<div class="col-xs-2 text-left">
+										<i class="fa fa-edit fa-4x"></i>
+									</div>
+									<div class="col-xs-10 text-right">
+										<span>Total Admissions till Date </span>
+										<h2 class="font-bold">@Model.TotalBeds</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
+							<div class="widget style1 lazur-bg p-lg text-center" style="width:100% !important; padding:25px;">
+								<div class="row">
+									<div class="col-xs-2 text-left">
+										<i class="fa fa-book fa-4x"></i>
+									</div>
+									<div class="col-xs-10 text-right">
+										<span>Total Discharges till Date </span>
+										<h2 class="font-bold">@Model.TotalBeds</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
+				
+			</div>
         </div>
         <div class="row">
             <div class="col-lg-6">
@@ -245,71 +256,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div>
-                    <div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
-                        <div class="widget style1 red-bg p-lg text-center" style="width:100% !important; padding:25px;">
-                            <div class="row">
-                                <div class="col-xs-2 text-left">
-                                    <i class="fa fa-sign-out fa-4x"></i>
-                                </div>
-                                <div class="col-xs-10 text-right">
-                                    <span>Discharges FTD </span>
-                                    <h2 class="font-bold">@Model.TotalBeds</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
-                        <div class="widget style1 navy-bg p-lg text-center" style="width:100% !important; padding:25px;">
-                            <div class="row">
-                                <div class="col-xs-2 text-left">
-                                    <i class="fa fa-tasks fa-4x"></i>
-                                </div>
-                                <div class="col-xs-10 text-right">
-                                    <span>Admissions FTD </span>
-                                    <h2 class="font-bold">@Model.TotalBeds</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
-                        <div class="widget style1 yellow-bg p-lg text-center" style="width:100% !important; padding:25px;">
-                            <div class="row">
-                                <div class="col-xs-2 text-left">
-                                    <i class="fa fa-edit fa-4x"></i>
-                                </div>
-                                <div class="col-xs-10 text-right">
-                                    <span>Total Admissions till Date </span>
-                                    <h2 class="font-bold">@Model.TotalBeds</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
-                        <div class="widget style1 lazur-bg p-lg text-center" style="width:100% !important; padding:25px;">
-                            <div class="row">
-                                <div class="col-xs-2 text-left">
-                                    <i class="fa fa-book fa-4x"></i>
-                                </div>
-                                <div class="col-xs-10 text-right">
-                                    <span>Total Discharges till Date </span>
-                                    <h2 class="font-bold">@Model.TotalBeds</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @*<div class="ibox float-e-margins">
-            <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
-                <iframe allowfullscreen="" src="https://youtu.be/xTvd7oAEyhs" width="100%" frameborder="0" height="235"></iframe>
-            </div>
-
-        </div>*@
-            </div>
+            </div>            
         </div>
         <br>
         <br>

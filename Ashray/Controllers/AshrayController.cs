@@ -32,9 +32,9 @@ namespace Ashray.Controllers
 
         public ActionResult PostHospital(int? page)
         {
-            var list = Registation.GetPosthospitalInfo();
-            int pageSize = 10;
-            int pageNumber = (page ?? 1);
+            var list = Registation.GetPosthospitalInfo();            
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);            
             return View(list.ToPagedList(pageNumber, pageSize));
         }
 
@@ -81,6 +81,7 @@ namespace Ashray.Controllers
 					{
                         patientHistory.PatientInfo.EmergencyContactName1 = matchedInfo.EmergencyContactName1;
                         patientHistory.PatientInfo.EmergencyContactNumber1 = matchedInfo.EmergencyContactNumber1;
+                        patientHistory.PatientInfo.GovtIdNumber = matchedInfo.GovtIdNumber;
                     }
 				}
             }

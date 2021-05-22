@@ -138,24 +138,24 @@
 						</div>
 					</div>
 				</div><br>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="col-md-4">
-							<label class=" control-label">
-								<em style="color:red"> *</em>&nbsp;CheckIn Date:
-							</label>
-						</div>
-						<div class="col-md-8">
-							@Html.TextBoxFor(m => m.CheckinDateTime, new { placeholder = "CheckIn Date", @style = "position:relative", @class = "form-control date-picker ", @required = "required", @title = "CheckIn Date", @maxlength = "50", @id = "txtCheckInDate" })
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="col-md-4"><label class="control-label">CheckOut Date</label></div>
-						<div class="col-md-8">
-							@Html.TextBoxFor(m => m.CheckoutDatetime, new { placeholder = "CheckOut Date", @style = "position:relative", @class = "form-control date-picker", @title = "CheckOut Date", @maxlength = "50", @id = "txtCheckOutDate" })
-						</div>
-					</div>
-				</div><br>
+					  <div class="row">
+					  	<div class="col-md-6">
+					  		<div class="col-md-4">
+					  			<label class=" control-label">
+					  				<em style="color:red"> *</em>&nbsp;CheckIn Date:
+					  			</label>
+					  		</div>
+					  		<div class="col-md-8">
+					  			@Html.TextBoxFor(m => m.CheckinDateTime, new { placeholder = "CheckIn Date", @style = "position:relative", @class = "form-control date-picker ", @required = "required", @title = "CheckIn Date", @maxlength = "50", @id = "txtCheckInDate" })
+					  </div>
+					  </div>
+					  <div class="col-md-6">
+					  	<div class="col-md-4"><label class="control-label">CheckOut Date</label></div>
+					  	<div class="col-md-8">
+					  		@Html.TextBoxFor(m => m.CheckoutDatetime, new { placeholder = "CheckOut Date", @style = "position:relative", @class = "form-control date-picker", @title = "CheckOut Date", @maxlength = "50", @id = "txtCheckOutDate" })
+					  </div>
+					  </div>					  
+					  </div><br>
 				<div class="row">
 					<div class="col-md-6">
 						<div class="col-md-4">
@@ -166,8 +166,13 @@
 						<div class="col-md-8">
 							<input type="file" class="form-control" name="files" id="filePrejoining" />
 						</div>
+						
 					</div>
 					<div class="col-md-6">
+						<div class="col-md-4"><label class="control-label">Govt Id Number</label></div>
+						<div class="col-md-8">
+							@Html.TextBoxFor(m => m.PatientInfo.GovtIdNumber, new { placeholder = "Govt Id Number", @style = "position:relative", @class = "form-control", @title = "Govt Id Number", @maxlength = "50", @id = "txtGovtIdNumber" })
+						</div>
 					</div>
 				</div><br>
 				<div class="row">
