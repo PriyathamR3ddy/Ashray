@@ -7,26 +7,25 @@
 <div class="row">
     <div class="col-lg-12">
         @*<div class="ibox float-e-margins">
-            <div class="ibox-content text-center p-md">
+                <div class="ibox-content text-center p-md">
 
-                <h2>
+                    <h2>
 
-                    <img src="~/Images/Logo.jpg" style="width:55px;" />
-                    <span class="text-navy">ASHRAY - A REALPAGE INITIATIVE</span> <img src="~/Images/RealPageGIVES__Logo_RGB.png" style="width:75px;" />
-                </h2>
-                
-                <p>
-                    Ashray is the ray of hope for servicing nation to fight back the Pandemic by providing services as much as we can.
-                    RealPage Came up with a initiative of Pop-Up Hospital extending services as much as we can.
-                </p>
-            </div>
-        </div>*@
+                        <img src="~/Images/Logo.jpg" style="width:55px;" />
+                        <span class="text-navy">ASHRAY - A REALPAGE INITIATIVE</span> <img src="~/Images/RealPageGIVES__Logo_RGB.png" style="width:75px;" />
+                    </h2>
+
+                    <p>
+                        Ashray is the ray of hope for servicing nation to fight back the Pandemic by providing services as much as we can.
+                        RealPage Came up with a initiative of Pop-Up Hospital extending services as much as we can.
+                    </p>
+                </div>
+            </div>*@
         <div class="row">
             <div class="col-lg-5" style="padding:0px 5px 0px 10px;">
                 <div class="ibox float-e-margins" style="margin:5px; padding:0px;">
                     <div class="ibox-title" style="background:#1A7BB9; color:#fff;">
                         <h5>SEARCH AVAILABILITY </h5>
-
                     </div>
                     <div class="ibox-content">
                         <div class="row">
@@ -49,7 +48,6 @@
                                                 <option value="3">Kondapur</option>
                                                 <option value="4">Kukatpally</option>
                                                 <option value="5">Charminar</option>
-
                                             </select>
                                         </div>
                                     </div>
@@ -63,12 +61,10 @@
                                                 <option value="3">Critical + O2</option>
                                                 <option value="4">ICU + Ventilator </option>
 
-
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -94,14 +90,12 @@
                                                 <option value="8">8</option>
                                                 <option value="9">9</option>
                                                 <option value="10">10</option>
-
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -112,7 +106,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -123,7 +116,7 @@
                         <div class="widget style1 red-bg p-lg text-center" style="padding:11px; margin:3px;">
                             <div class="row">
                                 <div class="col-xs-4 text-left">
-                                    <i class="fa fa-trophy fa-4x"></i>
+                                    <i class="fa fa-bed fa-4x"></i>
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span>TOTAL BEDS </span>
@@ -132,19 +125,17 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
                         <div class="widget style1 navy-bg" style="padding:11px; margin:3px;">
                             <div class="row">
                                 <div class="col-xs-4">
-                                    <i class="fa fa-cloud fa-4x"></i>
+                                    <i class="fa fa-pr fa-4x"></i>
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span> AVAILABLE BEDS </span>
                                     <h2 class="font-bold">@Model.AvailableBeds</h2>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
@@ -159,77 +150,83 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">                     
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 yellow-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-male fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>Total no.of Males</span>
+                                    <h2 class="font-bold">100</h2>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
             </div>
-			<div class="col-lg-6">			
-				
-					<div>
-						<div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
-							<div class="widget style1 red-bg p-lg text-center" style="width:100% !important; padding:25px;">
-								<div class="row">
-									<div class="col-xs-2 text-left">
-										<i class="fa fa-sign-out fa-4x"></i>
-									</div>
-									<div class="col-xs-10 text-right">
-										<span>Discharges FTD </span>
-										<h2 class="font-bold">@Model.TotalBeds</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
-							<div class="widget style1 navy-bg p-lg text-center" style="width:100% !important; padding:25px;">
-								<div class="row">
-									<div class="col-xs-2 text-left">
-										<i class="fa fa-tasks fa-4x"></i>
-									</div>
-									<div class="col-xs-10 text-right">
-										<span>Admissions FTD </span>
-										<h2 class="font-bold">@Model.TotalBeds</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div>
-						<div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
-							<div class="widget style1 yellow-bg p-lg text-center" style="width:100% !important; padding:25px;">
-								<div class="row">
-									<div class="col-xs-2 text-left">
-										<i class="fa fa-edit fa-4x"></i>
-									</div>
-									<div class="col-xs-10 text-right">
-										<span>Total Admissions till Date </span>
-										<h2 class="font-bold">@Model.TotalBeds</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
-							<div class="widget style1 lazur-bg p-lg text-center" style="width:100% !important; padding:25px;">
-								<div class="row">
-									<div class="col-xs-2 text-left">
-										<i class="fa fa-book fa-4x"></i>
-									</div>
-									<div class="col-xs-10 text-right">
-										<span>Total Discharges till Date </span>
-										<h2 class="font-bold">@Model.TotalBeds</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>					
-				
-			</div>
+            <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 red-bg p-lg text-center" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4 text-left">
+                                    <i class="fa fa-sign-out fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>Discharges FTD</span>
+                                    <h2 class="font-bold">@Model.TotalBeds</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 navy-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-2 text-left">
+                                    <i class="fa fa-tasks fa-4x"></i>
+                                </div>
+                                <div class="col-xs-10 text-right">
+                                    <span>Admissions FTD </span>
+                                    <h2 class="font-bold">@Model.TotalBeds</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 lazur-bg" style="padding:20px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-2 text-left">
+                                    <i class="fa fa-tasks fa-4x"></i>
+                                </div>
+                                <div class="col-xs-10 text-right">
+                                    <span>Total Admissions till Date </span>
+                                    <h2 class="font-bold">@Model.TotalBeds</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding:0px 10px; margin:5px;">
+                        <div class="widget style1 yellow-bg" style="padding:11px; margin:3px;">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-female fa-4x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                    <span>Total no.of Females</span>
+                                    <h2 class="font-bold">100</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
-
+            @*<div class="col-lg-6">
                 <div>
                     <div class="col-lg-12" style=" padding:10px 10px 10px 0px; margin-top:-20px;">
                         <div class="widget lazur-bg p-xl" style="width:100% !important; padding:30px;">
@@ -256,14 +253,133 @@
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>*@
+            <div class="col-lg-12">
+
+                <div>
+                    <div class="col-lg-12" style=" padding:10px 10px 10px 0px;">
+                        <div class="table-bed-details" style="background: white;overflow-y: auto;max-height: 475px;">
+                            <table class="table table-striped">
+                                <thead class="bg-success">
+                                    <tr>
+                                        <th>Room No</th>
+                                        <th>Patient Name</th>
+                                        <th>Age</th>
+                                        <th>Sex</th>
+                                        <th>CO +ve Date</th>
+                                        <th>Date Of Admission</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>102-1</td>
+                                        <td>Doe</td>
+                                        <td>39/M</td>
+                                        <td>5/5/2021</td>
+                                        <td>5/27/2021</td>
+                                        <td>AC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>102-2</td>
+                                        <td>Moe</td>
+                                        <td>30/M</td>
+                                        <td>5/10/2021</td>
+                                        <td>5/15/2021</td>
+                                        <td>Non-AC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>103-1</td>
+                                        <td>Dooley</td>
+                                        <td>july@example.com</td>
+                                        <td>4/23/2021</td>
+                                        <td>5/25/2021</td>
+                                        <td>AC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>103-2</td>
+                                        <td>Doe</td>
+                                        <td>john@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                    <tr>
+                                        <td>104-1</td>
+                                        <td>Moe</td>
+                                        <td>mary@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                    <tr>
+                                        <td>104-2</td>
+                                        <td>Dooley</td>
+                                        <td>july@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                    <tr>
+                                        <td>105-1</td>
+                                        <td>Doe</td>
+                                        <td>john@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                    <tr>
+                                        <td>105-2</td>
+                                        <td>Moe</td>
+                                        <td>mary@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                    <tr>
+                                        <td>106-1</td>
+                                        <td>Dooley</td>
+                                        <td>july@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                    <tr>
+                                        <td>106-2</td>
+                                        <td>Doe</td>
+                                        <td>john@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                    <tr>
+                                        <td>107-1</td>
+                                        <td>Moe</td>
+                                        <td>mary@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                    <tr>
+                                        <td>107-2</td>
+                                        <td>Dooley</td>
+                                        <td>july@example.com</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <br>
-     
+
         @*<div class="footer">
-            <div class="pull-right"> Ashray - A RealPage Initiative </div>
-            <div> <strong>Copyright</strong> RealPage &copy; 2015 </div>
-        </div>*@
+                <div class="pull-right"> Ashray - A RealPage Initiative </div>
+                <div> <strong>Copyright</strong> RealPage &copy; 2015 </div>
+            </div>*@
     </div>
 </div>
