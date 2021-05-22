@@ -161,6 +161,9 @@
     <Compile Include="Controllers\AshrayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filter\CustomAuthenticationFilter.cs" />
+    <Compile Include="GetPatientHomePageDashboard_Result.cs">
+      <DependentUpon>Ashray.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

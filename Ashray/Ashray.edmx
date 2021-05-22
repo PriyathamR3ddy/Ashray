@@ -108,7 +108,7 @@
           <Property Name="Email" Type="varchar" MaxLength="100" />
           <Property Name="RoleId" Type="int" />
         </EntityType>
-        <Association Name="FK__CentreReg__Locat__33D4B598">
+        <Association Name="FK__CentreReg__Locat__2D27B809">
           <End Role="LocationDetails" Type="Self.LocationDetails" Multiplicity="0..1" />
           <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -120,7 +120,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CentreReg__State__34C8D9D1">
+        <Association Name="FK__CentreReg__State__2E1BDC42">
           <End Role="StateDetails" Type="Self.StateDetails" Multiplicity="0..1" />
           <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -132,7 +132,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LocationD__State__35BCFE0A">
+        <Association Name="FK__LocationD__State__2A4B4B5E">
           <End Role="StateDetails" Type="Self.StateDetails" Multiplicity="0..1" />
           <End Role="LocationDetails" Type="Self.LocationDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -144,7 +144,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PatientHi__Patie__36B12243">
+        <Association Name="FK__PatientHi__Patie__412EB0B6">
           <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
           <End Role="PatientHistory" Type="Self.PatientHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -156,7 +156,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PatientIn__Centr__37A5467C">
+        <Association Name="FK__PatientIn__Centr__30F848ED">
           <End Role="CentreRegistration" Type="Self.CentreRegistration" Multiplicity="0..1" />
           <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -168,7 +168,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserDetai__RoleI__38996AB5">
+        <Association Name="FK__UserDetai__RoleI__25869641">
           <End Role="RoleDetails" Type="Self.RoleDetails" Multiplicity="0..1" />
           <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -180,6 +180,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetPatientHomePageDashboard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="USPBedAvailabilityDashboardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="USPBedAvailabilityHomeDashboardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="USPDeletePatientInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -243,27 +244,27 @@
           <EntitySet Name="RoleDetails" EntityType="Self.RoleDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StateDetails" EntityType="Self.StateDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CentreReg__Locat__33D4B598" Association="Self.FK__CentreReg__Locat__33D4B598">
+          <AssociationSet Name="FK__CentreReg__Locat__2D27B809" Association="Self.FK__CentreReg__Locat__2D27B809">
             <End Role="LocationDetails" EntitySet="LocationDetails" />
             <End Role="CentreRegistration" EntitySet="CentreRegistration" />
           </AssociationSet>
-          <AssociationSet Name="FK__CentreReg__State__34C8D9D1" Association="Self.FK__CentreReg__State__34C8D9D1">
+          <AssociationSet Name="FK__CentreReg__State__2E1BDC42" Association="Self.FK__CentreReg__State__2E1BDC42">
             <End Role="StateDetails" EntitySet="StateDetails" />
             <End Role="CentreRegistration" EntitySet="CentreRegistration" />
           </AssociationSet>
-          <AssociationSet Name="FK__LocationD__State__35BCFE0A" Association="Self.FK__LocationD__State__35BCFE0A">
+          <AssociationSet Name="FK__LocationD__State__2A4B4B5E" Association="Self.FK__LocationD__State__2A4B4B5E">
             <End Role="StateDetails" EntitySet="StateDetails" />
             <End Role="LocationDetails" EntitySet="LocationDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__PatientHi__Patie__36B12243" Association="Self.FK__PatientHi__Patie__36B12243">
+          <AssociationSet Name="FK__PatientHi__Patie__412EB0B6" Association="Self.FK__PatientHi__Patie__412EB0B6">
             <End Role="PatientInfo" EntitySet="PatientInfo" />
             <End Role="PatientHistory" EntitySet="PatientHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK__PatientIn__Centr__37A5467C" Association="Self.FK__PatientIn__Centr__37A5467C">
+          <AssociationSet Name="FK__PatientIn__Centr__30F848ED" Association="Self.FK__PatientIn__Centr__30F848ED">
             <End Role="CentreRegistration" EntitySet="CentreRegistration" />
             <End Role="PatientInfo" EntitySet="PatientInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserDetai__RoleI__38996AB5" Association="Self.FK__UserDetai__RoleI__38996AB5">
+          <AssociationSet Name="FK__UserDetai__RoleI__25869641" Association="Self.FK__UserDetai__RoleI__25869641">
             <End Role="RoleDetails" EntitySet="RoleDetails" />
             <End Role="UserDetails" EntitySet="UserDetails" />
           </AssociationSet>
@@ -499,6 +500,7 @@
           </FunctionImport>
           <EntitySet Name="CenterRoomBedInfoes" EntityType="AshrayModel.CenterRoomBedInfo" />
           <EntitySet Name="CenterRoomInfoes" EntityType="AshrayModel.CenterRoomInfo" />
+          <FunctionImport Name="GetPatientHomePageDashboard" ReturnType="Collection(AshrayModel.GetPatientHomePageDashboard_Result)" />
         </EntityContainer>
         <EntityType Name="PatientHistory">
           <Key>
@@ -589,6 +591,12 @@
           <Property Name="RoomNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="RoomType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="GetPatientHomePageDashboard_Result">
+          <Property Type="String" Name="RoomNumber" Nullable="true" MaxLength="41" />
+          <Property Type="String" Name="PatientName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PositiveDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -774,6 +782,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetPatientHomePageDashboard" FunctionName="AshrayModel.Store.GetPatientHomePageDashboard">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AshrayModel.GetPatientHomePageDashboard_Result">
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PositiveDate" ColumnName="PositiveDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

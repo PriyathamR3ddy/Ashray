@@ -234,5 +234,10 @@ namespace Ashray
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USPValidateLoginInfo_Result>("USPValidateLoginInfo", emailParameter, passwordParameter);
         }
+    
+        public virtual ObjectResult<GetPatientHomePageDashboard_Result> GetPatientHomePageDashboard()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPatientHomePageDashboard_Result>("GetPatientHomePageDashboard");
+        }
     }
 }

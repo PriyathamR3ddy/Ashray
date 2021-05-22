@@ -180,5 +180,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetPatientHomePageDashboard" FunctionName="AshrayModel.Store.GetPatientHomePageDashboard">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AshrayModel.GetPatientHomePageDashboard_Result">
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="PositiveDate" ColumnName="PositiveDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>
