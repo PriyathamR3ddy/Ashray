@@ -1,5 +1,4 @@
-﻿@model PagedList.IPagedList<Ashray.Models.PostHospital>
-@using PagedList.Mvc;
+﻿@model IEnumerable<Ashray.Models.PostHospital>
 @{
 	ViewBag.Title = "PostHospital";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -37,19 +36,19 @@
 		<table class="table">
 			<tr>
 				<th>
-					@Html.DisplayNameFor(model => model[0].CenterName)
+					@Html.DisplayNameFor(model => model.CenterName)
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model[0].PatientName)
+					@Html.DisplayNameFor(model => model.PatientName)
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model[0].RegistrationDate)
+					@Html.DisplayNameFor(model => model.RegistrationDate)
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model[0].Gender)
+					@Html.DisplayNameFor(model => model.Gender)
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model[0].Status)
+					@Html.DisplayNameFor(model => model.Status)
 				</th>
 				<th>Action</th>
 			</tr>
@@ -83,11 +82,7 @@
 					</td>
 				</tr>
 			}
-		</table>
-		Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-		@Html.PagedListPager(Model, page => Url.Action("PostHospital",
-			new { page }))
+		</table>		
 	</div>
 </div>
 

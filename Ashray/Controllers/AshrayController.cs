@@ -31,12 +31,10 @@ namespace Ashray.Controllers
             return View();
         }
 
-        public ActionResult PostHospital(int? page)
+        public ActionResult PostHospital()
         {
-            var list = Registation.GetPosthospitalInfo();            
-            int pageSize = 20;
-            int pageNumber = (page ?? 1);            
-            return View(list.ToPagedList(pageNumber, pageSize));
+            var list = Registation.GetPosthospitalInfo();
+            return View(list);
         }
 
         public ActionResult PostBed()
