@@ -22,67 +22,70 @@
 </div>
 <br>
 <div class="ibox-content">
-	<div class="row">
-		<div class="col-md-6 form-group" style="padding-bottom:20px;">
-			<div style="padding-top:20px;">
-				<label for="gender" class="col-form-label col-lg-3">Facility Name:</label>
-				<select name="ddlFacilityName" id="ddlFacilityName" class="form-control col-lg-3" style="width:30%;">
-					<option selected="selected" value="Select">Select</option>
-					<option value="1">KIMS</option>
-					<option value="2">GITAM</option>
-				</select>
-			</div>
-		</div><br /><br />
-		<table class="table">
-			<tr>
-				<th>
-					@Html.DisplayNameFor(model => model.CenterName)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.PatientName)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.RegistrationDate)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.Gender)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.Status)
-				</th>
-				<th>Action</th>
-			</tr>
-			@foreach (var item in Model)
-			{
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => item.CenterName)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.PatientName)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.RegistrationDate)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Gender)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Status)
-					</td>
-					<td class="text-navy">
-						<button class="btn btn-sm btn-primary pull-center m-t-n-xs"
-								onClick="location.href='@Url.Action("ViewPatient", "Ashray", new {id = item.PatientId,name =item.PatientName,rtpctr = item.RTPCRNumber})'"
-								type="submit">
-							&nbsp;&nbsp;<strong>
-								<i class="fa fa-login"></i>
-								&nbsp;View
-							</strong>&nbsp;&nbsp;
-						</button>
-					</td>
-				</tr>
-			}
-		</table>		
-	</div>
+    <div class="row">
+        <div class="col-md-6 form-group" style="padding-bottom:20px;">
+            <div style="padding-top:20px;">
+                <label for="gender" class="col-form-label col-lg-3">Facility Name:</label>
+                <select name="ddlFacilityName" id="ddlFacilityName" class="form-control col-lg-3" style="width:30%;">
+                    <option selected="selected" value="Select">Select</option>
+                    <option value="1">KIMS</option>
+                    <option value="2">GITAM</option>
+                </select>
+            </div>
+        </div><br /><br />
+        <div class="col-md-12 form-group table-bed-details" style="background: white;overflow-y: auto;max-height: 475px;">
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CenterName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PatientName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RegistrationDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>Action</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CenterName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PatientName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegistrationDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td class="text-navy">
+                            <button class="btn btn-sm btn-primary pull-center m-t-n-xs"
+                                    onClick="location.href='@Url.Action("ViewPatient", "Ashray", new {id = item.PatientId,name =item.PatientName,rtpctr = item.RTPCRNumber})'"
+                                    type="submit">
+                                &nbsp;&nbsp;<strong>
+                                    <i class="fa fa-login"></i>
+                                    &nbsp;View
+                                </strong>&nbsp;&nbsp;
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
 </div>
 
