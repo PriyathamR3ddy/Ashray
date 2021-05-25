@@ -86,8 +86,8 @@
                                     @Html.TextBoxFor(m => m.PatientPhoneNumber, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter Patient Phone Number", @maxlength = "50", @id = "txtPatientPhoneNumber" })
                                 </div>
 								<div class="col-md-6 form-group">
-									<label for="gender" class="col-form-label col-md-3">Gender:</label>
-									@Html.TextBoxFor(m => m.Gender, new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter Gender", @maxlength = "50", @id = "txtGender" })
+									<label for="gender" class="col-form-label col-md-3">Gender:</label>									
+									@Html.DropDownListFor(m => m.Gender, new SelectList(Enum.GetValues(typeof(Gender))), "Select Gender", new { @class = "form-control controlWidth", @style = "position:relative", @required = "required", @title = "Please enter Gender", @maxlength = "50", @id = "txtGender" })
 								</div>
                             </div>
                             <div class="row">

@@ -312,3 +312,4 @@ C:\Ashray New code\Ashray\obj\Debug\Ashray.csproj.CoreCompileInputs.cache
 C:\Ashray New code\Ashray\obj\Debug\Ashray.csproj.CopyComplete
 C:\Ashray New code\Ashray\obj\Debug\Ashray.dll
 C:\Ashray New code\Ashray\obj\Debug\Ashray.pdb
+C:\Ashray New code\Ashray\obj\Debug\Ashray.csprojAssemblyReference.cache

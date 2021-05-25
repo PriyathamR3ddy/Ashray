@@ -500,7 +500,7 @@ namespace Ashray.Models
             return result;
         }
 
-        public static int DeletePatientInfo(int patientId)
+        public static int DeletePatientInfo(int patientId, int patientStatus)
         {
             int Id = 0;
             try
@@ -511,12 +511,20 @@ namespace Ashray.Models
                     pram.Add(new SqlParameter()
                     {
                         ParameterName = "@patientId",
-                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        SqlDbType = System.Data.SqlDbType.Int,
                         Size = 50,
                         Direction = System.Data.ParameterDirection.Input,
                         Value = patientId
-                    });                    
-                    Id =  db.Database.ExecuteSqlCommand("[dbo].[USPDeletePatientInfo]  @patientId", pram.ToArray());
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@PatientStatus",
+                        SqlDbType = System.Data.SqlDbType.Int,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = patientStatus
+                    });
+                    Id =  db.Database.ExecuteSqlCommand("[dbo].[USPDeletePatientInfo]  @patientId,@PatientStatus", pram.ToArray());
                     db.SaveChanges();
                 }
             }
@@ -526,6 +534,7 @@ namespace Ashray.Models
             }
             return Id;
         }
+
         public static List<PatientDashboard> GetPatientHomeDashboard()
         {
             List<PatientDashboard> patientDashboard;

@@ -42,4 +42,10 @@ namespace Ashray
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PatientHistory> PatientHistories { get; set; }
     }
+
+    public enum Gender
+	{
+        Male,
+        Female
+    }
 }
