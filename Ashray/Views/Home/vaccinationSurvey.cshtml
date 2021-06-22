@@ -118,13 +118,22 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
-                            @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken1" })
+                            @Html.DropDownList("DoseTaken1", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="1st", Value = "1" },
+                                        new SelectListItem{Text="2nd", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
-                            @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName1" })
+
+                            @Html.DropDownList("VaccinationName1", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="Covisheild", Value = "1" },
+                                        new SelectListItem{Text="Covaxine", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -156,13 +165,22 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
-                            @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken2" })
+                            @Html.DropDownList("DoseTaken2", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="1st", Value = "1" },
+                                        new SelectListItem{Text="2nd", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
-                            @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName2" })
+
+                            @Html.DropDownList("VaccinationName2", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="Covisheild", Value = "1" },
+                                        new SelectListItem{Text="Covaxine", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -194,13 +212,22 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
-                            @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken3" })
+                            @Html.DropDownList("DoseTaken3", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="1st", Value = "1" },
+                                        new SelectListItem{Text="2nd", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
-                            @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName3" })
+
+                            @Html.DropDownList("VaccinationName3", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="Covisheild", Value = "1" },
+                                        new SelectListItem{Text="Covaxine", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -232,13 +259,22 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
-                            @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken4" })
+                            @Html.DropDownList("DoseTaken4", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="1st", Value = "1" },
+                                        new SelectListItem{Text="2nd", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
-                            @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName4" })
+
+                            @Html.DropDownList("VaccinationName4", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="Covisheild", Value = "1" },
+                                        new SelectListItem{Text="Covaxine", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -270,13 +306,22 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
-                            @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken5" })
+                            @Html.DropDownList("DoseTaken5", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="1st", Value = "1" },
+                                        new SelectListItem{Text="2nd", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
-                            @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName5" })
+
+                            @Html.DropDownList("VaccinationName5", new List<SelectListItem>
+                                   {
+                                        new SelectListItem{ Text="Covisheild", Value = "1" },
+                                        new SelectListItem{Text="Covaxine", Value="2"}
+                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                         </div>
                     </div>
                     <div class="col-md-2">
