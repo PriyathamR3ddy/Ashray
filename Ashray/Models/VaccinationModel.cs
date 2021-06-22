@@ -15,5 +15,6 @@ namespace Ashray.Models
         public string VaccineName { get; set; }
         public string Relation { get; set; }
         public string DueDate { get; set; }
+        public string TentitiveDate { get; set; }
     }
 }

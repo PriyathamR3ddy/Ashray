@@ -95,7 +95,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="tentativedate">Tentative Date :</label>
-                            <div>06/22/2021</div>
+                            @Html.TextBoxFor(m => m.TentitiveDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control col-md-4 controlWidth", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "tentativedate" })
                         </div>
                     </div>
                 </div>
