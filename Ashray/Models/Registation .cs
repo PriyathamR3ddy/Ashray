@@ -553,5 +553,92 @@ namespace Ashray.Models
             }
             return patientDashboard;
         }
+
+        public static bool InsertVaccieDetails(VaccinationModel vaccinationModel)
+        {
+            bool result;
+            try
+            {
+                using (var db = new AshrayEntities())
+                {
+                    List<SqlParameter> pram = new List<SqlParameter>();
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@EmpCode",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 20,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = vaccinationModel.EmpCode
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@EmpLocation",
+                        SqlDbType = System.Data.SqlDbType.VarChar,
+                        Size = 50,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = vaccinationModel.Location
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@Vaccinated",
+                        SqlDbType = System.Data.SqlDbType.Bit,                       
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = vaccinationModel.Vaccinated
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@FeedingMother",
+                        SqlDbType = System.Data.SqlDbType.Bit,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = vaccinationModel.FeedingMother
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@CovidCheck",
+                        SqlDbType = System.Data.SqlDbType.Bit,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = vaccinationModel.CovidCheck
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@VaccineInfections",
+                        SqlDbType = System.Data.SqlDbType.Bit,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = vaccinationModel.VaccineInfection
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@WillingToVaccine",
+                        SqlDbType = System.Data.SqlDbType.Bit,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = vaccinationModel.WillingToVaccine
+                    });
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@TentativeDate",
+                        SqlDbType = System.Data.SqlDbType.DateTime,
+                        Direction = System.Data.ParameterDirection.Input,
+                        Value = vaccinationModel.TentativeDate
+                    });
+                    DataTable dataTable = new DataTable();
+                    dataTable.Columns.Add("PersonName", typeof(string));
+                    dataTable.Columns.Add("DateOfVaccination", typeof(DateTime));
+                    dataTable.Columns.Add("DoseTaken", typeof(string));
+                    dataTable.Columns.Add("VaccineName", typeof(string));
+                    dataTable.Columns.Add("Relation", typeof(string));
+                    dataTable.Columns.Add("DueDate", typeof(DateTime));
+
+                    
+
+                    int row = db.Database.ExecuteSqlCommand("[USP_InsertVaccineInfo] @EmpCode,@EmpLocation,@Vaccinated,@FeedingMother,@CovidCheck,@VaccineInfections,@WillingToVaccine,@TentativeDate,@EmployeeVaccineDetails", pram.ToArray());
+                    result = true;
+                }
+            }
+            catch (Exception exs)
+            {
+                result = false;
+            }
+            return result;
+        }
     }
 }

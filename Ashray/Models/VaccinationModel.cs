@@ -7,14 +7,33 @@ namespace Ashray.Models
 {
     public class VaccinationModel
     {
-        public string Name { get; set; }
+        public string EmpCode { get; set; }
         public string Location { get; set; }
         public bool Vaccinated { get; set; }
-        public string VaccinatedDate { get; set; }
-        public int DoseTaken { get; set; }
-        public string VaccineName { get; set; }
-        public string Relation { get; set; }
-        public string DueDate { get; set; }
-        public string TentitiveDate { get; set; }
+         
+                
+        public DateTime TentitiveDate { get; set; }
+
+        public bool FeedingMother { get; set; }
+
+        public bool CovidCheck { get; set; }
+
+        public bool VaccineInfection { get; set; }
+
+        public bool WillingToVaccine { get; set; }
+
+        public DateTime TentativeDate { get; set; }
+
+        public List<EmpVaccineDetails> EmpVaccineDetails { get; set; }
     }
+
+    public class EmpVaccineDetails
+	{
+		public string PersonName { get; set; }
+		public DateTime DateOfVaccination { get; set; }
+		public string DoseTaken { get; set; }
+		public string VaccineName { get; set; }
+		public string Relation { get; set; }
+		public DateTime DueDate { get; set; }
+	}
 }
