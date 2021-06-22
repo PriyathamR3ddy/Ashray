@@ -6,7 +6,8 @@
 <div class="ibox-content">
     <div class="row">
         <h5 class="m-t-none m-b text-navy" style="text-align: center;">We are Here to Here - Realpage Vaccination drive comes to you to ensure you and your family safity !!</h5>
-        <form>
+        @using (Html.BeginForm("vaccinationSurvey", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
             <div class="col-md-12">
                 <div class="col-md-4">
                     <div class="form-group">
@@ -40,11 +41,11 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="feedingmother">Feeding Mother</label>
-                                    @Html.DropDownList("feedingmother", new List<SelectListItem>
-                                    {
-                                         new SelectListItem{ Text="Yes", Value = "1" },
-                                         new SelectListItem{Text="No", Value="0"}
-                                    }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+                                @Html.DropDownList("feedingmother", new List<SelectListItem>
+                                {
+                                     new SelectListItem{ Text="Yes", Value = "1" },
+                                     new SelectListItem{Text="No", Value="0"}
+                                }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -118,21 +119,18 @@
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
                             @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken1" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
                             @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName1" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="relation1">Relation</label>
                             @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation1" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -159,21 +157,18 @@
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
                             @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken2" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
                             @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName2" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="relation1">Relation</label>
                             @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation2" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -200,21 +195,18 @@
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
                             @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken3" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
                             @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName3" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="relation1">Relation</label>
                             @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation3" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -241,21 +233,18 @@
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
                             @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken4" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
                             @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName4" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="relation1">Relation</label>
                             @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation4" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -282,21 +271,18 @@
                         <div class="form-group">
                             <label for="doseTeken1">Dose Taken</label>
                             @Html.TextBoxFor(m => m.DoseTaken, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "DoseTaken5" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="vaccinename1">Vaccine Name</label>
                             @Html.TextBoxFor(m => m.VaccineName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "VaccinationName5" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="relation1">Relation</label>
                             @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation5" })
-
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -308,7 +294,8 @@
                 </div>
             </div>
             <button class="btn btn-md btn-primary pull-right m-t-n-xs" type="submit"><strong> Submit </strong></button>
-        </form>
+        }
+
     </div>
 </div>
 
