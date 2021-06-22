@@ -475,6 +475,7 @@
     <Content Include="Views\Ashray\PatientRegistration.cshtml" />
     <Content Include="Views\Ashray\ViewPatient.cshtml" />
     <Content Include="Views\Ashray\PostHospital.cshtml" />
+    <Content Include="Views\Ashray\vaccinationSurvey.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

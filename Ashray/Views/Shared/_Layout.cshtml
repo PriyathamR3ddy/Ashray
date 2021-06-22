@@ -17,21 +17,21 @@
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
-				<ul class="nav metismenu" id="side-menu">
-					<li class="nav-header">
-						<div class="logo-element"> </div>
-					</li>
-					
-						<li> <a href="@Url.Action("Index", "Ashray")" title="Home"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a> </li>
-						<li> <a href="@Url.Action("FindHospital", "Ashray")" title="Find a Hospital"><i class="fa fa-pie-chart"></i> <span class="nav-label">Find a Hospital</span> </a> </li>
-						@*<li> <a href="@Url.Action("FindBed", "Home")" title="Find a Bed"><i class="fa fa-truck"></i> <span class="nav-label">Find a Bed</span></a> </li>*@
-						<li> <a href="@Url.Action("PostHospital", "Ashray")" title="Post a Hospital"><i class="fa fa-diamond"></i> <span class="nav-label">Post a Hospital</span></a> </li>
-						@*<li> <a href="@Url.Action("PostBed", "Home")" title="Post a Bed"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Post a Bed</span></a> </li>
-			<li> <a href="@Url.Action("About", "Home")" title="About Us"><i class="fa fa-sitemap"></i> <span class="nav-label">About Us </span></a> </li>
-			<li> <a href="@Url.Action("Contact", "Home")" title="Contact Us"><i class="fa fa-magic"></i> <span class="nav-label">Contact Us </span></a> </li>*@
-					
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="logo-element"> </div>
+                    </li>
 
-				</ul>
+                    <li> <a href="@Url.Action("Index", "Ashray")" title="Home"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a> </li>
+                    <li> <a href="@Url.Action("FindHospital", "Ashray")" title="Find a Hospital"><i class="fa fa-pie-chart"></i> <span class="nav-label">Find a Hospital</span> </a> </li>
+                    @*<li> <a href="@Url.Action("FindBed", "Home")" title="Find a Bed"><i class="fa fa-truck"></i> <span class="nav-label">Find a Bed</span></a> </li>*@
+                    <li> <a href="@Url.Action("PostHospital", "Ashray")" title="Post a Hospital"><i class="fa fa-diamond"></i> <span class="nav-label">Post a Hospital</span></a> </li>
+                    <li> <a href="@Url.Action("vaccinationSurvey", "Ashray")" title="Vaccination Survey"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Vaccination Survey</span></a> </li>
+                    @*<li> <a href="@Url.Action("PostBed", "Home")" title="Post a Bed"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Post a Bed</span></a> </li>
+                        <li> <a href="@Url.Action("About", "Home")" title="About Us"><i class="fa fa-sitemap"></i> <span class="nav-label">About Us </span></a> </li>
+                        <li> <a href="@Url.Action("Contact", "Home")" title="Contact Us"><i class="fa fa-magic"></i> <span class="nav-label">Contact Us </span></a> </li>*@
+
+                </ul>
             </div>
         </nav>
         <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -42,7 +42,7 @@
                         <ul class="nav navbar-top-links navbar-right">
                             <li> <span class="m-r-sm text-muted welcome-message"><i class="fa fa-phone text-success"></i>&nbsp;080-45811138&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope-o text-success"></i>&nbsp;ashray@realpage.com</span> </li>
                             <li class="text-muted "> <a href='@Url.Action("Registration", "Home")'> <i class="fa fa-sign-out text-success"></i> <span class="text-muted ">Registration</span> </a> </li>
-                            @if (Session["UserName"]==null)
+                            @if (Session["UserName"] == null)
                             {
                                 <li> <a href="@Url.Action("Login", "Home")"> <i class="fa fa-sign-in text-success"></i> <span class="text-muted " id="logAction">Log In</span> </a> </li>
                             }
@@ -55,29 +55,25 @@
                 </nav>
             </div>
             <div class="ibox float-e-margins">
-            <div class="ibox-content text-center p-md">
+                <div class="ibox-content text-center p-md">
+                    <h2>
+                        <img src="~/Images/Logo.jpg" style="width:55px;" />
+                        <span class="text-navy">ASHRAY - A REALPAGE INITIATIVE</span> <img src="~/Images/RealPageGIVES__Logo_RGB.png" style="width:75px;" />
+                    </h2>
 
-                <h2>
-
-                    <img src="~/Images/Logo.jpg" style="width:55px;" />
-                    <span class="text-navy">ASHRAY - A REALPAGE INITIATIVE</span> <img src="~/Images/RealPageGIVES__Logo_RGB.png" style="width:75px;" />
-                </h2>
-                
-                <p>
-                    Ashray is the ray of hope for servicing nation to fight back the Pandemic by providing services as much as we can.
-                    RealPage Came up with a initiative of Pop-Up Hospital extending services as much as we can.
-                </p>
+                    <p>
+                        Ashray is the ray of hope for servicing nation to fight back the Pandemic by providing services as much as we can.
+                        RealPage Came up with a initiative of Pop-Up Hospital extending services as much as we can.
+                    </p>
+                </div>
             </div>
-        </div>
             @RenderBody()
-        <footer class="panel-footer">
-            <div class="pull-right"> Ashray - A RealPage Initiative </div>
-            <div> <strong>Copyright</strong> RealPage © 2021 </div>
-        </footer>          
+            <footer class="panel-footer">
+                <div class="pull-right"> Ashray - A RealPage Initiative </div>
+                <div> <strong>Copyright</strong> RealPage © 2021 </div>
+            </footer>
         </div>
-
     </div>
-    
 
 
     <!-- Mainly scripts -->
@@ -110,7 +106,6 @@
     <script src="~/Content/js/demo/sparkline-demo.js"></script>
     <!-- ChartJS-->
     <script src="~/Content/js/plugins/chartJs/Chart.min.js"></script>
-
     <script>
         $(document).ready(function () {
 
@@ -162,9 +157,8 @@
         });
     </script>
 </body>
-
 @*<footer class="panel-footer">
-    <div class="pull-right"> Ashray - A RealPage Initiative </div>
-    <div> <strong>Copyright</strong> RealPage © 2015 </div>
-</footer>*@
+        <div class="pull-right"> Ashray - A RealPage Initiative </div>
+        <div> <strong>Copyright</strong> RealPage © 2015 </div>
+    </footer>*@
 </html>

@@ -179,5 +179,10 @@ namespace Ashray.Controllers
             byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/UploadedFiles/") + id);
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, id);
         }
+        public ActionResult vaccinationSurvey()
+        {
+            return View();
+        }
+
     }
 }
