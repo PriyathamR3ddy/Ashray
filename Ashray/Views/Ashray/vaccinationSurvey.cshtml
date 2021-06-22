@@ -25,18 +25,18 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Are you Vaccinated ?</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="areyouvaccinated" id="areyouvaccinatedyes" value="yes">
+                            <input class="form-check-input" type="radio" name="areyouvaccinated" id="areyouvaccinatedyes" value="yes" checked="checked" onchange="changeAreYouVaccinatedYes()">
                             <label class="form-check-label" for="areyouvaccinatedyes">YES</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="areyouvaccinated" id="areyouvaccinatedno" value="no">
+                            <input class="form-check-input" type="radio" name="areyouvaccinated" id="areyouvaccinatedno" value="no" onchange="changeAreYouVaccinatedNo()">
                             <label class="form-check-label" for="areyouvaccinatedno">NO</label>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row vaccinatedNo" id="vaccinatedNo">
-                <div class="row questions">
+            <div class="row vaccinatedNo" id="vaccinatednoblock" style="display:none">
+                <div class="questions">
                     <div class="col-md-12">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -73,15 +73,15 @@
                 <div class="col-md-12">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="areyouwillingtogetvaccince">Are You Willing To Get Vaccine</label>
-                            <select id="areyouwillingtogetvaccince" class="form-control">
+                            <label for="areyouwillingtogetvaccine">Are You Willing To Get Vaccine</label>
+                            <select id="areyouwillingtogetvaccine" class="form-control" onchange="changeAreYouWillingToGetVaccine()">
                                 <option selected>Choose...</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" id="nearestclusterblock" style="display:none">
                         <div class="form-group">
                             <label for="nearestcluster">Nearest Cluster</label>
                             <select id="nearestcluster" class="form-control">
@@ -299,4 +299,6 @@
         </form>
     </div>
 </div>
+
+@Scripts.Render("~/Scripts/vaccinationSurvey.js")
 
