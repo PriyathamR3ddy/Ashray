@@ -65,10 +65,6 @@ namespace Ashray.Controllers
             VaccinationModel model = new VaccinationModel();
             model.EmpVaccineDetails = new List<EmpVaccineDetails>();
             model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
-            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
-            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
-            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
-            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
             return View(model);
         }
 
