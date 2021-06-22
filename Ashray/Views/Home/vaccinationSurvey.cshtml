@@ -11,8 +11,8 @@
             <div class="col-md-12">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="nameoftheperson">Name of the person</label>
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson" })
+                        <label for="nameoftheperson">Employee Code</label>
+                        @Html.TextBoxFor(m => m.EmpCode, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson" })
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -103,239 +103,55 @@
             </div>
             <div class="row personDetails">
                 <div class="col-md-12 person1">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="nameoftheperson1">Name of the person</label>
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson1" })
+                    @foreach (var item in Model.EmpVaccineDetails)
+                    {
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="nameoftheperson1">Name of the person</label>
+                                @Html.TextBoxFor(i => item.PersonName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson1" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="dateofvaccination1">Date of Vaccination</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "dateofvaccination1" })
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="dateofvaccination1">Date of Vaccination</label>
+                                @Html.TextBoxFor(i => item.DateOfVaccination, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "dateofvaccination1" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="doseTeken1">Dose Taken</label>
-                            @Html.DropDownList("DoseTaken1", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="1st", Value = "1" },
-                                        new SelectListItem{Text="2nd", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="doseTeken1">Dose Taken</label>
+                                @Html.DropDownList("DoseTaken1", new List<SelectListItem>
+                                       {
+                                            new SelectListItem{ Text="1st", Value = "1" },
+                                            new SelectListItem{Text="2nd", Value="2"}
+                                       }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="vaccinename1">Vaccine Name</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="vaccinename1">Vaccine Name</label>
 
-                            @Html.DropDownList("VaccinationName1", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="Covisheild", Value = "1" },
-                                        new SelectListItem{Text="Covaxine", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+                                @Html.DropDownList("VaccinationName1", new List<SelectListItem>
+                                       {
+                                            new SelectListItem{ Text="Covisheild", Value = "1" },
+                                            new SelectListItem{Text="Covaxine", Value="2"}
+                                       }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="relation1">Relation</label>
-                            @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation1" })
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="relation1">Relation</label>
+                                @Html.TextBoxFor(i => item.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation1" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="duedate1">Due Date</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "DueDate1" })
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="duedate1">Due Date</label>
+                                @Html.TextBoxFor(i => item.DueDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "DueDate1" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12 person2">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="nameoftheperson1">Name of the person</label>
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson2" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="dateofvaccination1">Date of Vaccination</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "dateofvaccination2" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="doseTeken1">Dose Taken</label>
-                            @Html.DropDownList("DoseTaken2", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="1st", Value = "1" },
-                                        new SelectListItem{Text="2nd", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="vaccinename1">Vaccine Name</label>
+                    }
 
-                            @Html.DropDownList("VaccinationName2", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="Covisheild", Value = "1" },
-                                        new SelectListItem{Text="Covaxine", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="relation1">Relation</label>
-                            @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation2" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="duedate1">Due Date</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "DueDate2" })
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 person3">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="nameoftheperson1">Name of the person</label>
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson3" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="dateofvaccination1">Date of Vaccination</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "dateofvaccination3" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="doseTeken1">Dose Taken</label>
-                            @Html.DropDownList("DoseTaken3", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="1st", Value = "1" },
-                                        new SelectListItem{Text="2nd", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="vaccinename1">Vaccine Name</label>
-
-                            @Html.DropDownList("VaccinationName3", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="Covisheild", Value = "1" },
-                                        new SelectListItem{Text="Covaxine", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="relation1">Relation</label>
-                            @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation3" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="duedate1">Due Date</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "DueDate3" })
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 person4">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="nameoftheperson1">Name of the person</label>
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson4" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="dateofvaccination1">Date of Vaccination</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "dateofvaccination4" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="doseTeken1">Dose Taken</label>
-                            @Html.DropDownList("DoseTaken4", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="1st", Value = "1" },
-                                        new SelectListItem{Text="2nd", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="vaccinename1">Vaccine Name</label>
-
-                            @Html.DropDownList("VaccinationName4", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="Covisheild", Value = "1" },
-                                        new SelectListItem{Text="Covaxine", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="relation1">Relation</label>
-                            @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation4" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="duedate1">Due Date</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "DueDate4" })
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 person5">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="nameoftheperson1">Name of the person</label>
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson5" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="dateofvaccination1">Date of Vaccination</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "dateofvaccination5" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="doseTeken1">Dose Taken</label>
-                            @Html.DropDownList("DoseTaken5", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="1st", Value = "1" },
-                                        new SelectListItem{Text="2nd", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="vaccinename1">Vaccine Name</label>
-
-                            @Html.DropDownList("VaccinationName5", new List<SelectListItem>
-                                   {
-                                        new SelectListItem{ Text="Covisheild", Value = "1" },
-                                        new SelectListItem{Text="Covaxine", Value="2"}
-                                   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="relation1">Relation</label>
-                            @Html.TextBoxFor(m => m.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation5" })
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="duedate1">Due Date</label>
-                            @Html.TextBoxFor(m => m.VaccinatedDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "DueDate5" })
-                        </div>
-                    </div>
                 </div>
             </div>
             <button class="btn btn-md btn-primary pull-right m-t-n-xs" type="submit"><strong> Submit </strong></button>

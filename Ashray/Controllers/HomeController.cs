@@ -62,7 +62,14 @@ namespace Ashray.Controllers
         [AllowAnonymous]
         public ActionResult vaccinationSurvey()
         {
-            return View();
+            VaccinationModel model = new VaccinationModel();
+            model.EmpVaccineDetails = new List<EmpVaccineDetails>();
+            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
+            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
+            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
+            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
+            model.EmpVaccineDetails.Add(new EmpVaccineDetails { });
+            return View(model);
         }
 
         //      public ActionResult FindHospital()
