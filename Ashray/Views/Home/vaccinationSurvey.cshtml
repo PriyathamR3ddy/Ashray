@@ -24,18 +24,82 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Are you Vaccinated ?</label>
                         <div class="form-check form-check-inline">
-                          
+
                             <label class="form-check-label" for="areyouvaccinatedyes">Yes</label>
-                            @Html.RadioButtonFor(m => m.Vaccinated,new { @value = 1, @class = "form-check-label", @style = "position:relative", @id = "currentlocation" })
+                            @Html.RadioButtonFor(m => m.Vaccinated, new { @value = 1, @class = "form-check-label", @style = "position:relative", @id = "areyouvaccinatedyes", @checked = "true", @onchange = "changeAreYouVaccinatedYes();" })
                         </div>
                         <div class="form-check form-check-inline">
                             <label class="form-check-label" for="areyouvaccinatedyes">No</label>
-                            @Html.RadioButtonFor(m => m.Vaccinated, new { @value = 0, @class = "form-check-label", @style = "position:relative", @id = "currentlocation" })
+                            @Html.RadioButtonFor(m => m.Vaccinated, new { @value = 0, @class = "form-check-label", @style = "position:relative", @id = "areyouvaccinatedno", @onchange = "changeAreYouVaccinatedNo();" })
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row vaccinatedNo">
+            <div class="row vaccinatedNo" id="vaccinatednoblock" style="display:none">
+                <div class="questions">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="feedingmother">Feeding Mother</label>
+                                <select id="feedingmother" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="covidpositivecheck">Covid +ve Check</label>
+                                <select id="covidpositivecheck" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="vaccineinfections">Vaccine -Infections</label>
+                                <select id="vaccineinfections" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="areyouwillingtogetvaccine">Are You Willing To Get Vaccine</label>
+                            <select id="areyouwillingtogetvaccine" class="form-control" onchange="changeAreYouWillingToGetVaccine()">
+                                <option selected>Choose...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4" id="nearestclusterblock" style="display:none">
+                        <div class="form-group">
+                            <label for="nearestcluster">Nearest Cluster</label>
+                            <select id="nearestcluster" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>Choose... 1</option>
+                                <option>Choose... 2</option>
+                                <option>Choose... 3</option>
+                                <option>Choose... 4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="tentativedate">Tentative Date :</label>
+                            <div>06/22/2021</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row personDetails">
                 <div class="col-md-12 person1">
@@ -248,3 +312,6 @@
         </form>
     </div>
 </div>
+
+
+@Scripts.Render("~/Scripts/vaccinationSurvey.js")
