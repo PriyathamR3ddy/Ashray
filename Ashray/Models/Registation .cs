@@ -588,23 +588,23 @@ namespace Ashray.Models
                     pram.Add(new SqlParameter()
                     {
                         ParameterName = "@FeedingMother",
-                        SqlDbType = System.Data.SqlDbType.Bit,
+                        SqlDbType = System.Data.SqlDbType.VarChar,
                         Direction = System.Data.ParameterDirection.Input,
-                        Value = vaccinationModel.FeedingMother
+                        Value = vaccinationModel.ReasonforVacc
                     });
                     pram.Add(new SqlParameter()
                     {
                         ParameterName = "@CovidCheck",
                         SqlDbType = System.Data.SqlDbType.Bit,
                         Direction = System.Data.ParameterDirection.Input,
-                        Value = vaccinationModel.CovidCheck
+                        Value = 0
                     });
                     pram.Add(new SqlParameter()
                     {
                         ParameterName = "@VaccineInfections",
                         SqlDbType = System.Data.SqlDbType.Bit,
                         Direction = System.Data.ParameterDirection.Input,
-                        Value = vaccinationModel.VaccineInfection
+                        Value = 0
                     });
                     pram.Add(new SqlParameter()
                     {
@@ -616,9 +616,9 @@ namespace Ashray.Models
                     pram.Add(new SqlParameter()
                     {
                         ParameterName = "@TentativeDate",
-                        SqlDbType = System.Data.SqlDbType.DateTime,
+                        SqlDbType = System.Data.SqlDbType.VarChar,
                         Direction = System.Data.ParameterDirection.Input,
-                        Value = vaccinationModel.TentitiveDate
+                        Value = vaccinationModel.NearestCluster
                     });
                     DataTable dataTable = new DataTable();
                     dataTable.Columns.Add("PersonName", typeof(string));

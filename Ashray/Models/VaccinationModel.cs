@@ -17,13 +17,9 @@ namespace Ashray.Models
         public bool Vaccinated { get; set; }
          
                 
-        public DateTime TentitiveDate { get; set; }
+        public string NearestCluster { get; set; }
 
-        public bool FeedingMother { get; set; }
-
-        public bool CovidCheck { get; set; }
-
-        public bool VaccineInfection { get; set; }
+        public string ReasonforVacc { get; set; }
 
         public bool WillingToVaccine { get; set; }
 
