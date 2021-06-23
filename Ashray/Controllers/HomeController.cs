@@ -77,6 +77,9 @@ namespace Ashray.Controllers
         public ActionResult SaveVaccineDetails(VaccinationModel vaccinationModel)
 		{
             var rel = Registation.InsertVaccieDetails(vaccinationModel);
+            ViewBag.Result = "Saved Succesfully";
+            TempData["Success"] = "Added Successfully!";
+            ModelState.Clear();
             return RedirectToAction("vaccinationSurvey");
 		}
 

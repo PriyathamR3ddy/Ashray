@@ -627,16 +627,15 @@ namespace Ashray.Models
                     dataTable.Columns.Add("VaccineName", typeof(string));
                     dataTable.Columns.Add("Relation", typeof(string));
                     dataTable.Columns.Add("DueDate", typeof(DateTime));
-
 					foreach (var item in vaccinationModel.EmpVaccineDetails)
 					{
                         DataRow dr = dataTable.NewRow();
                         dr[0] = item.PersonName;
-                        dr[1] = item.DateOfVaccination;
+                        if (item.DateOfVaccination == DateTime.MinValue) { dr[1] = DBNull.Value; } else { dr[1] = item.DateOfVaccination; }
                         dr[2] = item.DoseTaken;
                         dr[3] = item.VaccineName;
                         dr[4] = item.Relation;
-                        dr[5] = item.DueDate;
+                        if (item.DueDate == DateTime.MinValue) { dr[5] = DBNull.Value; } else { dr[5] = item.DueDate; }
                         dataTable.Rows.Add(dr);
 					}
 
