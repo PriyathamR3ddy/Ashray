@@ -29,7 +29,7 @@
                         <label for="exampleInputPassword1">Are you Vaccinated ?</label>
                         <div class="form-check form-check-inline">
                             <label class="form-check-label" for="areyouvaccinatedyes">Yes</label>
-                            <input class="form-check-input" type="radio" name="areyouvaccinated" id="areyouvaccinatedyes" value="yes" checked="checked" onchange="changeAreYouVaccinatedYes()">
+                            <input class="form-check-input" type="radio" name="areyouvaccinated" id="areyouvaccinatedyes" value="yes" onchange="changeAreYouVaccinatedYes()">
                         </div>
                         <div class="form-check form-check-inline">
                             <label class="form-check-label" for="areyouvaccinatedyes">No</label>
@@ -39,54 +39,50 @@
                 </div>
             </div>
             <div class="row vaccinatedNo" id="vaccinatednoblock" style="display:none">
-                <div class="questions">
-                    <div class="col-md-12">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="feedingmother">Reasons for Not Being Vaccinated</label>
-                                @Html.DropDownListFor(m=>m.ReasonforVacc, new List<SelectListItem>
-                                {
-                                     new SelectListItem{ Text="FeedingMother", Value = "FeedingMother" },
-                                     new SelectListItem{Text="Recently Tested Covid +ve", Value="RecentlyTestedCovid"},
-                                      new SelectListItem{Text="Vaacine Hesitancy", Value="VaacineHesitancy"},
-                                       new SelectListItem{Text="Avaliablity", Value="Avaliablity"}
-                                }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-12">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="areyouwillingtogetvaccine">Are You Willing To Get Vaccinated</label>
-                            @Html.DropDownListFor(m=>m.WillingToVaccine, new List<SelectListItem>
+                            <label for="feedingmother">Reasons for Not Being Vaccinated</label>
+                            @Html.DropDownListFor(m => m.ReasonforVacc, new List<SelectListItem>
+                            {
+                                 new SelectListItem{ Text="FeedingMother", Value = "FeedingMother" },
+                                 new SelectListItem{Text="Recently Tested Covid +ve", Value="RecentlyTestedCovid"},
+                                  new SelectListItem{Text="Vaacine Hesitancy", Value="VaacineHesitancy"},
+                                   new SelectListItem{Text="Avaliablity", Value="Avaliablity"}
+                            }, "Please select", new { @class = "form-control col-md-4", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="areyouwillingtogetvaccinated">Are You Willing To Get Vaccinated</label>
+                            @Html.DropDownListFor(m => m.WillingToVaccine, new List<SelectListItem>
                                  {
                                  new SelectListItem{ Text="Yes", Value = "True"},
                                  new SelectListItem{Text="No", Value = "False" }
-                                 }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+                                 }, "Please select", new { @class = "form-control col-md-4", @required = "required", @id = "ddlareyouwillingtogetvaccinated", onchange = "changeAreYouWillingToGetVaccinated();" })
                         </div>
                     </div>
-                    <div class="col-md-4" id="nearestclusterblock">
+                    <div class="col-md-4" id="nearestclusterblock" style="display:none">
                         <div class="form-group">
                             <label for="nearestcluster">Nearest Cluster</label>
-                            @Html.DropDownListFor(m=>m.NearestCluster, new List<SelectListItem>
+                            @Html.DropDownListFor(m => m.NearestCluster, new List<SelectListItem>
                                     {
-                                         new SelectListItem{ Text="Vijayawada ", Value = "Vijayawada" },
-                                         new SelectListItem{Text="Rajahmundry ", Value="Rajahmundry "},
-                                          new SelectListItem{ Text="Vizag", Value = "Vizag" },
-                                           new SelectListItem{ Text="Kadapa", Value = "Kadapa" },
-                                            new SelectListItem{ Text="Anantapur ", Value = "Anantapur" },
-                                             new SelectListItem{ Text="Nizamabad", Value = "Nizamabad" },
-                                              new SelectListItem{ Text="Khammam", Value = "Khammam" },
-                                               new SelectListItem{ Text="Hanamkonda ", Value = "Hanamkonda" },
-                                                new SelectListItem{ Text="Karimnagar", Value = "Karimnagar" }
-                                    }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+                                    new SelectListItem{ Text="Vijayawada ", Value = "Vijayawada" },
+                                    new SelectListItem{Text="Rajahmundry ", Value="Rajahmundry "},
+                                    new SelectListItem{ Text="Vizag", Value = "Vizag" },
+                                    new SelectListItem{ Text="Kadapa", Value = "Kadapa" },
+                                    new SelectListItem{ Text="Anantapur ", Value = "Anantapur" },
+                                    new SelectListItem{ Text="Nizamabad", Value = "Nizamabad" },
+                                    new SelectListItem{ Text="Khammam", Value = "Khammam" },
+                                    new SelectListItem{ Text="Hanamkonda ", Value = "Hanamkonda" },
+                                    new SelectListItem{ Text="Karimnagar", Value = "Karimnagar" }
+                                    }, "Please select", new { @class = "form-control col-md-4", @required = "required" })
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row personDetails">
-                <div class="col-md-12 person1">
+            <div class="row personDetails" id="persondetailsblock" style="display:none">
+                <div class="col-md-12">
                     @for (int j = 0; j < Model.EmpVaccineDetails.Count; j++)
                     {
                         <div class="col-md-2">
@@ -136,7 +132,7 @@
                     }
                 </div>
             </div>
-            <button class="btn btn-md btn-primary pull-right m-t-n-xs" type="submit"><strong> Submit </strong></button>
+            <button class="btn btn-md btn-primary pull-right" type="submit" style="margin-top: 15px;"><strong> Submit </strong></button>
         }
     </div>
 </div>
