@@ -68,6 +68,14 @@ namespace Ashray.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult SaveVaccineDetails(VaccinationModel vaccinationModel)
+		{
+            var rel = Registation.InsertVaccieDetails(vaccinationModel);
+            return RedirectToAction("vaccinationSurvey");
+		}
+
         //      public ActionResult FindHospital()
         //      {
         //          var dashboard = Registation.GetDashboard();            

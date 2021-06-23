@@ -7,6 +7,11 @@ namespace Ashray.Models
 {
     public class VaccinationModel
     {
+        public VaccinationModel()
+		{
+            EmpVaccineDetails = new List<EmpVaccineDetails>();
+		}
+        
         public string EmpCode { get; set; }
         public string Location { get; set; }
         public bool Vaccinated { get; set; }
@@ -21,8 +26,6 @@ namespace Ashray.Models
         public bool VaccineInfection { get; set; }
 
         public bool WillingToVaccine { get; set; }
-
-        public DateTime TentativeDate { get; set; }
 
         public List<EmpVaccineDetails> EmpVaccineDetails { get; set; }
     }

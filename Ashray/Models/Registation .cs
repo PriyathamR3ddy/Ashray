@@ -618,7 +618,7 @@ namespace Ashray.Models
                         ParameterName = "@TentativeDate",
                         SqlDbType = System.Data.SqlDbType.DateTime,
                         Direction = System.Data.ParameterDirection.Input,
-                        Value = vaccinationModel.TentativeDate
+                        Value = vaccinationModel.TentitiveDate
                     });
                     DataTable dataTable = new DataTable();
                     dataTable.Columns.Add("PersonName", typeof(string));
@@ -628,7 +628,26 @@ namespace Ashray.Models
                     dataTable.Columns.Add("Relation", typeof(string));
                     dataTable.Columns.Add("DueDate", typeof(DateTime));
 
-                    
+					foreach (var item in vaccinationModel.EmpVaccineDetails)
+					{
+                        DataRow dr = dataTable.NewRow();
+                        dr[0] = item.PersonName;
+                        dr[1] = item.DateOfVaccination;
+                        dr[2] = item.DoseTaken;
+                        dr[3] = item.VaccineName;
+                        dr[4] = item.Relation;
+                        dr[5] = item.DueDate;
+                        dataTable.Rows.Add(dr);
+					}
+
+                    pram.Add(new SqlParameter()
+                    {
+                        ParameterName = "@EmployeeVaccineDetails",
+                        SqlDbType = System.Data.SqlDbType.Structured,
+                        Direction = System.Data.ParameterDirection.Input,
+                        TypeName = "dbo.EmployeeVaccineDetails",
+                        Value = dataTable
+                    }); 
 
                     int row = db.Database.ExecuteSqlCommand("[USP_InsertVaccineInfo] @EmpCode,@EmpLocation,@Vaccinated,@FeedingMother,@CovidCheck,@VaccineInfections,@WillingToVaccine,@TentativeDate,@EmployeeVaccineDetails", pram.ToArray());
                     result = true;

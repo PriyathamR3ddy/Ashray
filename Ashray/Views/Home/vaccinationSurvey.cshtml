@@ -6,7 +6,7 @@
 <div class="ibox-content">
     <div class="row">
         <h5 class="m-t-none m-b text-navy" style="text-align: center;">We are Here to Here - Realpage Vaccination drive comes to you to ensure you and your family safity !!</h5>
-        @using (Html.BeginForm("vaccinationSurvey", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("SaveVaccineDetails", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <div class="col-md-12">
                 <div class="col-md-4">
@@ -103,51 +103,51 @@
             </div>
             <div class="row personDetails">
                 <div class="col-md-12 person1">
-                    @foreach (var item in Model.EmpVaccineDetails)
+                    @for (int j = 0; j < Model.EmpVaccineDetails.Count; j++)
                     {
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="nameoftheperson1">Name of the person</label>
-                                @Html.TextBoxFor(i => item.PersonName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "nameoftheperson1" })
+                                @Html.TextBoxFor(i=>Model.EmpVaccineDetails[j].PersonName, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50"})
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="dateofvaccination1">Date of Vaccination</label>
-                                @Html.TextBoxFor(i => item.DateOfVaccination, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "dateofvaccination1" })
+                                @Html.TextBoxFor(i => Model.EmpVaccineDetails[j].DateOfVaccination, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50" })
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="doseTeken1">Dose Taken</label>
                                 @Html.DropDownList("DoseTaken1", new List<SelectListItem>
-                                       {
-                                            new SelectListItem{ Text="1st", Value = "1" },
-                                            new SelectListItem{Text="2nd", Value="2"}
-                                       }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+									   {
+											new SelectListItem{ Text="1st", Value = "1" },
+											new SelectListItem{Text="2nd", Value="2"}
+									   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="vaccinename1">Vaccine Name</label>
 
-                                @Html.DropDownList("VaccinationName1", new List<SelectListItem>
-                                       {
-                                            new SelectListItem{ Text="Covisheild", Value = "1" },
-                                            new SelectListItem{Text="Covaxine", Value="2"}
-                                       }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
+                                @Html.DropDownList("vaccinename1", new List<SelectListItem>
+									   {
+											new SelectListItem{ Text="Covisheild", Value = "1" },
+											new SelectListItem{Text="Covaxine", Value="2"}
+									   }, "Please select", new { @class = "form-control col-md-4 controlWidth", @required = "required" })
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="relation1">Relation</label>
-                                @Html.TextBoxFor(i => item.Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50", @id = "Relation1" })
+                                @Html.TextBoxFor(i => Model.EmpVaccineDetails[j].Relation, new { @class = "form-control", @style = "position:relative", @required = "required", @title = "Please enter PatientName", @maxlength = "50" })
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="duedate1">Due Date</label>
-                                @Html.TextBoxFor(i => item.DueDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50", @id = "DueDate1" })
+                                @Html.TextBoxFor(i => Model.EmpVaccineDetails[j].DueDate, new { type = "date", @value = DateTime.Now.ToShortDateString(), @class = "form-control", @style = "position:relative", @required = "required", @title = "Please select CheckInTime", @maxlength = "50" })
                             </div>
                         </div>
                     }
